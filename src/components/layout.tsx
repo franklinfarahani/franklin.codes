@@ -1,4 +1,6 @@
-import React from "react"
+import React, { Fragment } from "react"
+import { globalStyle } from '../globals';
+import { Global } from "@emotion/core"
 import { Link } from "gatsby"
 
 interface Props {
@@ -10,7 +12,8 @@ class Layout extends React.Component<Props> {
     const { title, children } = this.props
 
     return (
-      <div>
+      <Fragment>
+        <Global styles={globalStyle} />
         <header>
           <Link to={'/'}>
             <h3>{title}</h3>
@@ -22,7 +25,7 @@ class Layout extends React.Component<Props> {
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
-      </div>
+      </Fragment>
     )
   }
 }
