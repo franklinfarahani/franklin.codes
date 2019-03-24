@@ -1,10 +1,10 @@
 import theme from './theme';
-import GlobalStyle from './GlobalStyle';
+import globalStyle from './globalStyle';
 import media from './media';
 
 
 export {
   theme,
-  GlobalStyle,
+  globalStyle,
   media,
 };
