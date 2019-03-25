@@ -13,19 +13,13 @@ function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
-      render={data => {
+      render={(data) => {
         const { author, social } = data.site.siteMetadata
         return (
           <div>
             <Image
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
-              style={{
-                marginRight: 50,
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
               imgStyle={{
                 borderRadius: `50%`,
               }}

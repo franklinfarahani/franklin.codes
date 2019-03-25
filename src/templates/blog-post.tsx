@@ -5,13 +5,15 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+// TODO: fix 'any' types
+
 interface Props {
   data: {
     site: {
       siteMetadata: {
         title: string
-        author: string
-      }
+        author: string,
+      },
     }
     markdownRemark: {
       id: number
@@ -19,9 +21,11 @@ interface Props {
       html: any
       frontmatter: {
         title: string
-        date: string        
+        date: string
         description: string
         tags: string[],
+      },
+    },
   }
   pageContext: any
 }
@@ -31,8 +35,6 @@ class BlogPostTemplate extends React.Component<Props> {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    console.log(typeof this.props.pageContext);
-    
 
     return (
       <Layout title={siteTitle}>

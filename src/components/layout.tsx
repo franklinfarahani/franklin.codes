@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { globalStyle } from '../globals';
+import { globalStyle } from "../globals"
 import { Global } from "@emotion/core"
 import { Link } from "gatsby"
 
@@ -15,9 +15,9 @@ class Layout extends React.Component<Props> {
       <Fragment>
         <Global styles={globalStyle} />
         <header>
-          <Link to={'/'}>
+          <Link to={"/"}>
             <h3>{title}</h3>
-          </Link>          
+          </Link>
         </header>
         <main>{children}</main>
         <footer>

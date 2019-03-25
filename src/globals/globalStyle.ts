@@ -1,8 +1,8 @@
 import { css } from "@emotion/core"
-import theme from './theme';
-import * as fontFamilies from './fonts';
+import theme from "./theme"
+import * as fontFamilies from "./fonts"
 
-const { colors, fontSizes, fonts } = theme;
+const { colors, fontSizes, fonts } = theme
 
 const globalStyle = css`
   @font-face {
@@ -45,7 +45,7 @@ const globalStyle = css`
     font-style: normal;
     font-display: auto;
   }
-  
+
   html {
     box-sizing: border-box;
     width: 100%;
@@ -112,7 +112,7 @@ const globalStyle = css`
   }
   a {
     display: inline-block;
-    text-decoration: none;
+    text-decoration: underline;
     text-decoration-skip-ink: auto;
     color: inherit;
     position: relative;
@@ -187,6 +187,6 @@ const globalStyle = css`
     opacity: 1;
     transition: opacity 1000ms ${theme.easing};
   }
-`;
+`
 
-export default globalStyle;
+export default globalStyle

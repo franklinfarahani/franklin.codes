@@ -8,9 +8,9 @@ interface Props {
   data: {
     site: {
       siteMetadata: {
-        title: string
-      }
-    }
+        title: string,
+      },
+    },
   }
 }
 

@@ -5,32 +5,39 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-interface Props {
+// interface Props {
+//   data: {
+//     site: {
+//       siteMetadata: {
+//         title: string
+//       }
+//     }
+//     allMarkdownRemark: {
+//       edges: {
+//         node: {
+//           excerpt: string
+//           fields: {
+//             slug: string
+//           }
+//           frontmatter: {
+//             date: string
+//             title: string
+//             description: string
+//           }
+//         }
+//       }[]
+//     }
+//   }
+// }
+
+type BlogIndexProps = {
   data: {
-    site: {
-      siteMetadata: {
-        title: string
-      }
-    }
-    allMarkdownRemark: {
-      edges: {
-        node: {
-          excerpt: string
-          fields: {
-            slug: string
-          }
-          frontmatter: {
-            date: string
-            title: string
-            description: string
-          }
-        }
-      }[]
-    }
-  }
+    site: Site
+    allMarkdownRemark: AllMarkdown,
+  },
 }
 
-class BlogIndex extends React.Component<Props> {
+class BlogIndex extends React.Component<BlogIndexProps> {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -57,11 +64,7 @@ class BlogIndex extends React.Component<Props> {
                 </Link>
               </h3>
               <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
+              <p>{node.frontmatter.description}</p>
             </div>
           )
         })}
