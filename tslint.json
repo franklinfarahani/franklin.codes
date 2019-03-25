@@ -1,0 +1,21 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
+  "jsRules": {},
+  "rules": {
+    "interface-name": false,
+    "interface-over-type-literal": false,
+    "jsx-no-multiline-js": false,
+    "semicolon": [true, "never"],
+    "member-access": [false],
+    "ordered-imports": [false],
+    "no-console": [false],
+    "no-var-requires": true,
+    "quotemark": [true, "double", "jsx-double"]
+  },
+  "rulesDirectory": [],
+  "linterOptions": {"exclude": ["config/**/*.js", "node_modules/**/*.ts", "coverage/lcov-report/*.js"]}
+}
