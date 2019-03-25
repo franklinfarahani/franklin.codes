@@ -4,7 +4,7 @@ import { Global } from "@emotion/core"
 import { Link } from "gatsby"
 
 interface Props {
-  title: string
+  title?: string
 }
 
 class Layout extends React.Component<Props> {
