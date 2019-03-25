@@ -21,8 +21,7 @@ interface Props {
         title: string
         date: string        
         description: string
-      }
-    }
+        tags: string[],
   }
   pageContext: any
 }
@@ -42,6 +41,7 @@ class BlogPostTemplate extends React.Component<Props> {
           description={post.frontmatter.description || post.excerpt}
         />
         <h1>{post.frontmatter.title}</h1>
+        <p>{post.frontmatter.tags[0]}</p>
         <p>
           {post.frontmatter.date}
         </p>
@@ -96,6 +96,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }
