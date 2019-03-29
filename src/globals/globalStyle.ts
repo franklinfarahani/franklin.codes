@@ -1,6 +1,6 @@
-import { css } from "@emotion/core"
-import theme from "./theme"
-import * as fontFamilies from "./fonts"
+import { css } from '@emotion/core'
+import theme from './theme'
+import * as fontFamilies from './fonts'
 
 const { colors, fontSizes, fonts } = theme
 

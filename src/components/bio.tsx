@@ -5,9 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
 function Bio() {
   return (
@@ -21,13 +21,13 @@ function Bio() {
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
               imgStyle={{
-                borderRadius: `50%`,
+                borderRadius: '50%',
               }}
             />
             <p>
               Written by <strong>{author}</strong> who lives and works in San
               Francisco building useful things.
-              {` `}
+              {' '}
               <a href={`https://twitter.com/${social.twitter}`}>
                 You should follow him on Twitter
               </a>

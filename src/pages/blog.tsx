@@ -1,9 +1,9 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from '../components/Bio'
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
 
 // interface Props {
 //   data: {
@@ -47,7 +47,7 @@ class BlogIndex extends React.Component<BlogIndexProps> {
       <Layout title={siteTitle}>
         <SEO
           title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+          keywords={['blog', 'gatsby', 'javascript', 'react']}
         />
         <Bio />
         {posts.map(({ node }) => {
@@ -59,7 +59,7 @@ class BlogIndex extends React.Component<BlogIndexProps> {
                   marginBottom: 50,
                 }}
               >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>

@@ -1,9 +1,9 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from '../components/Bio'
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
 
 // TODO: fix 'any' types
 
@@ -53,10 +53,10 @@ class BlogPostTemplate extends React.Component<Props> {
 
         <ul
           style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            listStyle: 'none',
             padding: 0,
           }}
         >

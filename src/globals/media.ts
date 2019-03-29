@@ -1,4 +1,4 @@
-import { css } from "@emotion/core"
+import { css } from '@emotion/core'
 
 // tslint:disable: object-literal-sort-keys
 const sizes = {
