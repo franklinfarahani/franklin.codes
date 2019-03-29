@@ -1,11 +1,24 @@
-// tslint:disable: object-literal-sort-keys
+const color = {
+  lightYellow: '#FFEF5F',
+  yellow: '#FFC700',
+  orange: '#FF9900',
+  white: '#FFFFFF',
+  almostWhite: '#F2F2F2',
+  lightGrey: '#BCBCBC',
+  darkGrey: '#333333',
+  almostBlack: '#111111',
+  black: '#0D0D0D',
+}
+
 const theme = {
   colors: {
-    primary: "#141e67",
-    secondary: "#f7212e",
-    info: "#bcbcbc",
-    highlight: "#bac6ff",
-    bg: "#f7f7f7",
+    primary: color.yellow,
+    secondary: color.orange,
+    text: color.almostBlack,
+    info: color.lightGrey,
+    highlight: color.lightYellow,
+    bg: color.almostWhite,
+    cardBg: color.white,
   },
 
   fonts: {

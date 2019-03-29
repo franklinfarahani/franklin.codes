@@ -63,7 +63,7 @@ const globalStyle = css`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background-color: ${colors.bg};
-    color: ${colors.primary};
+    color: ${colors.text};
     line-height: 1.3;
     font-family: ${fonts.TTCommons};
     font-size: ${fontSizes.xlarge};
@@ -81,8 +81,7 @@ const globalStyle = css`
     }
   }
   ::selection {
-    /* background-color: ${colors.highlight}; */
-    background-color: #bac6ff;
+    background-color: ${colors.highlight};
   }
   h1,
   h2,
@@ -90,7 +89,7 @@ const globalStyle = css`
   h4,
   h5 {
     font-weight: 600;
-    color: ${colors.primary};
+    color: ${colors.text};
     margin: 0 0 10px 0;
   }
   #root {
@@ -120,7 +119,7 @@ const globalStyle = css`
     cursor: pointer;
     &:hover,
     &:focus {
-      color: ${colors.secondary};
+      color: ${colors.primary};
       outline: 0;
     }
   }
@@ -130,7 +129,7 @@ const globalStyle = css`
     border-radius: 0;
     &:focus,
     &:active {
-      outline-color: ${colors.secondary};
+      outline-color: ${colors.primary};
     }
   }
   input, textarea {
