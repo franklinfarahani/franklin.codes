@@ -1,9 +1,11 @@
-import globalStyle from './globalStyle'
+import reset from './reset'
+import fonts from './fonts'
 import media from './media'
 import theme from './theme'
 
 export {
-  theme,
-  globalStyle,
+  reset,
+  fonts,
   media,
+  theme
 }
