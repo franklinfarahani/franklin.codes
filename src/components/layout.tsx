@@ -1,45 +1,46 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Global, css } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import { Link } from 'gatsby'
 
 import { reset, fonts, themes } from '../globals'
+import { Theme } from '../globals/theme'
 
 import Header from './Header'
 
-type Props =  {
+type LayoutProps =  {
   title?: string
   children: React.ReactNode
 }
 
-class Layout extends React.Component<Props> {
-  render() {
-    const { title, children } = this.props
+const Layout = ({title, children}: LayoutProps) => {
+  const [theme, setTheme] = useState(themes.light)
 
-    return (
-      <Fragment>
-        <Global 
-          styles = {css`
-            ${fonts}
-            ${reset}
-          `}
-        />
-        <ThemeProvider theme = {themes.light}>
-          <Header>
-            <Link to={'/'}>
-              <h3>{title}</h3>
-            </Link>
-          </Header>
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {' '}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </ThemeProvider>
-      </Fragment>
-    )
+  const changeTheme = (newTheme: Theme) => {
+    newTheme === Theme.Light ? setTheme(themes.light) : setTheme(themes.dark)
   }
+
+  
+
+  return (    
+    <Fragment>
+      <Global 
+        styles = {css`
+          ${fonts}
+          ${reset}
+        `}
+      />
+      <ThemeProvider theme = {theme}>
+        <Header themeSelect = {changeTheme}/>
+        <main style={{background:theme.bg, color: theme.text}}>{children}</main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {' '}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </ThemeProvider>
+    </Fragment>
+  )
 }
 
 export default Layout
