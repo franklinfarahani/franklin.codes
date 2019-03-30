@@ -1,7 +1,8 @@
 import { css } from '@emotion/core'
-import { light } from './theme'
+import config from './config'
+import { light as colors } from './theme'
 
-const { colors, fontSizes, fonts, transition } = light
+const { fontSizes, fonts, transition } = config
 
 const reset = css`
   html {
@@ -12,6 +13,7 @@ const reset = css`
   *:before,
   *:after {
     box-sizing: inherit;
+    transition: ${transition};
   }
   body {
     margin: 0;
@@ -24,7 +26,7 @@ const reset = css`
     color: ${colors.text};
     line-height: 1.3;
     font-family: ${fonts.TTCommons};
-    font-size: ${fontSizes.xlarge};
+    font-size: ${fontSizes.text};
     &.hidden {
       overflow: hidden;
     }
@@ -47,7 +49,6 @@ const reset = css`
   h4,
   h5 {
     font-weight: 600;
-    color: ${colors.text};
     margin: 0 0 10px 0;
   }
   #root {
