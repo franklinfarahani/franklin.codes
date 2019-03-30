@@ -1,10 +1,15 @@
 import React, { Fragment } from 'react'
-import { globalStyle } from '../globals'
-import { Global } from '@emotion/core'
+import { Global, css } from '@emotion/core'
+import { ThemeProvider } from 'emotion-theming'
 import { Link } from 'gatsby'
 
-interface Props {
+import { reset, fonts, themes } from '../globals'
+
+import Header from './Header'
+
+type Props =  {
   title?: string
+  children: React.ReactNode
 }
 
 class Layout extends React.Component<Props> {
@@ -13,17 +18,25 @@ class Layout extends React.Component<Props> {
 
     return (
       <Fragment>
-        <Global styles={globalStyle} />
-          <Link to={'/'}>
-            <h3>{title}</h3>
-          </Link>
-        </header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Global 
+          styles = {css`
+            ${fonts}
+            ${reset}
+          `}
+        />
+        <ThemeProvider theme = {themes.light}>
+          <Header>
+            <Link to={'/'}>
+              <h3>{title}</h3>
+            </Link>
+          </Header>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {' '}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </ThemeProvider>
       </Fragment>
     )
   }
