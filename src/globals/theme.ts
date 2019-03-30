@@ -1,4 +1,4 @@
-const color = {
+const colors = {
   lightYellow: '#FFEF5F',
   yellow: '#FFC700',
   orange: '#FF9900',
@@ -10,53 +10,70 @@ const color = {
   black: '#0D0D0D',
 }
 
-const theme = {
-  colors: {
-    primary: color.yellow,
-    secondary: color.orange,
-    text: color.almostBlack,
-    info: color.lightGrey,
-    highlight: color.lightYellow,
-    bg: color.almostWhite,
-    cardBg: color.white,
-  },
-
-  fonts: {
-    TTCommons: '"TT Commons", San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
-    SFMono: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, monospace',
-  },
-
-  fontSizes: {
-    xsmall: '12px',
-    smallish: '13px',
-    small: '14px',
-    medium: '16px',
-    large: '18px',
-    xlarge: '20px',
-    xxlarge: '22px',
-    h3: '32px',
-  },
-
-  easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-  transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
-
-  borderRadius: '2px',
-  headerHeight: '100px',
-  headerScrollHeight: '70px',
-  margin: '20px',
-
-  tabHeight: 42,
-  tabWidth: 120,
-
-  gradient: 'linear-gradient(0.4turn, #64d6ff, #64ffda)',
-
-  loaderDelay: '6',
-
-  hamburgerWidth: 30,
-  hamBefore: 'top 0.1s ease-in 0.25s, opacity 0.1s ease-in',
-  hamBeforeActive: 'top 0.1s ease-out, opacity 0.1s ease-out 0.12s',
-  hamAfter: 'bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-  hamAfterActive: 'bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s',
+const lightColors = {
+  primary: colors.yellow,
+  secondary: colors.orange,
+  text: colors.almostBlack,
+  info: colors.lightGrey,
+  highlight: colors.lightYellow,
+  bg: colors.almostWhite,
+  cardBg: colors.white,
 }
 
-export default theme
+const darkColors = {
+  primary: colors.yellow,
+  secondary: colors.orange,
+  text: colors.white,
+  info: colors.darkGrey,
+  highlight: colors.lightYellow,
+  bg: colors.black,
+  cardBg: colors.almostBlack,
+}
+
+const fonts = {
+  TTCommons: '"TT Commons", San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
+  SFMono: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, monospace',
+}
+
+const fontSizes = {
+  xsmall: '12px',
+  smallish: '13px',
+  small: '14px',
+  medium: '16px',
+  large: '18px',
+  xlarge: '20px',
+  xxlarge: '22px',
+  h3: '32px',
+}
+
+const lineHeights = [1, 1.125, 1.25, 1.5]
+
+const borderRadius = '2px'
+
+const shadows = {
+  low: '0 2px 4px rgba(0,0,0,0.12)',
+  medium: '0 3px 6px rgba(0,0,0,0.16)',
+  high: '0 10px 20px rgba(0,0,0,0.19)',
+}
+
+// const easing = 'cubic-bezier(0.645, 0.045, 0.355, 1)'
+const transition = 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)'
+
+const commons = {
+  fonts,
+  fontSizes,
+  lineHeights,
+  borderRadius,
+  shadows,
+  transition,
+}
+
+export const light = {
+  ...commons,
+  colors: lightColors
+}
+
+export const dark = {
+  ...commons,
+  colors: darkColors,
+} 

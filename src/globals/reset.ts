@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
-import theme from './theme'
+import { light } from './theme'
 
-const { light, fontSizes, fonts } = theme
+const { colors, fontSizes, fonts, transition } = light
 
 const reset = css`
   html {
@@ -20,8 +20,8 @@ const reset = css`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${light.bg};
-    color: ${light.text};
+    background-color: ${colors.bg};
+    color: ${colors.text};
     line-height: 1.3;
     font-family: ${fonts.TTCommons};
     font-size: ${fontSizes.xlarge};
@@ -32,14 +32,14 @@ const reset = css`
       overflow: hidden;
       #root > .container > * {
         filter: blur(5px) brightness(0.7);
-        transition: ${theme.transition};
+        transition: ${transition};
         pointer-events: none;
         user-select: none;
       }
     }
   }
   ::selection {
-    background-color: ${light.highlight};
+    background-color: ${colors.highlight};
   }
   h1,
   h2,
@@ -47,7 +47,7 @@ const reset = css`
   h4,
   h5 {
     font-weight: 600;
-    color: ${light.text};
+    color: ${colors.text};
     margin: 0 0 10px 0;
   }
   #root {
@@ -73,11 +73,11 @@ const reset = css`
     text-decoration-skip-ink: auto;
     color: inherit;
     position: relative;
-    transition: ${theme.transition};
+    transition: ${transition};
     cursor: pointer;
     &:hover,
     &:focus {
-      color: ${light.primary};
+      color: ${colors.primary};
       outline: 0;
     }
   }
@@ -87,7 +87,7 @@ const reset = css`
     border-radius: 0;
     &:focus,
     &:active {
-      outline-color: ${light.primary};
+      outline-color: ${colors.primary};
     }
   }
   input, textarea {
