@@ -5,7 +5,8 @@ const fonts = {
 
 const fontSizes = {
   text: [16],
-  heading: [18, 20, 24, 28, 48, 64]
+  heading: [18, 20, 24, 28, 48, 64],
+  nav: [20],
 }
 
 const lineHeights = [1, 1.125, 1.25, 1.5]
