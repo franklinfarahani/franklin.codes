@@ -4,6 +4,7 @@ export enum Theme {
 }
 
 export type ThemeColors = {
+  readonly type: Theme
   readonly primary: string
   readonly secondary: string
   readonly text: string
@@ -27,6 +28,7 @@ const colors: {[key: string] : string} = {
 }
 
 export const light: ThemeColors = {
+  type: Theme.Light,
   primary: colors.yellow,
   secondary: colors.orange,
   text: colors.almostBlack,
@@ -38,6 +40,7 @@ export const light: ThemeColors = {
 }
 
 export const dark: ThemeColors = {
+  type: Theme.Dark,
   primary: colors.yellow,
   secondary: colors.orange,
   text: colors.white,
