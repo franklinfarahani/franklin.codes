@@ -29,11 +29,9 @@ const Content = styled.main`
       transition: ${config.transition};
       z-index:-1;
     }
-    &:focus::after,
-    &:hover::after {
-      position: absolute;
-      bottom: 1;
-      border-bottom: 4px solid ${props=>props.theme.primary};
+    &:focus,
+    &:hover {
+      color: ${props=>props.theme.link};
     }
   }
 `
