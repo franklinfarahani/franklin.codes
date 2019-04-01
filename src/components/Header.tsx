@@ -8,6 +8,7 @@ import { Theme } from '../globals/theme'
 import mixins from '../utils/mixins'
 
 import Logo from './Logo'
+import ThemeSwitcher from './ThemeSwitcher'
 
 const {fontSizes} = config
 
@@ -48,6 +49,7 @@ const NavLink = styled(Link)`
   &.active {
     margin-bottom: -4px;
     border-bottom: 4px solid ${props => props.theme.primary};
+    line-height: 1;
     &::after {
       content: " ";
       display: block;
@@ -100,7 +102,7 @@ const Header = ({ themeSelect }: HeaderProps) => {
             Contact
           </NavLink>
         </NavContainer>
-        <input type="checkbox" onChange={() => themeMap()} />
+        <ThemeSwitcher onChange={() => themeMap()}/>
       </HeadroomContainer>
     </HeaderContainer>
   )
