@@ -55,7 +55,7 @@ class BlogIndex extends React.Component<BlogIndexProps> {
           return (
             <div key={node.fields.slug}>
               <h3>
-                <Link to={node.fields.slug}>
+                <Link to={'/blog' + node.fields.slug}>
                   {title}
                 </Link>
               </h3>
