@@ -7,6 +7,7 @@ export type ThemeColors = {
   readonly primary: string
   readonly secondary: string
   readonly text: string
+  readonly link: string
   readonly info: string
   readonly highlight: string
   readonly bg: string
@@ -29,6 +30,7 @@ export const light: ThemeColors = {
   primary: colors.yellow,
   secondary: colors.orange,
   text: colors.almostBlack,
+  link: colors.darkGrey,
   info: colors.lightGrey,
   highlight: colors.lightYellow,
   bg: colors.almostWhite,
@@ -39,6 +41,7 @@ export const dark: ThemeColors = {
   primary: colors.yellow,
   secondary: colors.orange,
   text: colors.white,
+  link: colors.lightGrey,
   info: colors.darkGrey,
   highlight: colors.lightYellow,
   bg: colors.black,
