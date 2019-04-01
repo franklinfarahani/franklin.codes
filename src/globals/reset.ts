@@ -13,7 +13,6 @@ const reset = css`
   *:before,
   *:after {
     box-sizing: inherit;
-    transition: ${transition};
   }
   body {
     margin: 0;
@@ -26,7 +25,7 @@ const reset = css`
     color: ${colors.text};
     line-height: 1.3;
     font-family: ${fonts.TTCommons};
-    font-size: ${fontSizes.text};
+    font-size: ${fontSizes.text}px;
     &.hidden {
       overflow: hidden;
     }
@@ -70,7 +69,8 @@ const reset = css`
   }
   a {
     display: inline-block;
-    text-decoration: underline;
+    font-weight: 500;
+    text-decoration: none;
     text-decoration-skip-ink: auto;
     color: inherit;
     position: relative;
@@ -78,7 +78,6 @@ const reset = css`
     cursor: pointer;
     &:hover,
     &:focus {
-      color: ${colors.primary};
       outline: 0;
     }
   }
