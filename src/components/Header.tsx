@@ -48,10 +48,29 @@ const NavLink = styled(Link)`
   &.active {
     margin-bottom: -4px;
     border-bottom: 4px solid ${props => props.theme.primary};
+    &::after {
+      content: " ";
+      display: block;
+      margin: auto;
+      width: 0%;
+      bottom: -2px;
+      border-bottom: 2px solid rgba(0,0,0,0);
+      transition: width ${config.transition};
+    }
   }
   &::after {
-    border-bottom: none;
+    content: " ";
+    display: block;
+    margin: auto;
+    width: 0%;
+    bottom: -2px;
+    border-bottom: 2px solid ${props=>props.theme.primary};
+    transition: width ${config.transition};
   }
+  &:hover::after,
+  &:focus::after {
+      width: 100%;
+    }
 `
 
 type HeaderProps = {
