@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import AnchorLink from './AnchorLink'
 import Headroom from 'react-headroom'
 
 import { config } from '../globals'
@@ -35,44 +36,42 @@ const LogoLink = styled(Link)`
 
 const NavContainer = styled.nav`
   ${mixins.flexBetween}
-
-`
-
-const NavLink = styled(Link)`
-  position: relative;
-  margin: 0 20px;
-  padding: 0 5px;
-  color: ${props => props.theme.text};
-  font-size: ${fontSizes.nav}px;
-  font-weight: 600;
-  text-decoration: none;
-  &.active {
-    margin-bottom: -4px;
-    border-bottom: 4px solid ${props => props.theme.primary};
-    line-height: 1;
+  a {
+    position: relative;
+    margin: 0 20px;
+    padding: 0 5px;
+    color: ${props => props.theme.text};
+    font-size: ${fontSizes.nav}px;
+    font-weight: 600;
+    text-decoration: none;
+    &.active {
+      margin-bottom: -4px;
+      border-bottom: 4px solid ${props => props.theme.primary};
+      line-height: 1;
+      &::after {
+        content: " ";
+        display: block;
+        margin: auto;
+        width: 0%;
+        bottom: -2px;
+        border-bottom: 2px solid rgba(0,0,0,0);
+        transition: width ${config.transition};
+      }
+    }
     &::after {
       content: " ";
       display: block;
       margin: auto;
       width: 0%;
       bottom: -2px;
-      border-bottom: 2px solid rgba(0,0,0,0);
+      border-bottom: 2px solid ${props=>props.theme.primary};
       transition: width ${config.transition};
     }
-  }
-  &::after {
-    content: " ";
-    display: block;
-    margin: auto;
-    width: 0%;
-    bottom: -2px;
-    border-bottom: 2px solid ${props=>props.theme.primary};
-    transition: width ${config.transition};
-  }
-  &:hover::after,
-  &:focus::after {
-      width: 100%;
+    &:hover::after,
+    &:focus::after {
+        width: 100%;
     }
+  }
 `
 
 type HeaderProps = {
@@ -92,15 +91,15 @@ const Header = ({ themeSelect }: HeaderProps) => {
           <Logo />
         </LogoLink>
         <NavContainer>
-          <NavLink to="/#work" activeClassName="active" partiallyActive={true}>
+          <AnchorLink href="#work" >
             Work
-          </NavLink>
-          <NavLink to="/blog" activeClassName="active" partiallyActive={true}>
+          </AnchorLink>
+          <Link to="/blog" activeClassName="active" partiallyActive={true}>
             Blog
-          </NavLink>
-          <NavLink to="#contact" activeClassName="active" partiallyActive={true}>
+          </Link>
+          <AnchorLink href="#contact" >
             Contact
-          </NavLink>
+          </AnchorLink>
         </NavContainer>
         <ThemeSwitcher onChange={() => themeMap()}/>
       </HeadroomContainer>
