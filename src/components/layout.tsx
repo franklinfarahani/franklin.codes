@@ -10,6 +10,7 @@ import { Theme } from '../globals/theme'
 import Header from './Header'
 
 const Content = styled.main`
+  padding: 0 150px;
   color: ${props=>props.theme.text};
   background-color: ${props=>props.theme.bg};
   position: relative;
@@ -59,7 +60,7 @@ const Layout = ({title, children}: LayoutProps) => {
       <ThemeProvider theme = {theme}>
         <Header themeSelect = {changeTheme}/>
         <Content>{children}</Content>
-        <footer>
+        <footer id="contact">
           © {new Date().getFullYear()}, Built with
           {' '}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
