@@ -2,6 +2,8 @@ declare module '*.svg';
 declare module '*.woff';
 declare module '*.woff2';
 
+declare module 'emotion-icons/fa-brands'
+
 declare type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> }
 
 declare type Site = {

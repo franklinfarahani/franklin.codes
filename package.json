@@ -14,6 +14,7 @@
     "@types/react-dom": "^16.8.2",
     "@types/react-headroom": "^2.2.1",
     "@types/react-helmet": "^5.0.8",
+    "emotion-icons": "^1.0.0",
     "emotion-theming": "^10.0.10",
     "gatsby": "^2.2.11",
     "gatsby-image": "^2.0.32",
