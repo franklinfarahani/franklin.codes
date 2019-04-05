@@ -73,23 +73,35 @@ const IconLinkedin = styled(LinkedinIn)`
 const ComposeEmail = styled.div`
   ${mixins.flexCenter}
   flex-direction: column;
+  &:hover {
+    cursor: pointer;
+    &>div:first-child {
+      transform: rotate(-90deg) translate3d(200px,-10px,0);
+      &::before {
+        transform: translateX(-20px) scaleX(1.2);
+        transform-origin: 0 0;
+      }
+    }
+  }
 `
 
 const SayHello = styled.div`
+  font-size: 14px;
   display: block;
   position: absolute;
   transform: rotate(-90deg) translate3d(180px,-10px,0);
   transform-origin: 50% 0;
+  transition: all .25s;
   &::before {
     content: "";
+    transition: all .25s;
     position: relative;
     top:10px;
     left: -105px;
     display: block;
     width: 90px;
     height: 1px;
-    background-color: rgb(168, 178, 209);
-    margin: 0px auto;
+    background-color: ${props => props.theme.info};
   }
 `
 
