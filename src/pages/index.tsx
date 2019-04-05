@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 import mixins from '../utils/mixins'
+import { config } from '../globals'
 import { sizes } from '../globals/media'
 
 import { Twitter, Github, LinkedinIn } from 'emotion-icons/fa-brands'
@@ -70,38 +71,39 @@ const IconLinkedin = styled(LinkedinIn)`
   ${mixins.icon}
 `
 
-const ComposeEmail = styled.div`
-  ${mixins.flexCenter}
+const ComposeEmail = styled.a`
+  ${mixins.flexBetween}
   flex-direction: column;
+  position: relative;
+
   &:hover {
-    cursor: pointer;
     &>div:first-child {
-      transform: rotate(-90deg) translate3d(200px,-10px,0);
-      &::before {
-        transform: translateX(-20px) scaleX(1.2);
-        transform-origin: 0 0;
-      }
+      transform: rotate(-90deg) translate(103px,-10px);
     }
   }
 `
 
 const SayHello = styled.div`
-  font-size: 14px;
-  display: block;
+  ${mixins.flexCenter}
   position: absolute;
-  transform: rotate(-90deg) translate3d(180px,-10px,0);
+  transform: rotate(-90deg) translate(88px,-10px);
   transform-origin: 50% 0;
-  transition: all .25s;
-  &::before {
-    content: "";
-    transition: all .25s;
+  white-space: nowrap;
+  transition: transform ${config.transition};
+  p {
+    padding-left: 15px;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  span {
     position: relative;
-    top:10px;
-    left: -105px;
-    display: block;
-    width: 90px;
+    width: 100px;
     height: 1px;
-    background-color: ${props => props.theme.info};
+    background-color: ${props=>props.theme.info};
+    position: relative;
+    transition: transform ${config.transition}
   }
 `
 
@@ -110,7 +112,9 @@ const IconCommentWrapper = styled.div`
   background-color: ${props => props.theme.text};
   width: calc(52px + 2 * ((100vw - ${phone}px) / ${large - phone}));
   height: calc(52px + 2 * ((100vw - ${phone}px) / ${large - phone}));
+  outline: 15px solid ${props => props.theme.bg};
   border-radius: 50%;
+  z-index:10;
 `
 
 const IconComment = styled(CommentAlt)`
@@ -141,9 +145,10 @@ const IndexPage = () => (
             </a>
           </li>
         </Socials>
-        <ComposeEmail>
+        <ComposeEmail href="mailto:me@franklinfarahani.ca">
           <SayHello>
-            Say Hello!
+            <span />
+            <p>Say Hello!</p>
           </SayHello>
           <IconCommentWrapper>
             <IconComment />
