@@ -3,6 +3,7 @@ declare module '*.woff';
 declare module '*.woff2';
 
 declare module 'emotion-icons/fa-brands'
+declare module 'emotion-icons/fa-solid'
 
 declare type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> }
 
