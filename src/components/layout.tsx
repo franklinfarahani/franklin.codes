@@ -16,7 +16,7 @@ const Content = styled.main`
   position: relative;
   min-height: calc(100vh - 130px);
   z-index:1;
-  a {
+  p a {
     margin-bottom: -2px;
     position: relative;
     &::after {
