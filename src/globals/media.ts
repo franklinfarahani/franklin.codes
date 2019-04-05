@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 
 // tslint:disable: object-literal-sort-keys
-const sizes = {
+export const sizes = {
   large: 1440,
   desktop: 1200,
   laptop: 1000,
