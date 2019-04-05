@@ -9,6 +9,11 @@ const fontSizes = {
   nav: [20],
 }
 
+const iconSizes = {
+  min: 16,
+  max: 24
+}
+
 const lineHeights = [1, 1.125, 1.25, 1.5]
 
 const borderRadius = '2px'
@@ -25,6 +30,7 @@ const transition = '0.25s cubic-bezier(0.645, 0.045, 0.355, 1)'
 const config = {
   fonts,
   fontSizes,
+  iconSizes,
   lineHeights,
   borderRadius,
   shadows,
