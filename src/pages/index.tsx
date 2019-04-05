@@ -1,7 +1,6 @@
 import React from 'react'
 import AnchorLink from '../components/AnchorLink'
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
 
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
