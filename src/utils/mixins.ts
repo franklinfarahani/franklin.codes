@@ -1,5 +1,11 @@
 import { css } from '@emotion/core'
 import { ThemeColors } from '../globals/theme'
+import { sizes } from '../globals/media'
+import { config } from '../globals'
+
+const { min, max } = config.iconSizes
+const { phone, large } = sizes
+
 
 const mixins = {
   flexCenter: css`
@@ -16,7 +22,7 @@ const mixins = {
 
   icon: css`
     color: ${`${(theme:ThemeColors) => theme.text}`};
-    width: calc(16px + 6 * ((100vw - 320px) / 680));
+    width: calc(${min}px + ${max - min} * ((100vw - ${phone}px) / ${large - phone}));
   `,
 }
 
