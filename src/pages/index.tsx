@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link, graphql } from 'gatsby'
 import AnchorLink from '../components/AnchorLink'
 import styled from '@emotion/styled'
 
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
+import Project, { Orientation } from '../components/Project'
 import mixins from '../utils/mixins'
 import { config } from '../globals'
 import { sizes } from '../globals/media'
@@ -123,6 +125,11 @@ const IconComment = styled(CommentAlt)`
   margin-bottom: -1px;
 `
 
+const ProjectsContainer = styled.section`
+  ${mixins.flexCenter}
+
+`
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
@@ -165,9 +172,31 @@ const IndexPage = () => (
         <span>{' '}→</span>
       </AnchorLink>
     </HeroContainer>
+    <ProjectsContainer>
+      <Project orientation={Orientation.Left}>
+        Werk
+      </Project>
+    </ProjectsContainer>
   </Layout>
 )
   
 
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(projects)/.*\\.md$/"}}) {
+      edges {
+        node {
+          frontmatter {
+            id
+            title
+            tags
+            
+          }
+        }
+      }
+    }
+  }
+`
