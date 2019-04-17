@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Franklin.codes`,
     author: `Franklin Farahani`,
-    description: `A blog about JS related topics that I'm Interested about at the moment :)`,
+    description: `A blog about JS related topics that I'm Interested about at the moment ⚛️`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `frankfarahani`,
@@ -14,6 +14,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/projects`,
+        name: `projects`,
       },
     },
     {
