@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react'
 import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { ThemeProvider } from 'emotion-theming'
-import { Link } from 'gatsby'
 
 import { reset, fonts, config, themes } from '../globals'
 import { Theme } from '../globals/theme'
