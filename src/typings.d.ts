@@ -56,3 +56,18 @@ declare type AllMarkdown = {
   readonly totalCount: number
   readonly edges: Edges<Markdown>
 }
+
+declare type ProjectMarkdown = {
+  readonly html: React.ReactNode
+  readonly frontmatter: {
+    readonly id: number
+    readonly title: string
+    readonly tags: ReadonlyArray<string>
+    readonly repo: string
+    readonly external?: string
+  }
+}
+
+declare type AllProjectsMarkdown = {
+  readonly edges: Edges<ProjectMarkdown>
+}
