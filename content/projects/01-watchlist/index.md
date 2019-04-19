@@ -2,9 +2,9 @@
 id: 01
 title: "Watchlist"
 tags: ["React", "Redux", "Node.js", "Express", "Firebase"]
-media: "./salty_egg.jpg"
-link: "http://www.google.com"
-repo: "http://girhub.com"
+cover: "./watchlist-phone.png"
+repo: "https://github.com/franklinfarahani/watchlist"
+external: "https://watchlist-3399e.firebaseapp.com/"
 ---
 
 A web app for keeping track of Movies and TV Shows you would like to watch.
