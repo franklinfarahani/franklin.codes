@@ -26,7 +26,7 @@ const reset = css`
     color: ${colors.text};
     line-height: 1.3;
     font-family: ${fonts.TTCommons};
-    font-size: ${fontSizes.text}px;
+    font-size: ${fontSizes.text[0]}px;
     &.hidden {
       overflow: hidden;
     }
