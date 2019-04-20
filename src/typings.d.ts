@@ -58,13 +58,18 @@ declare type AllMarkdown = {
 }
 
 declare type ProjectMarkdown = {
-  readonly html: React.ReactNode
+  readonly html: DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>
   readonly frontmatter: {
     readonly id: number
     readonly title: string
     readonly tags: ReadonlyArray<string>
     readonly repo: string
     readonly external?: string
+    readonly media: {
+      readonly childImageSharp?: {
+        readonly fluid: FluidObject
+      }
+    }
   }
 }
 
