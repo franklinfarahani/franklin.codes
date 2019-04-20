@@ -4,8 +4,8 @@ const fonts = {
 }
 
 const fontSizes = {
-  text: [16],
-  heading: [18, 20, 24, 28, 48, 64],
+  text: [16, 20],
+  heading: [18, 20, 24, 28, 48, 64, 72, 80],
   nav: [20],
 }
 
@@ -14,9 +14,9 @@ const iconSizes = {
   max: 24
 }
 
-const lineHeights = [1, 1.125, 1.25, 1.5]
+const lineHeights = [1, 1.125, 1.25, 1.5, 1.75]
 
-const borderRadius = '2px'
+const borderRadius = '4px'
 
 const shadows = {
   low: '0 2px 4px rgba(0,0,0,0.12)',
