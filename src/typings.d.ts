@@ -31,10 +31,14 @@ declare type Markdown = {
   readonly frontmatter: {
     readonly date: string
     readonly draft?: boolean
-    readonly path: string
     readonly tags: ReadonlyArray<string>
     readonly title: string
     readonly description: string
+    readonly cover: {
+      readonly childImageSharp?: {
+        readonly fluid: FluidObject
+      }
+    }
   }
   readonly parent?: {
     readonly absolutePath?: string
