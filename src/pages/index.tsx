@@ -5,19 +5,22 @@ import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 import Hero from '../components/Hero'
 import Work from '../components/Work'
+import BlogPreview from '../components/BlogPreview'
 
 
 type HomeProps = {
   data: {
     projects: AllProjectsMarkdown
+    blogPreview: AllMarkdown
   }
 }
 
 const IndexPage = ({ data }: HomeProps) => (
   <Layout>
-    <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
+    <SEO title="Front-end Engineer" keywords={['gatsby', 'application', 'react']} />
     <Hero />
     <Work data={data.projects.edges} />
+    <BlogPreview data={data.blogPreview.edges} />
   </Layout>
 )
   
@@ -42,6 +45,31 @@ export const pageQuery = graphql`
             media {
               childImageSharp{
                 fluid(maxWidth: 600, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                  presentationWidth
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    blogPreview: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "D MMMM YYYY")
+            title
+            description
+            tags
+            cover {
+              childImageSharp{
+                fluid(maxWidth: 250, maxHeight: 110, quality: 100) {
                   ...GatsbyImageSharpFluid
                   presentationWidth
                 }
