@@ -12,9 +12,10 @@ import { Code, ExternalLinkAlt } from 'emotion-icons/fa-solid'
 const ProjectsContainer = styled.section`
   margin: 10vh auto;
   max-width: 1000px;
+  min-height: calc(100vh - 113px);
   h2:first-of-type {
     font-weight: 700;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     span {
       font-weight: 500;
       color: ${props => props.theme.primary};
@@ -109,7 +110,7 @@ const Work = ({data}: WorkProps) => {
         const { frontmatter, html } = node
         const { id, title, repo, external, tags, media } = frontmatter
         return (
-          <Project>
+          <Project key={id}>
             <Content>
               <ContentHeader>
                 <ContentId>{'0' + id.toString().slice(-2)}</ContentId>
@@ -127,7 +128,7 @@ const Work = ({data}: WorkProps) => {
                 <p dangerouslySetInnerHTML={{ __html: html }} />
               </ContentBody>
               <ContentTags>
-                {tags.map(tag => <Tag>{tag}</Tag>)}
+                {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
               </ContentTags>
             </Content>
             <ImgContainer>
