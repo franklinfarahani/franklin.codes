@@ -9,7 +9,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-type Props = {
+type SeoProps = {
   description?: string,
   lang?: string,
   meta?: Array<{
@@ -19,7 +19,7 @@ type Props = {
   }>,
   /** meta keywords for the page */
   keywords?: string[],
-  title: string,
+  title?: string,
 } & typeof defaultProps
 
 const defaultProps = {
@@ -28,7 +28,7 @@ const defaultProps = {
   meta: [],
 }
 
-function SEO({ description, lang, meta, keywords, title }: Props) {
+function SEO({ description, lang, meta, keywords, title }: SeoProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
