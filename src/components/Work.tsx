@@ -96,40 +96,50 @@ type WorkProps = {
   data: Edges<ProjectMarkdown>
 }
 
-const Work = ({data}: WorkProps) => (
-  <ProjectsContainer>
-    <h2>
-      <span>
-        {'# '}
-      </span>
-      Featured Work
-    </h2>
-    <Project>
-      <Content>
-        <ContentHeader>
-          <ContentId>{'0' + data[0].node.frontmatter.id.toString().slice(-2)}</ContentId>
-          <ContentLinks>
-            <ContentLink href={data[0].node.frontmatter.repo} title={data[0].node.frontmatter.title + ' Github repo'} target="_blank">
-              <IconCode />
-            </ContentLink>
-            <ContentLink href={data[0].node.frontmatter.external} title={'View live'} target="_blank">
-              <IconExternalLink />
-            </ContentLink>
-          </ContentLinks>
-        </ContentHeader>
-        <ContentBody>
-          <h3>{data[0].node.frontmatter.title}</h3>
-          <p dangerouslySetInnerHTML={{ __html: data[0].node.html }} />
-        </ContentBody>
-        <ContentTags>
-          {data[0].node.frontmatter.tags.map(tag => <Tag>{tag}</Tag>)}
-        </ContentTags>
-      </Content>
-      <ImgContainer>
-        <Img fluid={data[0].node.frontmatter.media.childImageSharp.fluid} />
-      </ImgContainer>
-    </Project>
-  </ProjectsContainer>
-)
+const Work = ({data}: WorkProps) => {
+  return (
+    <ProjectsContainer id="work">
+      <h2>
+        <span>
+          {'# '}
+        </span>
+        Featured Work
+      </h2>
+      {data.map(({node}) => {
+        const { frontmatter, html } = node
+        const { id, title, repo, external, tags, media } = frontmatter
+        return (
+          <Project>
+            <Content>
+              <ContentHeader>
+                <ContentId>{'0' + id.toString().slice(-2)}</ContentId>
+                <ContentLinks>
+                  <ContentLink href={repo} title={title + ' Github repo'} target="_blank">
+                    <IconCode />
+                  </ContentLink>
+                  <ContentLink href={external} title={'View live'} target="_blank">
+                    <IconExternalLink />
+                  </ContentLink>
+                </ContentLinks>
+              </ContentHeader>
+              <ContentBody>
+                <h3>{title}</h3>
+                <p dangerouslySetInnerHTML={{ __html: html }} />
+              </ContentBody>
+              <ContentTags>
+                {tags.map(tag => <Tag>{tag}</Tag>)}
+              </ContentTags>
+            </Content>
+            <ImgContainer>
+              {media.childImageSharp && 
+                <Img fluid={media.childImageSharp.fluid} />
+              }
+            </ImgContainer>
+          </Project>
+        )
+      })}
+    </ProjectsContainer>
+  )
+}
 
 export default Work
