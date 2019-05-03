@@ -12,6 +12,12 @@ declare type Site = {
     readonly title: string
     readonly description: string
     readonly author: string
+    readonly social: {
+      readonly twitter?: string
+      readonly github?: string
+      readonly linkedin?: string
+      readonly email?: string
+    }
   }
 }
 
