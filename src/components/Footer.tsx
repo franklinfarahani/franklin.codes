@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 
 import AnchorLink from './AnchorLink'
 import { Twitter, Github, LinkedinIn } from 'emotion-icons/fa-brands'
+import { ChevronUp } from 'emotion-icons/fa-solid'
 
 import { config } from '../globals'
 import mixins from '../utils/mixins'
@@ -21,7 +22,7 @@ const Socials = styled.ul`
   flex-direction: row;
   
   li {
-    margin-right: 20px;
+    margin-right: 30px;
     a {
       margin-bottom: 0;
 
@@ -46,6 +47,12 @@ const IconGithub = styled(Github)`
 
 const IconLinkedin = styled(LinkedinIn)`
   ${mixins.icon}
+`
+
+const IconChevronUp = styled(ChevronUp)`
+  color: ${props => props.theme.text};
+  width: 12px;
+  margin-right: 8px;
 `
 
 const Footer = () => {
@@ -89,7 +96,10 @@ const Footer = () => {
           </a>
         </li>
       </Socials>
-      <AnchorLink href="#header">Back to Top</AnchorLink>
+      <AnchorLink href="#header">
+        <IconChevronUp />
+        Back to Top
+      </AnchorLink>
     </FooterWrapper>
   )
 }
