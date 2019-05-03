@@ -28,8 +28,8 @@ const PostGrid = styled.div`
 `
 
 const Post = styled.article`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   padding: 20px;
   min-height: 350px;
   background: ${props => props.theme.cardBg};
@@ -48,6 +48,11 @@ const PostMeta = styled.header`
     font-weight: 700;
     font-size: unset;
   }
+`
+
+const PostContent = styled(Link)`
+  display: flex;
+  flex-direction: column;
 `
 
 const PostTitle = styled.h4`
@@ -93,13 +98,14 @@ const BlogPreview = ({data}: BlogPreviewProps) => {
                 <Divider />
                 <div>{readingTime.text}</div>
               </PostMeta>
-              <PostTitle>{title}</PostTitle>
-              <ImgContainer>
-                {cover.childImageSharp && 
-                  <Img fluid={cover.childImageSharp.fluid} />
-                }
-              </ImgContainer>
-              
+              <PostContent to={`/blog/${slug}`}>
+                <PostTitle>{title}</PostTitle>
+                <ImgContainer>
+                  {cover.childImageSharp && 
+                    <Img fluid={cover.childImageSharp.fluid} />
+                  }
+                </ImgContainer>
+              </PostContent>
                 <PostTags>
                   {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
                 </PostTags>
