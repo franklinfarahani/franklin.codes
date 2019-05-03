@@ -22,8 +22,6 @@ const reset = css`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${colors.bg};
-    color: ${colors.text};
     line-height: 1.3;
     font-family: ${fonts.TTCommons};
     font-size: ${fontSizes.text[0]}px;
