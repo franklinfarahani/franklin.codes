@@ -5,7 +5,7 @@ const fonts = {
 
 const fontSizes = {
   text: [16, 20],
-  heading: [14, 20, 24, 28, 48, 64, 72, 80],
+  heading: [13, 20, 24, 28, 48, 64, 72, 80],
   nav: [20],
 }
 
