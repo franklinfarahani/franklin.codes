@@ -33,7 +33,7 @@ const Post = styled.article`
   padding: 20px;
   min-height: 350px;
   background: ${props => props.theme.cardBg};
-  border-radius: ${config.borderRadius};
+  border-radius: ${config.borderRadius.round};
   box-shadow: ${config.shadows.low};
 `
 
@@ -44,6 +44,10 @@ const PostMeta = styled.header`
     font-weight: 400;
     color: ${props => props.theme.text};
   }
+  span {
+    font-weight: 700;
+    font-size: unset;
+  }
 `
 
 const PostTitle = styled.h4`
@@ -51,6 +55,8 @@ const PostTitle = styled.h4`
   font-size: ${config.fontSizes.heading[1]}px;
   color: ${props => props.theme.text};
   font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 0;
 `
 
 const ImgContainer = styled.div`

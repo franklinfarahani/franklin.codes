@@ -27,7 +27,7 @@ const Project = styled.article`
   display: grid;
   grid-template-columns: 2fr 3fr;
   background: ${props => props.theme.cardBg};
-  border-radius: ${config.borderRadius};
+  border-radius: ${config.borderRadius.sharp};
   box-shadow: inset 0px -4px 0px 0px ${props => props.theme.primary}, ${config.shadows.low};
 `
 

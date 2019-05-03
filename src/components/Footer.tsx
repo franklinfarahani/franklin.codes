@@ -10,7 +10,9 @@ import { config } from '../globals'
 import mixins from '../utils/mixins'
 
 const FooterWrapper = styled.footer`
-  padding: 40px 60px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 0;
   ${mixins.flexBetween}
   font-size: ${config.fontSizes.heading[0]}px;
   background: ${props => props.theme.bg};
