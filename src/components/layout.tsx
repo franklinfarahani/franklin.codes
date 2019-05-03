@@ -7,9 +7,10 @@ import { reset, fonts, config, themes } from '../globals'
 import { Theme } from '../globals/theme'
 
 import Header from './Header'
+import Footer from './Footer'
 
 const Content = styled.main`
-  padding: 0 50px;
+  padding: 0 60px;
   color: ${props=>props.theme.text};
   background-color: ${props=>props.theme.bg};
   position: relative;
@@ -49,21 +50,21 @@ const Layout = ({title, children}: LayoutProps) => {
   }
 
   return (    
-    <Fragment>
-      <Global 
-        styles = {css`
-          ${fonts}
-          ${reset}
-        `}
-      />
+    <Fragment>      
       <ThemeProvider theme = {theme}>
+        <Global 
+          styles = {css`
+            body{
+              background-color: ${theme.bg};
+              color: ${theme.text};
+            }
+            ${reset}
+            ${fonts}          
+          `}
+        />
         <Header themeSelect = {changeTheme}/>
         <Content>{children}</Content>
-        <footer id="contact">
-          © {new Date().getFullYear()}, Built with
-          {' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </ThemeProvider>
     </Fragment>
   )
