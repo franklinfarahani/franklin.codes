@@ -30,6 +30,9 @@ declare type Markdown = {
   readonly excerpt?: string
   readonly fields: {
     readonly slug: string
+    readonly readingTime: {
+      readonly text: string
+    }
   }
   readonly code: {
     readonly body: string
