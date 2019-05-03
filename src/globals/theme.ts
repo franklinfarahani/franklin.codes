@@ -23,7 +23,7 @@ const colors: {[key: string] : string} = {
   almostWhite: '#F2F2F2',
   lightGrey: '#BCBCBC',
   darkGrey: '#333333',
-  almostBlack: '#111111',
+  almostBlack: '#171717',
   black: '#0D0D0D',
 }
 
