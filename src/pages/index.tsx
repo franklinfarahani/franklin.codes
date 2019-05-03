@@ -10,6 +10,7 @@ import BlogPreview from '../components/BlogPreview'
 
 type HomeProps = {
   data: {
+    socials: Site
     projects: AllProjectsMarkdown
     blogPreview: AllMarkdown
   }
@@ -18,7 +19,7 @@ type HomeProps = {
 const IndexPage = ({ data }: HomeProps) => (
   <Layout>
     <SEO title="Front-end Engineer" keywords={['gatsby', 'application', 'react']} />
-    <Hero />
+    <Hero data={data.socials}/>
     <Work data={data.projects.edges} />
     <BlogPreview data={data.blogPreview.edges} />
   </Layout>
@@ -30,6 +31,17 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
+    socials: site {
+      siteMetadata {
+        author
+        social {
+          twitter
+          github
+          linkedin
+          email
+        }
+      }
+    }
     projects: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/projects/" } }
     ) {

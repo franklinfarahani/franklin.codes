@@ -108,8 +108,8 @@ const SayHello = styled.div`
 const IconCommentWrapper = styled.div`
   ${mixins.flexCenter}
   background-color: ${props => props.theme.text};
-  width: calc(52px + 2 * ((100vw - ${phone}px) / ${large - phone}));
-  height: calc(52px + 2 * ((100vw - ${phone}px) / ${large - phone}));
+  width: calc(48px + 2 * ((100vw - ${phone}px) / ${large - phone}));
+  height: calc(48px + 2 * ((100vw - ${phone}px) / ${large - phone}));
   outline: 15px solid ${props => props.theme.bg};
   border-radius: 50%;
   z-index:10;
@@ -121,45 +121,53 @@ const IconComment = styled(CommentAlt)`
   margin-bottom: -1px;
 `
 
-const Hero = () => (
-  <HeroContainer>
-    <ContactFloat>
-      <Socials>
-        <li>
-          <a href="https://twitter.com/frankfarahani" title="Follow @frankfarahani on Twitter" target="_blank">
-            <IconTwitter />
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/franklinfarahani" title="Franklin Farahani's Github Profile" target="_blank">
-            <IconGithub />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/franklin-farahani" title="Franklin Farahani's Linkedin Profile" target="_blank">
-            <IconLinkedin />
-          </a>
-        </li>
-      </Socials>
-      <ComposeEmail href="mailto:me@franklinfarahani.ca">
-        <SayHello>
-          <span />
-          <p>Say Hello!</p>
-        </SayHello>
-        <IconCommentWrapper>
-          <IconComment />
-        </IconCommentWrapper>          
-      </ComposeEmail>
-    </ContactFloat>
+type HeroProps = {
+  data: Site
+}
 
-    <h1>Hey, I'm Franklin.</h1>
-    <h1>I build digital products.</h1>
-    <h2>I help brands connect with their customers through good design, engaging user experience, and clean code.</h2>
-    <AnchorLink href="#work">
-      <span>Learn More</span>
-      <span>{' '}→</span>
-    </AnchorLink>
-  </HeroContainer>
-)
+const Hero = ({data}: HeroProps) => {
+  const { author } = data.siteMetadata
+  const { twitter, github, linkedin, email } = data.siteMetadata.social
+  return (
+    <HeroContainer>
+      <ContactFloat>
+        <Socials>
+          <li>
+            <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank">
+              <IconTwitter />
+            </a>
+          </li>
+          <li>
+            <a href={`https://github.com/${github}`} title={`${author}'s Github Profile`} target="_blank">
+              <IconGithub />
+            </a>
+          </li>
+          <li>
+            <a href={`https://www.linkedin.com/in/${linkedin}`} title={`${author}'s Linkedin Profile`} target="_blank">
+              <IconLinkedin />
+            </a>
+          </li>
+        </Socials>
+        <ComposeEmail href={`mailto:${email}`}>
+          <SayHello>
+            <span />
+            <p>Say Hello!</p>
+          </SayHello>
+          <IconCommentWrapper>
+            <IconComment />
+          </IconCommentWrapper>          
+        </ComposeEmail>
+      </ContactFloat>
+
+      <h1>Hey, I'm Franklin.</h1>
+      <h1>I build digital products.</h1>
+      <h2>I help brands connect with their customers through good design, engaging user experience, and clean code.</h2>
+      <AnchorLink href="#work">
+        <span>Learn More</span>
+        <span>{' '}→</span>
+      </AnchorLink>
+    </HeroContainer>
+  )
+}
 
 export default Hero
