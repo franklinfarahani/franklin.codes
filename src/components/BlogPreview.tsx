@@ -78,14 +78,14 @@ const BlogPreview = ({data}: BlogPreviewProps) => {
       <PostGrid>
         {data.map(({node}) => {
           const { frontmatter, fields } = node
-          const { slug } = fields
+          const { slug, readingTime } = fields
           const { title, date, tags, cover } = frontmatter
           return (
             <Post key={slug}>
               <PostMeta>
                 <time>{date}</time>
                 <Divider />
-                <div>X mins read</div>
+                <div>{readingTime.text}</div>
               </PostMeta>
               <PostTitle>{title}</PostTitle>
               <ImgContainer>
