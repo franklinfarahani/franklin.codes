@@ -43,12 +43,12 @@ const PostMeta = styled.header`
     font-size: ${config.fontSizes.heading[0]}px;
     font-weight: 400;
     color: ${props => props.theme.text};
-  }  
+  }
 `
 
 const PostTitle = styled.h4`
   flex: 1;
-  font-size: ${config.fontSizes.heading[2]}px;
+  font-size: ${config.fontSizes.heading[1]}px;
   color: ${props => props.theme.text};
   font-weight: 700;
 `
