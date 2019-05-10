@@ -36,6 +36,12 @@ const HeroContent = styled.div`
   }
 `
 
+const LearnMore = styled(AnchorLink)`
+  ${mixins.button}
+  color: ${props => props.theme.bg};
+  background: linear-gradient(${props => props.theme.primary}, ${props => props.theme.secondary});
+`
+
 const ContactFloat = styled.div`
   ${mixins.flexBetween}
   flex-direction: column;
@@ -181,10 +187,9 @@ const Hero = ({data}: HeroProps) => {
         </SlideReveal>
        
         <h2>I help brands connect with their customers through good design, engaging user experience, and clean code.</h2>
-
-      <AnchorLink href="#work">
-        <span>Learn More</span>
-        <span>{' '}→</span>
+        <LearnMore href="#work">
+          <span>Learn More</span>
+          <span>{' '}→</span>
         </LearnMore>
       </HeroContent>
       

@@ -21,9 +21,15 @@ const mixins = {
   `,
 
   icon: css`
-    color: ${`${(theme:ThemeColors) => theme.text}`};
     width: calc(${min}px + ${max - min} * ((100vw - ${phone}px) / ${large - phone}));
   `,
+
+  button: css`
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-radius: 50px;
+  `
 }
 
 export default mixins
