@@ -27,7 +27,7 @@ const shadows = {
   high: '0 10px 20px rgba(0,0,0,0.19)',
 }
 
-// const easing = 'cubic-bezier(0.645, 0.045, 0.355, 1)'
+const easing = 'cubic-bezier(0.23, 1, 0.32, 1)'
 const transition = '0.25s cubic-bezier(0.645, 0.045, 0.355, 1)'
 
 const config = {
@@ -37,6 +37,7 @@ const config = {
   lineHeights,
   borderRadius,
   shadows,
+  easing,
   transition,
 }
 
