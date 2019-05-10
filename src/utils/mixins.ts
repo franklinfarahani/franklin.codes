@@ -1,5 +1,4 @@
 import { css } from '@emotion/core'
-import { ThemeColors } from '../globals/theme'
 import { sizes } from '../globals/media'
 import { config } from '../globals'
 
