@@ -1,6 +1,8 @@
-import React from 'react'
-import AnchorLink from '../components/AnchorLink'
+import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
+
+import AnchorLink from '../components/AnchorLink'
+import SlideReveal from '../components/SlideReveal'
 
 import mixins from '../utils/mixins'
 import { config } from '../globals'
@@ -19,6 +21,7 @@ const HeroContainer = styled.section`
   h1 {
     font-size: 7.5vw;
     line-height: 1;
+    margin: 0;
   }
 
   h2 {
@@ -128,6 +131,13 @@ type HeroProps = {
 const Hero = ({data}: HeroProps) => {
   const { author } = data.siteMetadata
   const { twitter, github, linkedin, email } = data.siteMetadata.social
+
+  const [isLoading, setIsLoading] = useState(true)
+  
+  useEffect(() => {
+    setIsLoading(false)
+  })
+
   return (
     <HeroContainer>
       <ContactFloat>
@@ -158,10 +168,15 @@ const Hero = ({data}: HeroProps) => {
           </IconCommentWrapper>          
         </ComposeEmail>
       </ContactFloat>
+        <SlideReveal isLoading={isLoading} delay={500}>
+          Hey, I'm Franklin.
+        </SlideReveal>
+        <SlideReveal isLoading={isLoading} delay={700}>
+          I build digital products.
+        </SlideReveal>
+       
+        <h2>I help brands connect with their customers through good design, engaging user experience, and clean code.</h2>
 
-      <h1>Hey, I'm Franklin.</h1>
-      <h1>I build digital products.</h1>
-      <h2>I help brands connect with their customers through good design, engaging user experience, and clean code.</h2>
       <AnchorLink href="#work">
         <span>Learn More</span>
         <span>{' '}→</span>
