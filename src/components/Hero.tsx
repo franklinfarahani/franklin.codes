@@ -16,8 +16,11 @@ const { phone, large } = sizes
 const HeroContainer = styled.section`
   min-height: calc(100vh - 113px);
   position: relative;
-  padding-top: calc(17vh + 30 * ((100vw - ${phone}px) / ${large - phone}));
+  display: flex;
+  align-items: center;
+`
 
+const HeroContent = styled.div`
   h1 {
     font-size: 7.5vw;
     line-height: 1;
@@ -28,8 +31,8 @@ const HeroContainer = styled.section`
     max-width: 39.5ch;
     font-weight: 400;
     line-height: 1.5;
-    margin-top: 4vh;
-    margin-bottom: 10vh;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
   }
 `
 
@@ -168,6 +171,8 @@ const Hero = ({data}: HeroProps) => {
           </IconCommentWrapper>          
         </ComposeEmail>
       </ContactFloat>
+      <HeroContent>
+      
         <SlideReveal isLoading={isLoading} delay={500}>
           Hey, I'm Franklin.
         </SlideReveal>
@@ -180,7 +185,9 @@ const Hero = ({data}: HeroProps) => {
       <AnchorLink href="#work">
         <span>Learn More</span>
         <span>{' '}→</span>
-      </AnchorLink>
+        </LearnMore>
+      </HeroContent>
+      
     </HeroContainer>
   )
 }
