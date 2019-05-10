@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 import AnchorLink from '../components/AnchorLink'
 import SlideReveal from '../components/SlideReveal'
+import LastTrack from '../components/LastTrack'
 
 import mixins from '../utils/mixins'
 import { config } from '../globals'
@@ -192,7 +193,7 @@ const Hero = ({data}: HeroProps) => {
           <span>{' '}→</span>
         </LearnMore>
       </HeroContent>
-      
+      <LastTrack />
     </HeroContainer>
   )
 }
