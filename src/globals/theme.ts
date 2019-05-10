@@ -21,8 +21,10 @@ const colors: {[key: string] : string} = {
   orange: '#FF9900',
   white: '#FFFFFF',
   almostWhite: '#F2F2F2',
+  lighterGrey: '#D8D8D8',
   lightGrey: '#BCBCBC',
   darkGrey: '#333333',
+  darkerGrey: '#8C8C8C',
   almostBlack: '#171717',
   black: '#0D0D0D',
 }
@@ -34,7 +36,7 @@ export const light: ThemeColors = {
   text: colors.almostBlack,
   link: colors.darkGrey,
   info: colors.lightGrey,
-  highlight: colors.lightYellow,
+  highlight: colors.lighterGrey,
   bg: colors.almostWhite,
   cardBg: colors.white,
 }
@@ -46,7 +48,7 @@ export const dark: ThemeColors = {
   text: colors.white,
   link: colors.lightGrey,
   info: colors.darkGrey,
-  highlight: colors.lightYellow,
+  highlight: colors.darkerGrey,
   bg: colors.black,
   cardBg: colors.almostBlack,
 }
