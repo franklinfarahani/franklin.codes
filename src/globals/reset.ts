@@ -2,7 +2,7 @@ import { css } from '@emotion/core'
 import config from './config'
 import { light as colors } from './theme'
 
-const { fontSizes, fonts, transition } = config
+const { fontSizes, fonts, transition, easing } = config
 
 const reset = css`
   html {
@@ -111,6 +111,17 @@ const reset = css`
     padding: 0;
     margin: 0;
     list-style: none;
+  }
+
+  .slideup-enter {
+    display: block;
+    transform: translateY(100%);
+    transition: transform 1s ${easing};
+  }
+  .slideup-enter-active {
+    display: block;
+    transform: translateY(0);
+    transition: transform 1s ${easing};
   }
 `
 
