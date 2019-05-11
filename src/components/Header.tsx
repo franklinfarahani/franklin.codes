@@ -76,10 +76,11 @@ const NavContainer = styled.nav`
 
 type HeaderProps = {
   themeSelect: (theme: Theme) => void
+  isDark: boolean
 }
 
-const Header = ({ themeSelect }: HeaderProps) => {
-  const [theme, setTheme] = useState(false)
+const Header = ({ themeSelect, isDark }: HeaderProps) => {
+  const [theme, setTheme] = useState(isDark)
   const themeMap = () => {
     setTheme(!theme)
     theme ? themeSelect(Theme.Light) : themeSelect(Theme.Dark)
