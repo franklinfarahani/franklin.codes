@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styled from '@emotion/styled'
 
@@ -13,7 +13,7 @@ const AnimationMask = styled.span`
 
 type SlideRevealProps = {
   isLoading: boolean
-  el?: keyof JSX.IntrinsicElements
+  el?: (keyof JSX.IntrinsicElements) | typeof Fragment
   delay ?: number
   children: React.ReactNode
 }
@@ -21,7 +21,7 @@ type SlideRevealProps = {
 const SlideReveal = ({isLoading, el = 'h1', delay = 0, children}: SlideRevealProps) => {
   const Element = el
 
-  const TextContainer = styled.span`
+  const Animated = styled.div`
     &.slideup-enter {
       display: block;
       transform: translateY(100%);
@@ -42,7 +42,7 @@ const SlideReveal = ({isLoading, el = 'h1', delay = 0, children}: SlideRevealPro
         <TransitionGroup>
           {!isLoading && (
             <CSSTransition timeout={3000} classNames="slideup">
-              <TextContainer>{children}</TextContainer>
+              <Animated>{children}</Animated>
             </CSSTransition>
           )}
         </TransitionGroup>
