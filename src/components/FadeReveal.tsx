@@ -25,9 +25,6 @@ const FadeReveal = ({isLoading, el = 'div', delay = 0, children}: FadeRevealProp
       transition: opacity 1s ${easing};
       transition-delay: ${delay + 'ms'};
     }
-    &.fadein-enter-done {
-      transition: all 1s ${easing};
-    }
   `
 
   return (
