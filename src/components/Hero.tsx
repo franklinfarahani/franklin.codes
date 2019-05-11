@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 
 import AnchorLink from '../components/AnchorLink'
 import SlideReveal from '../components/SlideReveal'
+import FadeReveal from '../components/FadeReveal'
 import LastTrack from '../components/LastTrack'
 
 import mixins from '../utils/mixins'
@@ -150,50 +151,61 @@ const Hero = ({data}: HeroProps) => {
 
   return (
     <HeroContainer>
-      <ContactFloat>
-        <Socials>
-          <li>
-            <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank">
-              <IconTwitter />
-            </a>
-          </li>
-          <li>
-            <a href={`https://github.com/${github}`} title={`${author}'s Github Profile`} target="_blank">
-              <IconGithub />
-            </a>
-          </li>
-          <li>
-            <a href={`https://www.linkedin.com/in/${linkedin}`} title={`${author}'s Linkedin Profile`} target="_blank">
-              <IconLinkedin />
-            </a>
-          </li>
-        </Socials>
-        <ComposeEmail href={`mailto:${email}`}>
-          <SayHello>
-            <span />
-            <p>Say Hello!</p>
-          </SayHello>
-          <IconCommentWrapper>
-            <IconComment />
-          </IconCommentWrapper>          
-        </ComposeEmail>
-      </ContactFloat>
+        <ContactFloat>
+        <FadeReveal el={Fragment} isLoading={isLoading} delay={800}>
+          <Socials>
+            <li>
+              <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank">
+                <IconTwitter />
+              </a>
+            </li>
+            <li>
+              <a href={`https://github.com/${github}`} title={`${author}'s Github Profile`} target="_blank">
+                <IconGithub />
+              </a>
+            </li>
+            <li>
+              <a href={`https://www.linkedin.com/in/${linkedin}`} title={`${author}'s Linkedin Profile`} target="_blank">
+                <IconLinkedin />
+              </a>
+            </li>
+          </Socials>
+        </FadeReveal>
+        <FadeReveal el={Fragment} isLoading={isLoading} delay={900}>
+          <ComposeEmail href={`mailto:${email}`}>
+            <SayHello>
+              <span />
+              <p>Say Hello!</p>
+            </SayHello>
+            <IconCommentWrapper>
+              <IconComment />
+            </IconCommentWrapper>          
+          </ComposeEmail>
+        </FadeReveal>
+        </ContactFloat>
+      
       <HeroContent>
       
-        <SlideReveal isLoading={isLoading} delay={500}>
+        <SlideReveal isLoading={isLoading} delay={200}>
           Hey, I'm Franklin.
         </SlideReveal>
-        <SlideReveal isLoading={isLoading} delay={700}>
+        <SlideReveal isLoading={isLoading} delay={400}>
           I build digital products.
         </SlideReveal>
        
-        <h2>I help brands connect with their customers through good design, engaging user experience, and clean code.</h2>
-        <LearnMore href="#work">
-          <span>Learn More</span>
-          <span>{' '}→</span>
-        </LearnMore>
+        <SlideReveal el="h2" isLoading={isLoading} delay={800}>
+          I help brands connect with their customers through good design, engaging user experience, and clean code.
+        </SlideReveal>
+        <FadeReveal el={Fragment} isLoading={isLoading} delay={800}>
+          <LearnMore href="#work">
+            <span>Learn More</span>
+            <span>{' '}→</span>
+          </LearnMore>
+        </FadeReveal>
       </HeroContent>
-      <LastTrack />
+      <FadeReveal el={Fragment} isLoading={isLoading} delay={900}>
+        <LastTrack />
+      </FadeReveal>
     </HeroContainer>
   )
 }
