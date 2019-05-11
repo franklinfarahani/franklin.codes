@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { ThemeProvider } from 'emotion-theming'
@@ -8,6 +8,7 @@ import { Theme } from '../globals/theme'
 
 import Header from './Header'
 import Footer from './Footer'
+import useLocalStorage from '../utils/useLocalStorage'
 
 const Content = styled.main`
   padding: 0 60px;
@@ -43,15 +44,17 @@ type LayoutProps =  {
 }
 
 const Layout = ({title, children}: LayoutProps) => {
-  const [theme, setTheme] = useState(themes.light)
+  const [isDark, setIsDark] = useLocalStorage('dark-mode-enabled', false)
+  
+  const theme = isDark ? themes.dark : themes.light
 
   const changeTheme = (newTheme: Theme) => {
-    newTheme === Theme.Light ? setTheme(themes.light) : setTheme(themes.dark)
+    newTheme === Theme.Light ? setIsDark(false) : setIsDark(true)
   }
 
   return (    
     <Fragment>      
-      <ThemeProvider theme = {theme}>
+      <ThemeProvider theme={theme}>
         <Global 
           styles = {css`
             body{
@@ -62,7 +65,7 @@ const Layout = ({title, children}: LayoutProps) => {
             ${fonts}          
           `}
         />
-        <Header themeSelect = {changeTheme}/>
+        <Header isDark={isDark} themeSelect={changeTheme}/>
         <Content>{children}</Content>
         <Footer />
       </ThemeProvider>
