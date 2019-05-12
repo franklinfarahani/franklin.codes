@@ -43,6 +43,9 @@ const LearnMore = styled(AnchorLink)`
   color: ${props => props.theme.bg};
   background: linear-gradient(${props => props.theme.primary}, ${props => props.theme.secondary});
   transform: translateY(2vh);
+  &:hover {
+    transform: translateY(calc(2vh - 3px));
+  }
 `
 
 const ContactFloat = styled.div`
