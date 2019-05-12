@@ -33,8 +33,8 @@ const HeroContent = styled.div`
     max-width: 39.5ch;
     font-weight: 400;
     line-height: 1.5;
-    margin-top: 2vh;
-    margin-bottom: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 4vh;
   }
 `
 
@@ -42,6 +42,7 @@ const LearnMore = styled(AnchorLink)`
   ${mixins.button}
   color: ${props => props.theme.bg};
   background: linear-gradient(${props => props.theme.primary}, ${props => props.theme.secondary});
+  transform: translateY(2vh);
 `
 
 const ContactFloat = styled.div`
@@ -151,7 +152,8 @@ const Hero = ({data}: HeroProps) => {
 
   return (
     <HeroContainer>
-        <ContactFloat>
+      
+      <ContactFloat>
         <FadeReveal el={Fragment} isLoading={isLoading} delay={800}>
           <Socials>
             <li>
@@ -182,17 +184,15 @@ const Hero = ({data}: HeroProps) => {
             </IconCommentWrapper>          
           </ComposeEmail>
         </FadeReveal>
-        </ContactFloat>
+      </ContactFloat>
       
-      <HeroContent>
-      
+      <HeroContent>      
         <SlideReveal isLoading={isLoading} delay={200}>
           Hey, I'm Franklin.
         </SlideReveal>
         <SlideReveal isLoading={isLoading} delay={400}>
           I build digital products.
-        </SlideReveal>
-       
+        </SlideReveal>       
         <SlideReveal el="h2" isLoading={isLoading} delay={800}>
           I help brands connect with their customers through good design, engaging user experience, and clean code.
         </SlideReveal>
