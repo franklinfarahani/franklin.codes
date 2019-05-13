@@ -194,7 +194,7 @@ const Hero = ({data}: HeroProps) => {
           Hey, I'm Franklin.
         </SlideReveal>
         <SlideReveal isLoading={isLoading} delay={400}>
-          I build digital products.
+          I build web products.
         </SlideReveal>       
         <SlideReveal el="h2" isLoading={isLoading} delay={800}>
           I help brands connect with their customers through good design, engaging user experience, and clean code.
