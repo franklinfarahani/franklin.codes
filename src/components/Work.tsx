@@ -15,6 +15,7 @@ const ProjectsContainer = styled.section`
   min-height: calc(100vh - 113px);
   h2:first-of-type {
     font-weight: 700;
+    padding-top: 5vh;
     margin-bottom: 5vh;
     span {
       font-weight: 500;
@@ -101,9 +102,7 @@ const Work = ({data}: WorkProps) => {
   return (
     <ProjectsContainer id="work">
       <h2>
-        <span>
-          {'# '}
-        </span>
+        <span>{'# '}</span>
         Featured Work
       </h2>
       {data.map(({node}) => {
