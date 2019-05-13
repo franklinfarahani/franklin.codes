@@ -43,7 +43,7 @@ type LayoutProps =  {
   children: React.ReactNode
 }
 
-const Layout = ({title, children}: LayoutProps) => {
+const Layout = ({children}: LayoutProps) => {
   const [isDark, setIsDark] = useLocalStorage('dark-mode-enabled', false)
   
   const theme = isDark ? themes.dark : themes.light
