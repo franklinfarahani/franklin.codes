@@ -30,7 +30,7 @@ const HeadroomContainer = styled(Headroom)`
   }
 `
 
-const LogoLink = styled(Link)`
+const LogoContainer = styled.div`
   flex: 1;  
 `
 
@@ -88,9 +88,11 @@ const Header = ({ themeSelect, isDark }: HeaderProps) => {
   return (
     <HeaderContainer>
       <HeadroomContainer>
-        <LogoLink to="/">
-          <Logo />
-        </LogoLink>
+        <LogoContainer>
+          <Link to="/">
+            <Logo />
+          </Link>
+        </LogoContainer>        
         <NavContainer>
           <AnchorLink href="#work" >
             Work
