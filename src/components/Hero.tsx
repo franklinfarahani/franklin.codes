@@ -157,7 +157,7 @@ const Hero = ({data}: HeroProps) => {
     <HeroContainer>
       
       <ContactFloat>
-        <FadeReveal el={Fragment} isLoading={isLoading} delay={800}>
+        <FadeReveal as={Fragment} isLoading={isLoading} delay={800}>
           <Socials>
             <li>
               <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank">
@@ -176,7 +176,7 @@ const Hero = ({data}: HeroProps) => {
             </li>
           </Socials>
         </FadeReveal>
-        <FadeReveal el={Fragment} isLoading={isLoading} delay={900}>
+        <FadeReveal as={Fragment} isLoading={isLoading} delay={900}>
           <ComposeEmail href={`mailto:${email}`}>
             <SayHello>
               <span />
@@ -190,23 +190,23 @@ const Hero = ({data}: HeroProps) => {
       </ContactFloat>
       
       <HeroContent>      
-        <SlideReveal isLoading={isLoading} delay={200}>
+        <SlideReveal as="h1" isLoading={isLoading} delay={200}>
           Hey, I'm Franklin.
         </SlideReveal>
-        <SlideReveal isLoading={isLoading} delay={400}>
-          I build web products.
+        <SlideReveal as="h1"  isLoading={isLoading} delay={400}>
+          I build things for the web.
         </SlideReveal>       
-        <SlideReveal el="h2" isLoading={isLoading} delay={800}>
+        <SlideReveal as="h2" isLoading={isLoading} delay={800}>
           I help brands connect with their customers through good design, engaging user experience, and clean code.
         </SlideReveal>
-        <FadeReveal el={Fragment} isLoading={isLoading} delay={800}>
+        <FadeReveal as={Fragment} isLoading={isLoading} delay={800}>
           <LearnMore href="#work">
             <span>Learn More</span>
             <span>{' '}→</span>
           </LearnMore>
         </FadeReveal>
       </HeroContent>
-      <FadeReveal el={Fragment} isLoading={isLoading} delay={900}>
+      <FadeReveal as={Fragment} isLoading={isLoading} delay={900}>
         <LastTrack />
       </FadeReveal>
     </HeroContainer>

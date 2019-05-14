@@ -13,13 +13,13 @@ const AnimationMask = styled.span`
 
 type SlideRevealProps = {
   isLoading: boolean
-  el?: (keyof JSX.IntrinsicElements) | typeof Fragment
+  as?: (keyof JSX.IntrinsicElements) | typeof Fragment
   delay ?: number
   children: React.ReactNode
 }
 
-const SlideReveal = ({isLoading, el = 'h1', delay = 0, children}: SlideRevealProps) => {
-  const Element = el
+const SlideReveal = ({isLoading, as = 'h1', delay = 0, children}: SlideRevealProps) => {
+  const Element = as
 
   const Animated = styled.div`
     &.slideup-enter {

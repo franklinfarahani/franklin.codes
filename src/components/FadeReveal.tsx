@@ -8,13 +8,13 @@ const { easing } = config
 
 type FadeRevealProps = {
   isLoading: boolean
-  el?: (keyof JSX.IntrinsicElements) | typeof Fragment
+  as?: (keyof JSX.IntrinsicElements) | typeof Fragment
   delay ?: number
   children: React.ReactNode
 }
 
-const FadeReveal = ({isLoading, el = 'div', delay = 0, children}: FadeRevealProps) => {
-  const Element = el
+const FadeReveal = ({isLoading, as = 'div', delay = 0, children}: FadeRevealProps) => {
+  const Element = as
 
   const Animated = styled.div`
     &.fadein-enter {
