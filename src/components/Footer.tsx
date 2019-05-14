@@ -15,8 +15,6 @@ const FooterWrapper = styled.footer`
   padding: 40px 0;
   ${mixins.flexBetween}
   font-size: ${config.fontSizes.heading[0]}px;
-  background: ${props => props.theme.bg};
-  color: ${props => props.theme.text};
 `
 
 const Socials = styled.ul`
