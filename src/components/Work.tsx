@@ -1,13 +1,14 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
 import mixins from '../utils/mixins'
 import { config } from '../globals'
 import Tag from '../components/Tag'
+import FadeUpReveal from '../components/FadeUpReveal'
 
 import { Code, ExternalLinkAlt } from 'emotion-icons/fa-solid'
+
 
 const ProjectsContainer = styled.section`
   margin: 10vh auto;
@@ -28,8 +29,8 @@ const Project = styled.article`
   display: grid;
   grid-template-columns: 2fr 3fr;
   background: ${props => props.theme.cardBg};
-  border-radius: ${config.borderRadius.sharp};
-  box-shadow: inset 0px -4px 0px 0px ${props => props.theme.primary}, ${config.shadows.low};
+  border-radius: ${config.borderRadius.round};
+  box-shadow: ${config.shadows.low};
 `
 
 const Content = styled.div`
@@ -106,37 +107,42 @@ const Work = ({data}: WorkProps) => {
         Featured Work
       </h2>
       {data.map(({node}) => {
+        
         const { frontmatter, html } = node
         const { id, title, repo, external, tags, media } = frontmatter
+        
         return (
-          <Project key={id}>
-            <Content>
-              <ContentHeader>
-                <ContentId>{'0' + id.toString().slice(-2)}</ContentId>
-                <ContentLinks>
-                  <ContentLink href={repo} title={title + ' Github repo'} target="_blank">
-                    <IconCode />
-                  </ContentLink>
-                  <ContentLink href={external} title={'View live'} target="_blank">
-                    <IconExternalLink />
-                  </ContentLink>
-                </ContentLinks>
-              </ContentHeader>
-              <ContentBody>
-                <h3>{title}</h3>
-                <p dangerouslySetInnerHTML={{ __html: html }} />
-              </ContentBody>
-              <ContentTags>
-                {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
-              </ContentTags>
-            </Content>
-            <ImgContainer>
-              {media.childImageSharp && 
-                <Img fluid={media.childImageSharp.fluid} />
-              }
-            </ImgContainer>
-          </Project>
+          <FadeUpReveal key={id}>
+            <Project>
+              <Content>
+                <ContentHeader>
+                  <ContentId>{'0' + id.toString().slice(-2)}</ContentId>
+                  <ContentLinks>
+                    <ContentLink href={repo} title={title + ' Github repo'} target="_blank">
+                      <IconCode />
+                    </ContentLink>
+                    <ContentLink href={external} title={'View live'} target="_blank">
+                      <IconExternalLink />
+                    </ContentLink>
+                  </ContentLinks>
+                </ContentHeader>
+                <ContentBody>
+                  <h3>{title}</h3>
+                  <p dangerouslySetInnerHTML={{ __html: html }} />
+                </ContentBody>
+                <ContentTags>
+                  {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
+                </ContentTags>
+              </Content>
+              <ImgContainer>
+                {media.childImageSharp && 
+                  <Img fluid={media.childImageSharp.fluid} />
+                }
+              </ImgContainer>
+            </Project>
+          </FadeUpReveal>
         )
+
       })}
     </ProjectsContainer>
   )
