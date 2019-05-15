@@ -94,9 +94,16 @@ const Header = ({ themeSelect, isDark }: HeaderProps) => {
           </Link>
         </LogoContainer>        
         <NavContainer>
-          <AnchorLink href="#work" >
-            Work
-          </AnchorLink>
+          {
+            // if we're on Home page, render an AnchorLink, otherwise a regular Link
+            window.location.pathname === '/' ?
+              <AnchorLink href="#work" >
+                Work
+              </AnchorLink> :
+              <Link to="/#work" partiallyActive={true}>
+                Work
+              </Link>
+          }
           <Link to="/blog" activeClassName="active" partiallyActive={true}>
             Blog
           </Link>
