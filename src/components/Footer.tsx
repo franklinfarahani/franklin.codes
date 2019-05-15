@@ -38,15 +38,15 @@ const Socials = styled.ul`
 `
 
 const IconTwitter = styled(Twitter)`
-  ${mixins.icon}
+  width: 22px;
 `
 
 const IconGithub = styled(Github)`
-  ${mixins.icon}
+  width: 22px;
 `
 
 const IconLinkedin = styled(LinkedinIn)`
-  ${mixins.icon}
+  width: 22px;
 `
 
 const IconChevronUp = styled(ChevronUp)`
