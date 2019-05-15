@@ -39,7 +39,6 @@ const NavContainer = styled.nav`
   a {
     position: relative;
     margin: 0 20px;
-    padding: 0 5px;
     color: ${props => props.theme.text};
     font-size: ${fontSizes.nav}px;
     font-weight: 600;
@@ -80,7 +79,9 @@ type HeaderProps = {
 }
 
 const Header = ({ themeSelect, isDark }: HeaderProps) => {
+  // Receive default theme state from parent (Layout)
   const [theme, setTheme] = useState(isDark)
+  // Toggle theme and check theme type. Pass that to parent.
   const themeMap = () => {
     setTheme(!theme)
     theme ? themeSelect(Theme.Light) : themeSelect(Theme.Dark)
@@ -92,7 +93,7 @@ const Header = ({ themeSelect, isDark }: HeaderProps) => {
           <Link to="/">
             <Logo />
           </Link>
-        </LogoContainer>        
+        </LogoContainer>
         <NavContainer>
           {
             // if we're on Home page, render an AnchorLink, otherwise a regular Link
