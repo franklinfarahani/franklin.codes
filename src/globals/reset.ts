@@ -105,7 +105,7 @@ const reset = css`
     }
   }
   p {
-    margin: 0 0 0px 0;
+    margin: 0;
   }
   ul, ol {
     padding: 0;
