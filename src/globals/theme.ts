@@ -15,7 +15,7 @@ export type ThemeColors = {
   readonly cardBg: string
 }
 
-const colors: {[key: string] : string} = {
+export const colors: {[key: string] : string} = {
   lightYellow: '#FFEF5F',
   yellow: '#FFC700',
   orange: '#FF9900',
