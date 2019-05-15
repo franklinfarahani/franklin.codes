@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
-import mixins from '../utils/mixins'
 import { config } from '../globals'
 import Tag from '../components/Tag'
 import Divider from '../components/Divider'
@@ -98,7 +97,7 @@ const BlogPreview = ({data}: BlogPreviewProps) => {
                 <Divider />
                 <div>{readingTime.text}</div>
               </PostMeta>
-              <PostContent to={`/blog/${slug}`}>
+              <PostContent to={`/blog${slug}`}>
                 <PostTitle>{title}</PostTitle>
                 <ImgContainer>
                   {cover.childImageSharp && 
