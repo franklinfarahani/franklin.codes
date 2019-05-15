@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Franklin Farahani`,
     author: `Franklin Farahani`,
-    description: `A blog about JS related topics that I'm Interested about at the moment ⚛️`,
+    description: `A blog about JS related topics that I'm currently interested in ⚛️`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `frankfarahani`,
@@ -74,7 +74,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
     `gatsby-plugin-offline`,
