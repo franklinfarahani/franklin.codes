@@ -31,7 +31,20 @@ const HeadroomContainer = styled(Headroom)`
 `
 
 const LogoContainer = styled.div`
-  flex: 1;  
+  flex: 1;
+  display: flex;
+  align-items: center;  
+`
+
+const LogoType = styled.h2`
+  position: relative;
+  display: inline-block;
+  font-size: ${fontSizes.nav}px;
+  font-weight: 600;
+  margin-left: 20px;
+  margin-bottom: 0;
+  line-height: 1;
+  top: 2px;
 `
 
 const NavContainer = styled.nav`
@@ -43,6 +56,7 @@ const NavContainer = styled.nav`
     font-size: ${fontSizes.nav}px;
     font-weight: 600;
     text-decoration: none;
+    top: 2px;
     &.active {
       margin-bottom: -4px;
       border-bottom: 4px solid ${props => props.theme.primary};
@@ -92,6 +106,7 @@ const Header = ({ themeSelect, isDark }: HeaderProps) => {
         <LogoContainer>
           <Link to="/">
             <Logo />
+            <LogoType>Franklin Farahani.</LogoType>
           </Link>
         </LogoContainer>
         <NavContainer>

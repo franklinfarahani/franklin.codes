@@ -7,7 +7,7 @@ type LogoProps = {
 
 const Svg = styled.svg`
   fill: ${props => props.theme.text};
-  width: 30px;
+  width: 33px;
 `
 
 const Logo = ({color} : LogoProps) => (
