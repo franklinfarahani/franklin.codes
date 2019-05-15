@@ -44,7 +44,7 @@ const LastTrack = () => {
         const artist = data.recenttracks.track[0].artist['#text']
         return setLastTrack(`${title} - ${artist}`)
       })
-      .catch(error => console.log(error))
+      .catch(error => console.error(error))
     setIsLoading(false)
   })
 
