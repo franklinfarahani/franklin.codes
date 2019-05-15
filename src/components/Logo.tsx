@@ -11,8 +11,13 @@ const Svg = styled.svg`
 `
 
 const Logo = ({color} : LogoProps) => (
-  <Svg color={color} enable-background="new 0 0 50 50" version="1.1" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,50V0h50v50H0z M45.27,45.27V4.73h-6.59v11.32H16.05v6.59h22.63v16.05H16.05v6.59H45.27z M11.32,45.27V33.95h22.63v-6.59  H11.32V11.32h22.63V4.73H4.73v40.54H11.32z"/>
+  <Svg fill={color} xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+    <rect width="16.67" height="16.67" opacity="0.34"/>
+    <rect x="16.67" width="16.67" height="16.67" opacity="0.67"/>
+    <rect x="33.33" width="16.67" height="16.67"/>
+    <rect y="16.67" width="16.67" height="16.67" opacity="0.67"/>
+    <rect x="16.67" y="16.67" width="16.67" height="16.67"/>
+    <rect y="33.33" width="16.67" height="16.67"/>
   </Svg>
 )
 
