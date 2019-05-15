@@ -5,91 +5,80 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 
-// interface Props {
-//   data: {
-//     site: {
-//       siteMetadata: {
-//         title: string
-//       }
-//     }
-//     allMarkdownRemark: {
-//       edges: {
-//         node: {
-//           excerpt: string
-//           fields: {
-//             slug: string
-//           }
-//           frontmatter: {
-//             date: string
-//             title: string
-//             description: string
-//           }
-//         }
-//       }[]
-//     }
-//   }
-// }
-
 type BlogIndexProps = {
   data: {
-    site: Site
-    allMarkdownRemark: AllMarkdown,
+    metadata: Site
+    postsPreview: AllMarkdown,
   },
 }
 
-class BlogIndex extends React.Component<BlogIndexProps> {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+const BlogIndex = ({data}: BlogIndexProps) => {
 
-    return (
-      <Layout title={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={['blog', 'gatsby', 'javascript', 'react']}
-        />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link to={'/blog' + node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p>{node.frontmatter.description}</p>
-            </div>
-          )
-        })}
-      </Layout>
-    )
-  }
+  const siteTitle = data.metadata.siteMetadata.title
+  const posts = data.postsPreview.edges
+
+  return (
+    <Layout title={siteTitle}>
+      <SEO
+        title="All posts"
+        keywords={['blog', 'gatsby', 'javascript', 'react']}
+      />
+      {posts.map(({ node }) => {
+        const { frontmatter, fields } = node
+        const { slug, readingTime } = fields
+        const { title, date, tags, cover, description } = frontmatter
+        
+        return (
+          <div key={slug}>
+            <h3>
+              <Link to={'/blog' + slug}>
+                {title}
+              </Link>
+            </h3>
+            <small>{date}</small>
+            <p>{description}</p>
+          </div>
+        )
+      })}
+    </Layout>
+  )  
 }
 
 export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    site {
+    
+    metadata: site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+
+    postsPreview: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
           fields {
             slug
+            readingTime {
+              text
+            }
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "D MMMM YYYY")
             title
             description
             tags
+            cover {
+              childImageSharp{
+                fluid(maxWidth: 250, maxHeight: 140, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                  presentationWidth
+                }
+              }
+            }
           }
         }
       }
