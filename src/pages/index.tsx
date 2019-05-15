@@ -6,6 +6,8 @@ import SEO from '../components/Seo'
 import Hero from '../components/Hero'
 import Work from '../components/Work'
 import BlogPreview from '../components/BlogPreview'
+import Contact from '../components/Contact'
+
 import inspect from '../utils/inspect'
 
 
@@ -27,6 +29,7 @@ const IndexPage = ({ data }: HomeProps) => {
       <Hero data={data.socials}/>
       <Work data={data.projects.edges} />
       <BlogPreview data={data.blogPreview.edges} />
+      <Contact data={data.socials} isBusy={false} />
   </Layout>
   )
 }
@@ -90,7 +93,7 @@ export const pageQuery = graphql`
             tags
             cover {
               childImageSharp{
-                fluid(maxWidth: 250, maxHeight: 110, quality: 100) {
+                fluid(maxWidth: 250, maxHeight: 140, quality: 100) {
                   ...GatsbyImageSharpFluid
                   presentationWidth
                 }
