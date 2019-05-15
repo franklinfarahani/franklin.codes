@@ -6,6 +6,7 @@ import SEO from '../components/Seo'
 import Hero from '../components/Hero'
 import Work from '../components/Work'
 import BlogPreview from '../components/BlogPreview'
+import inspect from '../utils/inspect'
 
 
 type HomeProps = {
@@ -16,14 +17,19 @@ type HomeProps = {
   }
 }
 
-const IndexPage = ({ data }: HomeProps) => (
-  <Layout>
-    <SEO title="Front-end Engineer" keywords={['gatsby', 'application', 'react']} />
-    <Hero data={data.socials}/>
-    <Work data={data.projects.edges} />
-    <BlogPreview data={data.blogPreview.edges} />
+const IndexPage = ({ data }: HomeProps) => {
+
+  inspect()
+
+  return (
+    <Layout>
+      <SEO title="Front-end Engineer" keywords={['gatsby', 'application', 'react']} />
+      <Hero data={data.socials}/>
+      <Work data={data.projects.edges} />
+      <BlogPreview data={data.blogPreview.edges} />
   </Layout>
-)
+  )
+}
   
 
 
