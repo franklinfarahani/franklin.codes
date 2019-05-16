@@ -1,24 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
 import { config } from '../globals'
 import Tag from '../components/Tag'
 import Divider from '../components/Divider'
-
-const BlogFeedContainer = styled.section`
-  margin: 0 auto;
-  max-width: 1000px;
-  h2:first-of-type {
-    font-weight: 700;
-    margin-bottom: 5vh;
-    span {
-      font-weight: 500;
-      color: ${props => props.theme.primary};
-    }
-  }
-`
 
 const PostGrid = styled.div`
   display: grid;
@@ -73,50 +60,77 @@ const PostTags = styled.div`
 `
 
 type BlogFeedProps = {
-  data: Edges<Markdown>
   quantity?: number
 }
 
-const BlogFeed = ({data, quantity}: BlogFeedProps) => {
+const BlogFeed = ({quantity}: BlogFeedProps) => {
+
+  const posts = useStaticQuery(graphql`
+    query {
+      postsPreview: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/blog/" } }
+        sort: { fields: [frontmatter___date], order: DESC }) {
+        edges {
+          node {
+            fields {
+              slug
+              readingTime {
+                text
+              }
+            }
+            frontmatter {
+              date(formatString: "D MMMM YYYY")
+              title
+              description
+              tags
+              cover {
+                childImageSharp{
+                  fluid(maxWidth: 250, maxHeight: 140, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                    presentationWidth
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const data = posts.postsPreview.edges
+
   // Set index for number of posts to be displayed based on array length or manual amount
   const previewIndex = quantity ? quantity : data.length
   return (
-    <BlogFeedContainer id="blog">
-      <h2>
-        <span>
-          {'# '}
-        </span>
-        Blog
-      </h2>
-      <PostGrid>
-        {data.slice(0, previewIndex).map(({node}) => {
-          const { frontmatter, fields } = node
-          const { slug, readingTime } = fields
-          const { title, date, tags, cover } = frontmatter
-          return (
-            <Post key={slug}>
-              <PostMeta>
-                <time>{date}</time>
-                <Divider />
-                <div>{readingTime.text}</div>
-              </PostMeta>
-              <PostContent to={`/blog${slug}`}>
-                <PostTitle>{title}</PostTitle>
-                <ImgContainer>
-                  {cover.childImageSharp && 
-                    <Img fluid={cover.childImageSharp.fluid} />
-                  }
-                </ImgContainer>
-              </PostContent>
-                <PostTags>
-                  {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
-                </PostTags>
-              
-            </Post>
-          )
-        })}
-      </PostGrid>
-    </BlogFeedContainer>
+    <PostGrid>
+      {data.slice(0, previewIndex).map(({node}: Edge<Markdown>) => {
+        const { frontmatter, fields } = node
+        const { slug, readingTime } = fields
+        const { title, date, tags, cover } = frontmatter
+        return (
+          <Post key={slug}>
+            <PostMeta>
+              <time>{date}</time>
+              <Divider />
+              <div>{readingTime.text}</div>
+            </PostMeta>
+            <PostContent to={`/blog${slug}`}>
+              <PostTitle>{title}</PostTitle>
+              <ImgContainer>
+                {cover.childImageSharp && 
+                  <Img fluid={cover.childImageSharp.fluid} />
+                }
+              </ImgContainer>
+            </PostContent>
+              <PostTags>
+                {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
+              </PostTags>
+            
+          </Post>
+        )
+      })}
+    </PostGrid>
   )
 }
 
