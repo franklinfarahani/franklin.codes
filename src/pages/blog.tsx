@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
+import BlogFeed from '../components/BlogFeed'
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
@@ -14,32 +15,13 @@ type BlogIndexProps = {
 
 const BlogIndex = ({data}: BlogIndexProps) => {
 
-  const siteTitle = data.metadata.siteMetadata.title
-  const posts = data.postsPreview.edges
-
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO
         title="All posts"
         keywords={['blog', 'gatsby', 'javascript', 'react']}
       />
-      {posts.map(({ node }) => {
-        const { frontmatter, fields } = node
-        const { slug, readingTime } = fields
-        const { title, date, tags, cover, description } = frontmatter
-        
-        return (
-          <div key={slug}>
-            <h3>
-              <Link to={'/blog' + slug}>
-                {title}
-              </Link>
-            </h3>
-            <small>{date}</small>
-            <p>{description}</p>
-          </div>
-        )
-      })}
+      <BlogFeed data={data.postsPreview.edges} />
     </Layout>
   )  
 }

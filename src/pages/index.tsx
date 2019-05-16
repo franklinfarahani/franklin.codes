@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 import Hero from '../components/Hero'
 import Work from '../components/Work'
-import BlogPreview from '../components/BlogPreview'
+import BlogFeed from '../components/BlogFeed'
 import Contact from '../components/Contact'
 
 import inspect from '../utils/inspect'
@@ -28,7 +28,7 @@ const IndexPage = ({ data }: HomeProps) => {
       <SEO title="Front-end Engineer" keywords={['gatsby', 'application', 'react']} />
       <Hero data={data.socials}/>
       <Work data={data.projects.edges} />
-      <BlogPreview data={data.blogPreview.edges} />
+      <BlogFeed data={data.blogPreview.edges} quantity={4} />
       <Contact data={data.socials} isBusy={false} />
   </Layout>
   )

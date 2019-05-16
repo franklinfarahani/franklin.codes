@@ -7,8 +7,8 @@ import { config } from '../globals'
 import Tag from '../components/Tag'
 import Divider from '../components/Divider'
 
-const BlogPreviewContainer = styled.section`
-  margin: 10vh auto;
+const BlogFeedContainer = styled.section`
+  margin: 0 auto;
   max-width: 1000px;
   h2:first-of-type {
     font-weight: 700;
@@ -72,13 +72,16 @@ const PostTags = styled.div`
   /* margin-bottom: 5px; */
 `
 
-type BlogPreviewProps = {
+type BlogFeedProps = {
   data: Edges<Markdown>
+  quantity?: number
 }
 
-const BlogPreview = ({data}: BlogPreviewProps) => {
+const BlogFeed = ({data, quantity}: BlogFeedProps) => {
+  // Set index for number of posts to be displayed based on array length or manual amount
+  const previewIndex = quantity ? quantity : data.length
   return (
-    <BlogPreviewContainer id="blog">
+    <BlogFeedContainer id="blog">
       <h2>
         <span>
           {'# '}
@@ -86,7 +89,7 @@ const BlogPreview = ({data}: BlogPreviewProps) => {
         Blog
       </h2>
       <PostGrid>
-        {data.map(({node}) => {
+        {data.slice(0, previewIndex).map(({node}) => {
           const { frontmatter, fields } = node
           const { slug, readingTime } = fields
           const { title, date, tags, cover } = frontmatter
@@ -113,8 +116,8 @@ const BlogPreview = ({data}: BlogPreviewProps) => {
           )
         })}
       </PostGrid>
-    </BlogPreviewContainer>
+    </BlogFeedContainer>
   )
 }
 
-export default BlogPreview
+export default BlogFeed
