@@ -65,40 +65,7 @@ type BlogFeedProps = {
 
 const BlogFeed = ({quantity}: BlogFeedProps) => {
 
-  const posts = useStaticQuery(graphql`
-    query {
-      postsPreview: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/blog/" } }
-        sort: { fields: [frontmatter___date], order: DESC }) {
-        edges {
-          node {
-            fields {
-              slug
-              readingTime {
-                text
-              }
-            }
-            frontmatter {
-              date(formatString: "D MMMM YYYY")
-              title
-              description
-              tags
-              cover {
-                childImageSharp{
-                  fluid(maxWidth: 250, maxHeight: 140, quality: 100) {
-                    ...GatsbyImageSharpFluid
-                    presentationWidth
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const data = posts.postsPreview.edges
+  const data = useStaticQuery(blogQuery).postsPreview.edges
 
   // Set index for number of posts to be displayed based on array length or manual amount
   const previewIndex = quantity ? quantity : data.length
@@ -133,5 +100,38 @@ const BlogFeed = ({quantity}: BlogFeedProps) => {
     </PostGrid>
   )
 }
+
+const blogQuery = graphql`
+    query {
+      postsPreview: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/blog/" } }
+        sort: { fields: [frontmatter___date], order: DESC }) {
+        edges {
+          node {
+            fields {
+              slug
+              readingTime {
+                text
+              }
+            }
+            frontmatter {
+              date(formatString: "D MMMM YYYY")
+              title
+              description
+              tags
+              cover {
+                childImageSharp{
+                  fluid(maxWidth: 250, maxHeight: 140, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                    presentationWidth
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `
 
 export default BlogFeed

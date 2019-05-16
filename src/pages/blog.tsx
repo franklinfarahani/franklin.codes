@@ -28,6 +28,7 @@ const BlogIndex = () => {
         keywords={['blog', 'gatsby', 'javascript', 'react']}
       />
       <BlogFeedContainer id="blog">
+        <Bio />
         <BlogFeed />
       </BlogFeedContainer>
     </Layout>
