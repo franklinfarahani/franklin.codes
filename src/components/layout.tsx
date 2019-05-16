@@ -14,8 +14,7 @@ const Content = styled.main`
   padding: 0 60px;
   color: ${props=>props.theme.text};
   background-color: ${props=>props.theme.bg};
-  position: relative;
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 113px - 107.52px);
   z-index:1;
   p a {
     margin-bottom: -2px;
