@@ -6,36 +6,28 @@
  */
 
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 function Bio() {
+  const data = useStaticQuery(bioQuery)
+  const { author, social } = data.site.siteMetadata
+  
   return (
-    <StaticQuery
-      query={bioQuery}
-      render={(data) => {
-        const { author, social } = data.site.siteMetadata
-        return (
-          <div>
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              imgStyle={{
-                borderRadius: '50%',
-              }}
-            />
-            <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
-              {' '}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
-            </p>
-          </div>
-        )
-      }}
-    />
+    <div>
+      <Img
+        fixed={data.avatar.childImageSharp.fixed}
+        alt={author}
+        imgStyle={{
+          borderRadius: '50%',
+        }}
+      />
+      <p>
+        A coding blog by <a href={`https://twitter.com/${social.twitter}`}>
+          @{social.twitter}
+        </a> about web development, and related topics
+      </p>
+    </div>
   )
 }
 
@@ -43,7 +35,7 @@ const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 50, height: 50, quality: 100) {
           ...GatsbyImageSharpFixed
         }
       }
