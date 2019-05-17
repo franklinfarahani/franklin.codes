@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import AnchorLink from './AnchorLink'
@@ -95,11 +95,13 @@ type HeaderProps = {
 const Header = ({ themeSelect, isDark }: HeaderProps) => {
   // Receive default theme state from parent (Layout)
   const [theme, setTheme] = useState(isDark)
+
   // Toggle theme and check theme type. Pass that to parent.
-  const themeMap = () => {
+  const themeMap = useCallback(() => {
     setTheme(!theme)
     theme ? themeSelect(Theme.Light) : themeSelect(Theme.Dark)
-  }
+  }, [theme])
+ 
   return (
     <HeaderContainer>
       <HeadroomContainer>
@@ -134,7 +136,7 @@ const Header = ({ themeSelect, isDark }: HeaderProps) => {
               </Link>
           }
         </NavContainer>
-        <ThemeSwitcher onChange={() => themeMap()}/>
+        <ThemeSwitcher onChange={themeMap}/>
       </HeadroomContainer>
     </HeaderContainer>
   )
