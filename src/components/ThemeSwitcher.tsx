@@ -103,20 +103,22 @@ export const Circle = styled.div`
 `
 
 type ThemeSwitcherProps = {
-  onChange: React.MouseEventHandler<HTMLDivElement>
+  onChange: () => void
 }
 
 const ThemeSwitcher = ({ onChange }: ThemeSwitcherProps) => {
+  
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    // If 'Enter" or 'Space' are pressed on the keyboard
+    (e.which === 13 || e.which === 32) && onChange()
+  }
+
   return (
     <Wrapper
       onClick={onChange}
       role="button"
       tabIndex={0}
-      onKeyPress={(e: any) => {
-        if (e.which === 13 || e.which === 32) {
-          onChange(e)
-        }
-      }}
+      onKeyPress={handleKeyPress}
     >
       <StyledThemeSwitch>
         <Stars>
