@@ -14,7 +14,7 @@ const FooterWrapper = styled.footer`
   margin: auto;
   padding: 40px 0;
   ${mixins.flexBetween}
-  font-size: ${config.fontSizes.heading[0]}px;
+  font-size: ${config.fontSizes.footer}em;
 `
 
 const Socials = styled.ul`

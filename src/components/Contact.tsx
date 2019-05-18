@@ -12,10 +12,9 @@ const ContactContainer = styled.div`
 
 const DateTag = styled.span`
   display: inline-block;
-  line-height: 1.4;
-  padding: 1px 5px 0 4px; 
+  padding: 1.5px 4px 0; 
   margin-right: 6px;
-  font-size: ${config.fontSizes.heading[0]}px;
+  font-size: ${config.fontSizes.tag}em;
   font-weight: 700;
   text-transform: uppercase;
   color: ${props=>props.theme.bg};

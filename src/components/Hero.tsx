@@ -14,6 +14,7 @@ import { Twitter, Github, LinkedinIn } from 'emotion-icons/fa-brands'
 import { CommentAlt } from 'emotion-icons/fa-solid'
 
 const { phone, large } = sizes
+const { lineHeights, fontSizes } = config
 
 const HeroContainer = styled.section`
   min-height: calc(100vh - 113px);
@@ -24,13 +25,14 @@ const HeroContainer = styled.section`
 
 const HeroContent = styled.div`
   h1 {
-    font-size: 7.5vw;
-    line-height: 1;
+    font-size: ${fontSizes.hero.intro}vw;
+    line-height: ${lineHeights[1]};
     margin: 0;
   }
 
   h2 {
-    max-width: 39.5ch;
+    max-width: 40ch;
+    font-size: ${fontSizes.hero.description}em;
     font-weight: 400;
     line-height: 1.5;
     margin-top: 3vh;

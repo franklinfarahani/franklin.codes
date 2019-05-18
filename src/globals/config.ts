@@ -4,9 +4,18 @@ export const fonts = {
 }
 
 const fontSizes = {
-  text: [16, 20],
-  heading: [13, 19, 24, 28, 48, 64, 72, 80],
-  nav: [20],
+  base: 16,
+  hero: {
+    intro: 7,
+    description: 1.65
+  },
+  tag: 0.8125,
+  footer: 0.95,
+  meta: 0.9375,
+  blogCardTitle: 1.3125,
+  text: [20, 20],
+  heading: [14, 20, 24, 28, 48, 64, 72, 80],
+  nav: 20,
 }
 
 const iconSizes = {
@@ -14,7 +23,7 @@ const iconSizes = {
   max: 24
 }
 
-const lineHeights = [1, 1.125, 1.25, 1.5, 1.75]
+const lineHeights = [1, 1.125, 1.25, 1.4, 1.5, 1.75]
 
 const borderRadius = {
   sharp: '4px',

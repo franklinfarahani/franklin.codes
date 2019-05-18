@@ -7,6 +7,8 @@ import { config } from '../globals'
 import Tag from '../components/Tag'
 import Divider from '../components/Divider'
 
+const { fontSizes, borderRadius, shadows } = config
+
 const PostGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
@@ -19,14 +21,14 @@ const Post = styled.article`
   padding: 20px;
   min-height: 350px;
   background: ${props => props.theme.cardBg};
-  border-radius: ${config.borderRadius.round};
-  box-shadow: ${config.shadows.low};
+  border-radius: ${borderRadius.round};
+  box-shadow: ${shadows.low};
 `
 
 const PostMeta = styled.header`
   * {
     display: inline;
-    font-size: ${config.fontSizes.heading[0]}px;
+    font-size: ${fontSizes.meta}em;
     font-weight: 400;
     color: ${props => props.theme.text};
   }
@@ -43,10 +45,10 @@ const PostContent = styled(Link)`
 
 const PostTitle = styled.h4`
   flex: 1;
-  font-size: ${config.fontSizes.heading[1]}px;
+  font-size: ${fontSizes.blogCardTitle}em;
   color: ${props => props.theme.text};
-  font-weight: 700;
-  margin-top: 5px;
+  font-weight: 600;
+  margin-top: 6px;
   margin-bottom: 0;
 `
 

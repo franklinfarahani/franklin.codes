@@ -24,7 +24,7 @@ const reset = css`
     -webkit-font-smoothing: antialiased;
     line-height: 1.3;
     font-family: ${fonts.TTCommons};
-    font-size: ${fontSizes.text[0]}px;
+    font-size: ${fontSizes.base}px;
     &.hidden {
       overflow: hidden;
     }

@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 
 import mixins from '../utils/mixins'
+import { config } from '../globals'
 
 import { Headphones } from 'emotion-icons/fa-solid'
 
 const Wrapper = styled.span`
   color: ${props => props.theme.info};
-  font-size: 14px;
+  font-size: ${config.fontSizes.meta}em;
   font-weight: 700;
   text-transform: uppercase;
   position: absolute;
