@@ -14,7 +14,7 @@ import { config } from '../globals'
 
 const { fontSizes } = config
 
-const BioContainer = styled.div`
+const BlogDescriptionContainer = styled.div`
   width: 500px;
   padding: 100px 5px;
   margin: 0 auto;
@@ -28,34 +28,34 @@ const Image = styled(Img)`
   margin-right: 20px;
 `
 
-const BioText = styled.p`
+const BlogDescriptionText = styled.p`
   font-size: ${fontSizes.text[1]}px;
 `
 
-const Bio = () => {
-  const data = useStaticQuery(bioQuery)
+const BlogDescription = () => {
+  const data = useStaticQuery(blogDescriptionQuery)
   const { author, social } = data.site.siteMetadata
   
   return (
-    <BioContainer>
+    <BlogDescriptionContainer>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
       />
-      <BioText>
+      <BlogDescriptionText>
         A coding blog written by{' '} 
         <a href={`https://twitter.com/${social.twitter}`}>
           @{social.twitter}
         </a>
         <br />
         about web development, and related topics
-      </BioText>
-    </BioContainer>
+      </BlogDescriptionText>
+    </BlogDescriptionContainer>
   )
 }
 
-const bioQuery = graphql`
-  query BioQuery {
+const blogDescriptionQuery = graphql`
+  query blogDescriptionQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fixed(width: 56, height: 56, quality: 100) {
@@ -74,4 +74,4 @@ const bioQuery = graphql`
   }
 `
 
-export default Bio
+export default BlogDescription

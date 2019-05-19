@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Bio from '../components/Bio'
+import BlogDescription from '../components/BlogDescription'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 
@@ -49,7 +49,7 @@ class BlogPostTemplate extends React.Component<Props> {
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr/>
-        <Bio />
+        <BlogDescription />
 
         <ul
           style={{
