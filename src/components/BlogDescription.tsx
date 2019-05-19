@@ -1,10 +1,3 @@
-/**
- * Blog description component that queries for data
- * with Gatsby's useStaticQuery hook
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -31,7 +24,12 @@ const Image = styled(Img)`
 const BlogDescriptionText = styled.p`
   font-size: ${fontSizes.text[1]}px;
 `
-
+/**
+ * Blog description component that queries for author
+ * name, twitter handle, and profile pic with 
+ * Gatsby's useStaticQuery hook.
+ * 
+ */
 const BlogDescription = () => {
   const data = useStaticQuery(blogDescriptionQuery)
   const { author, social } = data.site.siteMetadata

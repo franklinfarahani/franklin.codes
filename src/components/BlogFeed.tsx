@@ -65,6 +65,12 @@ type BlogFeedProps = {
   quantity?: number
 }
 
+/**
+ * Displays the given number of last blog posts
+ * 
+ * @param {number} quantity Number of posts to be displayed.
+ * Will default to **all posts** if no number is specified.
+ */
 const BlogFeed = ({quantity}: BlogFeedProps) => {
 
   const data = useStaticQuery(blogQuery).postsPreview.edges

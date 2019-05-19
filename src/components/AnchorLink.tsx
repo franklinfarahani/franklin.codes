@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react'
 
+/**
+ * Link component that scrolls to the id given to it.
+ * 
+ * @param {string} href "#example"
+ * @param props Any other prop(s) that an anchor tag could receive
+ */
 const AnchorLink = (props: React.PropsWithChildren<JSX.IntrinsicElements['a']>) => {
   
   useEffect(() => {
