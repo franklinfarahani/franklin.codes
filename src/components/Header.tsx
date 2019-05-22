@@ -44,7 +44,7 @@ const LogoType = styled.h2`
   margin-left: 20px;
   margin-bottom: 0;
   line-height: 1;
-  top: 2px;
+  top: 3px;
 `
 
 const NavContainer = styled.nav`

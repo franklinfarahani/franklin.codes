@@ -79,15 +79,11 @@ const IconExternalLink = styled(ExternalLinkAlt)`
 
 const ContentBody = styled.div`
   h3 {
-    font-weight: 600;
     font-size: ${config.fontSizes.heading[3]}px;
-    color: ${props => props.theme.text};
   }
   p {
-    font-weight: 400;
     font-size: ${config.fontSizes.text[0]}px;
     line-height: ${config.lineHeights[4]};
-    color: ${props => props.theme.text};
   }
 `
 
