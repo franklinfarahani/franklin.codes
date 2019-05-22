@@ -28,6 +28,7 @@ declare type Edges<T> = ReadonlyArray<Edge<T>>
 declare type Markdown = {
   readonly id: string
   readonly excerpt?: string
+  readonly html: DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>
   readonly fields: {
     readonly slug: string
     readonly readingTime: {
