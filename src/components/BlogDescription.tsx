@@ -18,6 +18,7 @@ const BlogDescriptionContainer = styled.div`
 const Image = styled(Img)`
   display: block;
   border-radius: 50%;
+  border: 1px solid ${props=>props.theme.info};
   margin-right: 20px;
 `
 
@@ -43,7 +44,7 @@ const BlogDescription = () => {
       <BlogDescriptionText>
         A coding blog written by{' '} 
         <a href={`https://twitter.com/${social.twitter}`}>
-          @{social.twitter}
+          <strong>@{social.twitter}</strong>
         </a>
         <br />
         about web development, and related topics
