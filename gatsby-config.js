@@ -1,3 +1,9 @@
+const queries = require('./src/utils/algolia')
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Franklin Farahani`,
@@ -62,6 +68,15 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries,
+        chunkSize: 10000, // default: 1000
       },
     },
     `gatsby-plugin-feed`,
