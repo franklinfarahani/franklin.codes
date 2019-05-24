@@ -5,6 +5,7 @@ import BlogFeed from '../components/BlogFeed'
 import BlogDescription from '../components/BlogDescription'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
+import Search from '../components/Search'
 
 const BlogFeedContainer = styled.section`
   margin: 0 auto;
@@ -20,6 +21,9 @@ const BlogFeedContainer = styled.section`
 `
 
 const BlogIndex = () => {
+  const searchIndices = [
+    { name: 'Posts', title: 'Blog Posts'},
+  ]
 
   return (
     <Layout>
@@ -29,6 +33,7 @@ const BlogIndex = () => {
       />
       <BlogFeedContainer id="blog">
         <BlogDescription />
+        <Search indices={searchIndices} />
         <BlogFeed />
       </BlogFeedContainer>
     </Layout>
