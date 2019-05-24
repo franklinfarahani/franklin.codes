@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import { Location } from '@reach/router'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import AnchorLink from './AnchorLink'
@@ -112,29 +113,33 @@ const Header = ({ themeSelect, isDark }: HeaderProps) => {
           </Link>
         </LogoContainer>
         <NavContainer>
-          {
-            // if we're on Home page, render an AnchorLink, otherwise a regular Link
-            window.location.pathname === '/' ?
-              <AnchorLink href="#work" >
-                Work
-              </AnchorLink> :
-              <Link to="/#work" partiallyActive={true}>
-                Work
-              </Link>
-          }
+          <Location>
+            {({ location }) => (
+              // if we're on Home page, render an AnchorLink, otherwise a regular Link
+              location.pathname === '/' ?
+                <AnchorLink href="#work" >
+                  Work
+                </AnchorLink> :
+                <Link to="/#work" partiallyActive={true}>
+                  Work
+                </Link>
+            )}
+          </Location>
           <Link to="/blog" activeClassName="active" partiallyActive={true}>
             Blog
           </Link>
-          {
-            // if we're on Home page, render an AnchorLink, otherwise a regular Link
-            window.location.pathname === '/' ?
+          <Location>
+            {({ location }) => (
+              // if we're on Home page, render an AnchorLink, otherwise a regular Link
+              location.pathname === '/' ?
               <AnchorLink href="#contact" >
                 Contact
               </AnchorLink> :
               <Link to="/#contact" partiallyActive={true}>
                 Contact
               </Link>
-          }
+            )}
+          </Location>
         </NavContainer>
         <ThemeSwitcher onChange={themeMap}/>
       </HeadroomContainer>
