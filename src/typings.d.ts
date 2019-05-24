@@ -66,6 +66,12 @@ declare type Markdown = {
   }
 }
 
+declare type Posts = {
+  readonly data: {
+    readonly posts: AllMarkdown
+  }
+}
+
 declare type AllMarkdown = {
   readonly totalCount: number
   readonly edges: Edges<Markdown>
