@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import BlogFeed from '../components/BlogFeed'
-import BlogDescription from '../components/BlogDescription'
+import { BlogFeed, BlogDescription } from '../components/Blog'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 import Search from '../components/Search'

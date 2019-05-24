@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
-import { config } from '../globals'
+import { config } from '../../globals'
 
 const { fontSizes } = config
 

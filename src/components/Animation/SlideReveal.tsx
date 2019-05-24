@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styled from '@emotion/styled'
 
-import config from '../globals/config'
+import config from '../../globals/config'
 
 const { easing } = config
 

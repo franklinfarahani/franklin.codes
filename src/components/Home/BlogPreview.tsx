@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import BlogFeed from '../components/BlogFeed'
+import { BlogFeed } from '../Blog'
 
 const BlogFeedContainer = styled.section`
   margin: 0 auto;

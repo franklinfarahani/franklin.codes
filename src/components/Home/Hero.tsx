@@ -1,14 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 
-import AnchorLink from '../components/AnchorLink'
-import SlideReveal from '../components/SlideReveal'
-import FadeReveal from '../components/FadeReveal'
-import LastTrack from '../components/LastTrack'
+import AnchorLink from '../AnchorLink'
+import SlideReveal from '../Animation/SlideReveal'
+import FadeInReveal from '../Animation/FadeInReveal'
+import LastTrack from './LastTrack'
 
-import mixins from '../utils/mixins'
-import { config } from '../globals'
-import { sizes } from '../globals/media'
+import mixins from '../../utils/mixins'
+import { config } from '../../globals'
+import { sizes } from '../../globals/media'
 
 import { Twitter, Github, LinkedinIn } from 'emotion-icons/fa-brands'
 import { CommentAlt } from 'emotion-icons/fa-solid'
@@ -159,7 +159,7 @@ const Hero = ({data}: HeroProps) => {
     <HeroContainer>
       
       <ContactFloat>
-        <FadeReveal as={Fragment} isLoading={isLoading} delay={800}>
+        <FadeInReveal as={Fragment} isLoading={isLoading} delay={800}>
           <Socials>
             <li>
               <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank">
@@ -177,8 +177,8 @@ const Hero = ({data}: HeroProps) => {
               </a>
             </li>
           </Socials>
-        </FadeReveal>
-        <FadeReveal as={Fragment} isLoading={isLoading} delay={900}>
+        </FadeInReveal>
+        <FadeInReveal as={Fragment} isLoading={isLoading} delay={900}>
           <ComposeEmail href={`mailto:${email}`}>
             <SayHello>
               <span />
@@ -188,7 +188,7 @@ const Hero = ({data}: HeroProps) => {
               <IconComment />
             </IconCommentWrapper>          
           </ComposeEmail>
-        </FadeReveal>
+        </FadeInReveal>
       </ContactFloat>
       
       <HeroContent>      
@@ -201,16 +201,16 @@ const Hero = ({data}: HeroProps) => {
         <SlideReveal as="h2" isLoading={isLoading} delay={800}>
           I help brands connect with their customers through good design, engaging user experience, and clean code.
         </SlideReveal>
-        <FadeReveal as={Fragment} isLoading={isLoading} delay={800}>
+        <FadeInReveal as={Fragment} isLoading={isLoading} delay={800}>
           <LearnMore href="#work">
             <span>Learn More</span>
             <span>{' '}→</span>
           </LearnMore>
-        </FadeReveal>
+        </FadeInReveal>
       </HeroContent>
-      <FadeReveal as={Fragment} isLoading={isLoading} delay={900}>
+      <FadeInReveal as={Fragment} isLoading={isLoading} delay={900}>
         <LastTrack />
-      </FadeReveal>
+      </FadeInReveal>
     </HeroContainer>
   )
 }

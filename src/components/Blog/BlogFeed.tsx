@@ -3,9 +3,9 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
-import { config } from '../globals'
-import Tag from '../components/Tag'
-import Divider from '../components/Divider'
+import { config } from '../../globals'
+import Tag from '../Tag'
+import Divider from '../Divider'
 
 const { fontSizes, borderRadius, shadows } = config
 

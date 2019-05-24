@@ -2,12 +2,12 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
-import AnchorLink from './AnchorLink'
+import AnchorLink from '../AnchorLink'
 import { Twitter, Github, LinkedinIn } from 'emotion-icons/fa-brands'
 import { ChevronUp } from 'emotion-icons/fa-solid'
 
-import { config } from '../globals'
-import mixins from '../utils/mixins'
+import { config } from '../../globals'
+import mixins from '../../utils/mixins'
 
 const FooterWrapper = styled.footer`
   max-width: 1000px;

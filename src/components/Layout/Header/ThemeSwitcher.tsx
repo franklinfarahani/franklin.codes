@@ -3,7 +3,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { Theme } from '../globals/theme'
+import { Theme } from '../../../globals/theme'
 
 const width = 60
 const circleSize = 23

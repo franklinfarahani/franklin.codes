@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { connectSearchBox } from 'react-instantsearch-dom'
 
-import config from '../globals/config'
+import config from '../../globals/config'
 const { borderRadius, transition } = config
 
 const SearchInput = styled.input`

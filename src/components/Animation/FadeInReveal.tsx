@@ -2,18 +2,18 @@ import React, {Fragment} from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styled from '@emotion/styled'
 
-import config from '../globals/config'
+import config from '../../globals/config'
 
 const { easing } = config
 
-type FadeRevealProps = {
+type FadeInRevealProps = {
   isLoading: boolean
   as?: (keyof JSX.IntrinsicElements) | typeof Fragment
   delay ?: number
   children: React.ReactNode
 }
 
-const FadeReveal = ({isLoading, as = 'div', delay = 0, children}: FadeRevealProps) => {
+const FadeInReveal = ({isLoading, as = 'div', delay = 0, children}: FadeInRevealProps) => {
   const Element = as
 
   const Animated = styled.div`
@@ -40,4 +40,4 @@ const FadeReveal = ({isLoading, as = 'div', delay = 0, children}: FadeRevealProp
   )
 }
 
-export default FadeReveal
+export default FadeInReveal

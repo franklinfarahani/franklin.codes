@@ -3,10 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
-import Hero from '../components/Hero'
-import Work from '../components/Work'
-import BlogPreview from '../components/BlogPreview'
-import Contact from '../components/Contact'
+import { Hero, Work, BlogPreview, Contact } from '../components/Home'
 
 import inspect from '../utils/inspect'
 

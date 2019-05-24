@@ -2,10 +2,10 @@ import React from 'react'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
-import mixins from '../utils/mixins'
-import { config } from '../globals'
-import Tag from '../components/Tag'
-import FadeUpReveal from '../components/FadeUpReveal'
+import mixins from '../../utils/mixins'
+import { config } from '../../globals'
+import Tag from '../Tag'
+import FadeUpReveal from '../Animation/FadeUpReveal'
 
 import { Code, ExternalLinkAlt } from 'emotion-icons/fa-solid'
 

@@ -3,12 +3,12 @@ import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { ThemeProvider } from 'emotion-theming'
 
-import { reset, fonts, config, themes } from '../globals'
-import { Theme } from '../globals/theme'
+import { reset, fonts, config, themes } from '../../globals'
+import { Theme } from '../../globals/theme'
 
 import Header from './Header'
 import Footer from './Footer'
-import useLocalStorage from '../utils/useLocalStorage'
+import useLocalStorage from '../../utils/useLocalStorage'
 
 const Content = styled.main`
   padding: 0 60px;
