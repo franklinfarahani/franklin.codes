@@ -9,14 +9,12 @@ import Search from '../components/Search'
 const BlogFeedContainer = styled.section`
   margin: 0 auto;
   max-width: 1000px;
-  h2:first-of-type {
-    font-weight: 700;
-    margin-bottom: 5vh;
-    span {
-      font-weight: 500;
-      color: ${props => props.theme.primary};
-    }
-  }
+`
+
+const BlogHeader = styled.header`
+  width: 500px;
+  padding: 75px 5px;
+  margin: 0 auto;
 `
 
 const BlogIndex = () => {
@@ -31,8 +29,10 @@ const BlogIndex = () => {
         keywords={['blog', 'gatsby', 'javascript', 'react']}
       />
       <BlogFeedContainer id="blog">
-        <BlogDescription />
-        <Search indices={searchIndices} />
+        <BlogHeader>
+          <BlogDescription />
+          <Search indices={searchIndices} />
+        </BlogHeader>
         <BlogFeed />
       </BlogFeedContainer>
     </Layout>

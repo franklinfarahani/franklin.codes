@@ -8,9 +8,10 @@ const { borderRadius, transition } = config
 const SearchInput = styled.input`
   outline: none;
   border: none;
+  flex: 1;
   font-size: 1em;
   transition: ${transition};
-  border-radius: ${borderRadius.round};
+  border-radius: ${borderRadius.sharp};
 `
 
 const Form = styled.form`

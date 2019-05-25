@@ -9,7 +9,6 @@ const { fontSizes } = config
 
 const BlogDescriptionContainer = styled.div`
   width: 500px;
-  padding: 100px 5px;
   margin: 0 auto;
   display: flex;
   align-items: center;
