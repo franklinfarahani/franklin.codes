@@ -6,7 +6,7 @@ import {
   Hits,
   connectStateResults,
 } from 'react-instantsearch-dom'
-import { Algolia } from 'emotion-icons/fa-brands'
+import AlgoliaLogo from './AlgoliaLogo'
 
 import Input from './Input'
 import PostHit from './PostHit'
@@ -24,17 +24,10 @@ type HitsWrapperProps = {
 const HitsWrapper = styled.div<HitsWrapperProps>`
   display: ${props => (props.show ? 'grid' : 'none')};
   max-height: 80vh;
-  overflow: scroll;
+  overflow: auto;
   z-index: 2;
   -webkit-overflow-scrolling: touch;
 
-  * {
-    margin-top: 0;
-    padding: 0;
-  }
-  ul {
-    list-style: none;
-  }
   mark {
     color: ${props => props.theme.text};
     background: ${props => props.theme.bg};
@@ -58,10 +51,13 @@ const HitsWrapper = styled.div<HitsWrapperProps>`
   }
 ` as React.FunctionComponent<HitsWrapperProps>
 
-const By = styled.span`
-  font-size: 0.6em;
-  text-align: end;
-  padding: 0;
+const PoweredBy = styled.span`
+  a {
+    width: 100%;
+    height: 30px;
+    margin-top: 0;
+    border-top: 1px solid ${props=>props.theme.info};
+  }
 `
 
 const events = ['mousedown', 'touchstart']
@@ -133,12 +129,11 @@ const Search = ({indices}: SearchProps) => {
               </Results>
             </Index>
           ))}
-          <By>
-            Powered by{' '}
-            <a href="https://www.algolia.com">
-              <Algolia size="1em" /> Algolia
+          <PoweredBy>
+            <a href="https://algolia.com">
+              <AlgoliaLogo />
             </a>
-          </By>
+          </PoweredBy>          
         </HitsWrapper>
       
     </InstantSearch>
