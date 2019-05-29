@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { connectSearchBox } from 'react-instantsearch-dom'
+import { Search } from 'emotion-icons/fa-solid'
 
 import config from '../../globals/config'
 const { borderRadius, transition } = config
@@ -10,13 +11,28 @@ const SearchInput = styled.input`
   border: none;
   flex: 1;
   font-size: 1em;
+  line-height: 2;
+  margin-left: -1.75em;
+  padding-left: 2.5em;
   transition: ${transition};
   border-radius: ${borderRadius.sharp};
+  &::placeholder {
+    color: ${props=>props.theme.info};
+  }
 `
 
 const Form = styled.form`
   display: flex;
   align-items: center;
+  margin-top: 1em;
+`
+
+const IconSearch = styled(Search)`
+  width: 1em;
+  margin-left: 0.75em;
+  pointer-events: none;
+  z-index: 4;
+  color: ${props=>props.theme.info};
 `
 
 type InputProps = {
@@ -32,14 +48,14 @@ const Input = ({ refine, ...rest }: InputProps) => {
 
   return (
     <Form>
+      <IconSearch />
       <SearchInput
         type="text"
         placeholder="Search"
         aria-label="Search"
         onChange={handleChange}
         {...rest}
-      />
-      {/* <SearchIcon /> */}
+      />      
     </Form>
   )
 }

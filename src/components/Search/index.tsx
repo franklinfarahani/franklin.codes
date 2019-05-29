@@ -11,10 +11,11 @@ import AlgoliaLogo from './AlgoliaLogo'
 import Input from './Input'
 import PostHit from './PostHit'
 
+import { config } from '../../globals'
+const {shadows, borderRadius} = config
+
 const Root = styled.div`
   position: relative;
-  display: grid;
-  grid-gap: 1em;
 `
 
 type HitsWrapperProps = {
@@ -30,7 +31,7 @@ const HitsWrapper = styled.div<HitsWrapperProps>`
 
   mark {
     color: ${props => props.theme.text};
-    background: ${props => props.theme.bg};
+    background: ${props => props.theme.highlight};
   }
   header {
     display: flex;
@@ -38,9 +39,9 @@ const HitsWrapper = styled.div<HitsWrapperProps>`
     margin-bottom: 0.3em;
     h3 {
       color: white;
-      background: ${props => props.theme.info};
-      padding: 0.1em 0.4em;
-      border-radius: 4px;
+      background: ${props => props.theme.bg};
+      padding: 0.2em 0.4em;
+      border-radius: 8px;
     }
   }
   h3 {
@@ -48,6 +49,18 @@ const HitsWrapper = styled.div<HitsWrapperProps>`
   }
   h4 {
     margin-bottom: 0.3em;
+  }
+  position: absolute;
+  top: calc(100% + 0.5em);
+  width: 100%;
+  box-shadow: ${shadows.medium};
+  padding: 0.7em 1em 0.4em;
+  background: ${props => props.theme.cardBg};
+  border-radius: ${borderRadius.round};
+  li + li {
+    margin-top: 0.7em;
+    padding-top: 0.7em;
+    border-top: 1px solid ${props => props.theme.bg};
   }
 ` as React.FunctionComponent<HitsWrapperProps>
 

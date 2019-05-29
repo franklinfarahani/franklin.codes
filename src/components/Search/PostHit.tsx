@@ -14,8 +14,9 @@ const PostHit = (clickHandler: ()=>void) => ({ hit }: PostHitProps) => (
       </h3>
     </Link>
     <div>
-      &nbsp;
       <Highlight attribute="date" hit={hit} tagName="mark" />
+      {' - '}
+      <Highlight attribute="tags" hit={hit} tagName="mark" />
     </div>
     <Snippet attribute="excerpt" hit={hit} tagName="mark" />
   </div>
