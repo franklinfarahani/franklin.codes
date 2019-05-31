@@ -12,6 +12,10 @@ const fontSizes = {
   tag: 0.8125,
   footer: 0.95,
   meta: 0.9375,
+  search: {
+    title: .875,
+    body: .875,
+  },
   blogCardTitle: 1.3125,
   blogDescription: 1.6125,
   text: [20, 20],
