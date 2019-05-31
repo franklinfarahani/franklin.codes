@@ -16,13 +16,20 @@ const PostGrid = styled.div`
 `
 
 const Post = styled.article`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 20px;
-  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
   background: ${props => props.theme.cardBg};
   border-radius: ${borderRadius.round};
   box-shadow: ${shadows.low};
+  overflow: hidden;
+`
+
+const PostContent = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 `
 
 const PostMeta = styled.header`
@@ -30,7 +37,7 @@ const PostMeta = styled.header`
     display: inline;
     font-size: ${fontSizes.meta}em;
     font-weight: 400;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.link};
   }
   span {
     font-weight: 700;
@@ -38,23 +45,25 @@ const PostMeta = styled.header`
   }
 `
 
-const PostContent = styled(Link)`
+const PostLink = styled(Link)`
+  flex: 1;
   display: flex;
   flex-direction: column;
 `
 
 const PostTitle = styled.h4`
-  flex: 1;
   font-size: ${fontSizes.blogCardTitle}em;
-  color: ${props => props.theme.text};
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1.2;
   margin-top: 6px;
   margin-bottom: 0;
 `
 
 const ImgContainer = styled.div`
-  padding: 20px 0;
-  margin: 0 -20px;
+  height: 50%;
+  .gatsby-image-wrapper {
+    height: 100%;
+  }
 `
 
 const PostTags = styled.div`
@@ -85,23 +94,24 @@ const BlogFeed = ({quantity}: BlogFeedProps) => {
         const { title, date, tags, cover } = frontmatter
         return (
           <Post key={slug}>
-            <PostMeta>
-              <time>{date}</time>
-              <Divider />
-              <div>{readingTime.text}</div>
-            </PostMeta>
-            <PostContent to={`/blog${slug}`}>
-              <PostTitle>{title}</PostTitle>
-              <ImgContainer>
-                {cover.childImageSharp && 
-                  <Img fluid={cover.childImageSharp.fluid} />
-                }
-              </ImgContainer>
-            </PostContent>
+            <ImgContainer>
+              {cover.childImageSharp && 
+                <Img fluid={cover.childImageSharp.fluid} />
+              }
+            </ImgContainer>
+            <PostContent>
+              <PostMeta>
+                <time>{date}</time>
+                <Divider />
+                <div>{readingTime.text}</div>
+              </PostMeta>
+              <PostLink to={`/blog${slug}`}>
+                <PostTitle>{title}</PostTitle>
+              </PostLink>
               <PostTags>
                 {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
               </PostTags>
-            
+            </PostContent>
           </Post>
         )
       })}
@@ -129,7 +139,7 @@ const blogQuery = graphql`
               tags
               cover {
                 childImageSharp{
-                  fluid(maxWidth: 250, maxHeight: 140, quality: 100) {
+                  fluid(maxWidth: 276, quality: 100) {
                     ...GatsbyImageSharpFluid
                     presentationWidth
                   }
