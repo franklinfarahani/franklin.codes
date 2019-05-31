@@ -14,6 +14,7 @@ const SearchInput = styled.input`
   line-height: 2;
   margin-left: -1.75em;
   padding-left: 2.5em;
+  padding-right: 0.75em;
   transition: ${transition};
   border-radius: ${borderRadius.sharp};
   &::placeholder {
@@ -50,7 +51,7 @@ const Input = ({ refine, ...rest }: InputProps) => {
     <Form>
       <IconSearch />
       <SearchInput
-        type="text"
+        type="search"
         placeholder="Search"
         aria-label="Search"
         onChange={handleChange}
