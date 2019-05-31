@@ -12,7 +12,7 @@ import Input from './Input'
 import PostHit from './PostHit'
 
 import { config } from '../../globals'
-const {shadows, borderRadius} = config
+const {shadows, borderRadius, fontSizes} = config
 
 const Root = styled.div`
   position: relative;
@@ -34,34 +34,24 @@ const HitsWrapper = styled.div<HitsWrapperProps>`
     background: ${props => props.theme.highlight};
   }
   header {
+    border-bottom: 1px solid ${props => props.theme.bg};
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.3em;
     h3 {
-      color: white;
-      background: ${props => props.theme.bg};
-      padding: 0.2em 0.4em;
-      border-radius: 8px;
+      margin-bottom: 0;
+      font-weight: 500;
+      font-size: ${fontSizes.tag}em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: ${props => props.theme.info};
+      padding: 1em 1.25em .75em;
     }
-  }
-  h3 {
-    margin: 0 0 0.5em;
-  }
-  h4 {
-    margin-bottom: 0.3em;
   }
   position: absolute;
   top: calc(100% + 0.5em);
   width: 100%;
-  box-shadow: ${shadows.medium};
-  padding: 0.7em 1em 0.4em;
+  box-shadow: ${shadows.high};
   background: ${props => props.theme.cardBg};
   border-radius: ${borderRadius.round};
-  li + li {
-    margin-top: 0.7em;
-    padding-top: 0.7em;
-    border-top: 1px solid ${props => props.theme.bg};
-  }
 ` as React.FunctionComponent<HitsWrapperProps>
 
 const PoweredBy = styled.span`
@@ -69,19 +59,34 @@ const PoweredBy = styled.span`
     width: 100%;
     height: 30px;
     margin-top: 0;
-    border-top: 1px solid ${props=>props.theme.info};
+    border-top: 1px solid ${props=>props.theme.bg};
   }
+`
+
+const NoResults = styled.p`
+  padding: 1em;
+  margin: 0 auto;
+  font-size: ${fontSizes.search.title}em;
+  text-align: center;
 `
 
 const events = ['mousedown', 'touchstart']
 
 const Results = connectStateResults(
-  ({ searchState, searchResults, children }) =>
-    searchResults && searchResults.nbHits ? <div><p>{searchResults.nbHits} result{searchResults.nbHits > 1 ? 's' : ''}</p>{children}</div> : <p>No results for {searchState.query}</p>
+  ({ searchState, searchResults, children }) => (
+    searchResults && searchResults.nbHits ? 
+      <div>
+        {children}
+      </div> : 
+      <NoResults>No results found for <strong>{searchState.query}</strong>! 😅</NoResults>
+  )
 )
 
 type SearchProps = {
-  indices: any
+  indices: {
+    name: string,
+    title: string,
+  }[]
 }
 
 type Entry = {
