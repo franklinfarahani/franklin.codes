@@ -13,7 +13,7 @@ const BlogFeedContainer = styled.section`
 
 const BlogHeader = styled.header`
   width: 500px;
-  padding: 4em 5px;
+  padding: 3em 5px 5em;
   margin: 0 auto;
 `
 

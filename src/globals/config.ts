@@ -13,6 +13,7 @@ const fontSizes = {
   footer: 0.95,
   meta: 0.9375,
   blogCardTitle: 1.3125,
+  blogDescription: 1.6125,
   text: [20, 20],
   heading: [14, 20, 24, 28, 48, 64, 72, 80],
   nav: 20,

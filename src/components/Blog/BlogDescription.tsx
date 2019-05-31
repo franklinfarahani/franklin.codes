@@ -1,6 +1,6 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import { useStaticQuery, graphql } from 'gatsby'
+// import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
 import { config } from '../../globals'
@@ -14,15 +14,18 @@ const BlogDescriptionContainer = styled.div`
   align-items: center;
 `
 
-const Image = styled(Img)`
-  display: block;
-  border-radius: 50%;
-  border: 1px solid ${props=>props.theme.info};
-  margin-right: 20px;
-`
+// const Image = styled(Img)`
+//   display: block;
+//   border-radius: 50%;
+//   border: 1px solid ${props=>props.theme.info};
+//   margin-right: 20px;
+// `
 
-const BlogDescriptionText = styled.p`
-  font-size: ${fontSizes.text[1]}px;
+const BlogDescriptionText = styled.div`
+  margin: 0 auto;
+  font-size: ${fontSizes.blogDescription}em;
+  font-weight: 500;
+  text-align: center;
 `
 /**
  * Blog description component that queries for author
@@ -31,45 +34,36 @@ const BlogDescriptionText = styled.p`
  * 
  */
 const BlogDescription = () => {
-  const data = useStaticQuery(blogDescriptionQuery)
-  const { author, social } = data.site.siteMetadata
+  // const data = useStaticQuery(blogDescriptionQuery)
+  // const { author, social } = data.site.siteMetadata
   
   return (
     <BlogDescriptionContainer>
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-      />
       <BlogDescriptionText>
-        A coding blog written by{' '} 
-        <a href={`https://twitter.com/${social.twitter}`}>
-          <strong>@{social.twitter}</strong>
-        </a>
-        <br />
-        about web development, and related topics
+        My coding blog about JavaScript, <br/>Web Development, and related topics.
       </BlogDescriptionText>
     </BlogDescriptionContainer>
   )
 }
 
-const blogDescriptionQuery = graphql`
-  query blogDescriptionQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 56, height: 56, quality: 100) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
-      }
-    }
-  }
-`
+// const blogDescriptionQuery = graphql`
+//   query blogDescriptionQuery {
+//     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+//       childImageSharp {
+//         fixed(width: 56, height: 56, quality: 100) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//     site {
+//       siteMetadata {
+//         author
+//         social {
+//           twitter
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default BlogDescription
