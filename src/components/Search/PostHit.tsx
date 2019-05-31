@@ -14,7 +14,7 @@ const TagWrapper = styled.div`
     span {
       display: inline-block;
       padding: 1px 4px 0; 
-      margin-right: 6px;
+      margin-right: 3px;
       font-size: ${config.fontSizes.tag}em;
       font-weight: 700;
       text-transform: uppercase;
@@ -37,10 +37,13 @@ const HitMeta = styled.div`
   flex: 1;
   padding: 1em;
   border-right: 1px solid ${props => props.theme.bg};
-  h3 {
-    font-size: ${config.fontSizes.search.title}em;
-    font-weight: 600;
-    margin-bottom: 4px;
+  a {
+    display: block;
+    h3 {
+      font-size: ${config.fontSizes.search.title}em;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
   }
 `
 
@@ -68,7 +71,7 @@ const PostHit = (clickHandler: ()=>void) => ({ hit }: PostHitProps) => (
     </HitMeta>
     <HitBody>
       <Snippet attribute="excerpt" hit={hit} tagName="mark" />
-      {' ...'}
+      {'...'}
     </HitBody>    
   </Wrapper>
 )
