@@ -39,6 +39,7 @@ const reset = css`
     }
   }
   ::selection {
+    color: ${colors.text};
     background-color: ${colors.highlight};
   }
   h1,

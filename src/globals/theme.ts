@@ -16,7 +16,7 @@ export type ThemeColors = {
 }
 
 export const colors: {[key: string] : string} = {
-  lightYellow: '#FFEF5F',
+  lightYellow: 'rgba(255, 235, 59, .99)',
   yellow: '#FFC700',
   orange: '#FF9900',
   white: '#FFFFFF',
@@ -36,7 +36,7 @@ export const light: ThemeColors = {
   text: colors.almostBlack,
   link: colors.darkGrey,
   info: colors.lightGrey,
-  highlight: colors.lighterGrey,
+  highlight: colors.lightYellow,
   bg: colors.almostWhite,
   cardBg: colors.white,
 }
