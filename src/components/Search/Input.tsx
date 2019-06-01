@@ -4,7 +4,7 @@ import { connectSearchBox } from 'react-instantsearch-dom'
 import { Search } from 'emotion-icons/fa-solid'
 
 import config from '../../globals/config'
-const { borderRadius, transition } = config
+const { borderRadius, transition, shadows } = config
 
 const SearchInput = styled.input`
   outline: none;
@@ -17,6 +17,7 @@ const SearchInput = styled.input`
   padding-right: 0.75em;
   transition: ${transition};
   border-radius: ${borderRadius.sharp};
+  box-shadow: ${shadows.medium};
   &::placeholder {
     color: ${props=>props.theme.info};
   }
