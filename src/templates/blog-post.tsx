@@ -11,7 +11,7 @@ import Divider from '../components/Divider'
 
 import { config } from '../globals'
 
-const { fontSizes } = config
+const { fontSizes, lineHeights } = config
 
 const ArticleWrapper = styled.article`
   
@@ -19,28 +19,35 @@ const ArticleWrapper = styled.article`
 
 const FeaturedImage = styled.div`
   margin: 0 -60px;
+  grid-area: image;
 `
 
 const ArticleBodyWrapper = styled.section`
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 40px auto;
   display: grid;
-  grid-template-rows: auto auto;
   grid-template-columns: 1fr 700px 1fr;
-  grid-gap: 20px;
+  grid-template-areas:
+    "..... title .."
+    "..... image .."
+    "tldr  body  .."
+    "share body  ..";
+  grid-row-gap: 32px;
+  grid-column-gap: 60px;
 `
 
 const LeftSidebar = styled.aside`
-  grid-row-start: 2;
-  grid-column-start: 1;
+  grid-area: tldr;
 `
 
 const ArticleHeader = styled.header`
-  grid-row-start: 1;
-  grid-column-start: 2;
+  grid-area: title;
+
   h1 {
     font-size: ${fontSizes.article.title}em;
     font-weight: 500;
+    line-height: ${lineHeights[1]};
+    margin: 14px 0;
   }
 `
 
@@ -58,9 +65,33 @@ const ArticleMeta = styled.div`
 `
 
 const ArticleBody = styled.div`
+  grid-area: body;
   font-size: ${fontSizes.article.body}em;
-  grid-row-start: 2;
-  grid-column-start: 2;
+  line-height: ${lineHeights[4]};
+  
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.33em;
+  }
+  h3 {
+    font-size: 1.17em;
+  }
+  p {
+    margin-bottom: 16px;
+  }
+  blockquote {
+    border-left: 3px solid ${props => props.theme.primary};
+    margin: 30px 0;
+    padding: 20px 30px;
+    color: ${props => props.theme.link};
+    font-size: 25px;
+    p {
+      margin: 0;
+    }
+  }
+
 `
 
 type BlogPostProps = {
@@ -85,11 +116,6 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
         description={description || excerpt}
       />
       <ArticleWrapper>
-        <FeaturedImage>
-          {cover.childImageSharp && 
-            <Img fluid={cover.childImageSharp.fluid} />
-          }
-        </FeaturedImage>
         <ArticleBodyWrapper>
           <LeftSidebar>
             <div>
@@ -114,6 +140,11 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
             <h1>{title}</h1>
             {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
           </ArticleHeader>
+          <FeaturedImage>
+            {cover.childImageSharp && 
+              <Img fluid={cover.childImageSharp.fluid} />
+            }
+          </FeaturedImage>
           <ArticleBody>
             <div dangerouslySetInnerHTML={{ __html: html }} />
             <hr/>
@@ -177,7 +208,7 @@ export const pageQuery = graphql`
         tags
         cover {
           childImageSharp{
-            fluid(maxWidth: 1920, maxHeight: 530, quality: 100) {
+            fluid(maxWidth: 820, maxHeight: 350, quality: 100) {
               ...GatsbyImageSharpFluid
               presentationWidth
             }
