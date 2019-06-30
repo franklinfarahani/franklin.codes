@@ -22,6 +22,7 @@ const fontSizes = {
     title: 2.3,
     body: 1.375,
     tldr: 0.9375,
+    blockquote: 1.1364,
   },
   text: [20, 20],
   heading: [14, 20, 24, 28, 48, 64, 72, 80],
