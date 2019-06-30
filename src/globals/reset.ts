@@ -8,7 +8,8 @@ const reset = css`
   html {
     box-sizing: border-box;
     width: 100%;
-    overflow-y: scroll;
+    height: 100.06%;
+    /* overflow-y: scroll; */
   }
   *,
   *:before,
