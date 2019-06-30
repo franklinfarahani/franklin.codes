@@ -16,7 +16,7 @@ const Content = styled.main`
   background-color: ${props=>props.theme.bg};
   min-height: calc(100vh - 113px - 108.25px);
   z-index:1;
-  p a {
+  p a:not(.gatsby-resp-image-link) {
     margin-bottom: -2px;
     position: relative;
     &::after {
@@ -28,7 +28,7 @@ const Content = styled.main`
       bottom: -2px;
       border-bottom: 2px solid ${props=>props.theme.primary};
       transition: ${config.transition};
-      z-index:-1;
+      /* z-index:-1; */
     }
     &:focus,
     &:hover {
