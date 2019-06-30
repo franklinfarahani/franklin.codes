@@ -55,6 +55,8 @@ const Tldr = styled.div`
 `
 
 const Share = styled.div`
+  position: sticky;
+  top: 10em;
   ul {
     margin-top: 20px;
     li {
