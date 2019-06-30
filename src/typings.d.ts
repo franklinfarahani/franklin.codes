@@ -47,6 +47,7 @@ declare type Markdown = {
     readonly cover: {
       readonly childImageSharp?: {
         readonly fluid: FluidObject
+        readonly fixed: FixedObject
       }
     }
   }
