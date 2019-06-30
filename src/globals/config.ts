@@ -18,6 +18,10 @@ const fontSizes = {
   },
   blogCardTitle: 1.3125,
   blogDescription: 1.6125,
+  article: {
+    title: 2,
+    body: 1.375
+  },
   text: [20, 20],
   heading: [14, 20, 24, 28, 48, 64, 72, 80],
   nav: 20,
