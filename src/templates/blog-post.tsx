@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Twitter, Facebook, LinkedinIn } from 'emotion-icons/fa-brands'
 
 import { BlogDescription } from '../components/Blog'
 import Layout from '../components/Layout'
@@ -28,16 +29,53 @@ const ArticleBodyWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr 700px 1fr;
   grid-template-areas:
-    "..... title .."
-    "..... image .."
-    "tldr  body  .."
-    "share body  ..";
+    "......... title .."
+    "......... image .."
+    "left-side body  ..";
   grid-row-gap: 32px;
   grid-column-gap: 60px;
 `
 
 const LeftSidebar = styled.aside`
-  grid-area: tldr;
+  grid-area: left-side;
+`
+
+const Tldr = styled.div`
+  font-size: ${fontSizes.article.tldr}em;
+  margin-bottom: 5em;
+
+  header {
+    font-weight: 700;
+    color: ${props => props.theme.primary};
+  }
+  span {
+    font-weight: 500;
+    color: ${props => props.theme.link};    
+  }
+`
+
+const Share = styled.div`
+  ul {
+    margin-top: 20px;
+    li {
+      margin: 12px 0;
+    }
+  }
+`
+
+const IconTwitter = styled(Twitter)`
+  width: 22px;
+  height: 100%;
+`
+
+const IconFacebook = styled(Facebook)`
+  width: 22px;
+  height: 100%;
+`
+
+const IconLinkedIn = styled(LinkedinIn)`
+  width: 22px;
+  height: 100%;
 `
 
 const ArticleHeader = styled.header`
@@ -118,18 +156,18 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
       <ArticleWrapper>
         <ArticleBodyWrapper>
           <LeftSidebar>
-            <div>
-              TLDR:
-              {description}
-            </div>
-            <div>
+            <Tldr>
+              <header>TL;DR</header>
+              <span>{description}</span>
+            </Tldr>
+            <Share>
               Share:
               <ul>
-                <li>Twitter</li>
-                <li>Facebook</li>
-                <li>Linkedin</li>
+                <li><IconTwitter /></li>
+                <li><IconFacebook /></li>
+                <li><IconLinkedIn /></li>
               </ul>
-            </div>
+            </Share>
           </LeftSidebar>
           <ArticleHeader>
             <ArticleMeta>
