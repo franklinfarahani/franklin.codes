@@ -184,8 +184,24 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
                               <IconTwitter />
                         </a>
                       </li>
-                      <li><IconFacebook /></li>
-                      <li><IconLinkedIn /></li>
+                      <li>
+                        <a
+                          rel="noopener"
+                          target="_blank"
+                          href={'https://www.facebook.com/sharer/sharer.php' +
+                            `?u=${location.href}`}>
+                              <IconFacebook />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          rel="noopener"
+                          target="_blank"
+                          href={'https://www.linkedin.com/sharing/share-offsite/' +
+                            `?url=${location.href}`}>
+                              <IconLinkedIn />
+                        </a>
+                      </li>
                     </ul>
                   )
                 }}
