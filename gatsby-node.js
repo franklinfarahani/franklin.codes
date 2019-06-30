@@ -9,6 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/blog/" } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -16,6 +17,9 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                readingTime {
+                  text
+                }
               }
               frontmatter {
                 title
