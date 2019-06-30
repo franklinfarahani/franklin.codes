@@ -72,12 +72,12 @@ const IconTwitter = styled(Twitter)`
 `
 
 const IconFacebook = styled(Facebook)`
-  width: 22px;
+  width: 21px;
   height: 100%;
 `
 
 const IconLinkedIn = styled(LinkedinIn)`
-  width: 22px;
+  width: 21px;
   height: 100%;
 `
 
@@ -122,12 +122,42 @@ const ArticleBody = styled.div`
   p {
     margin-bottom: 16px;
   }
+  ul, ol {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    ul, ol, p {
+      margin: 0;
+    }
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style: none;
+    counter-reset: custom-counter;
+    li {
+      counter-increment: custom-counter;
+      &::before {
+        content: counter(custom-counter) " .";
+        position: relative;
+        font-size: 12px;
+        padding: 2px 8px 1px;
+        margin-right: 8px;
+        bottom: 3px;
+        font-weight: 600;
+      }
+    }
+  }
   blockquote {
     border-left: 3px solid ${props => props.theme.primary};
     margin: 30px 0;
     padding: 20px 30px;
     color: ${props => props.theme.link};
-    font-size: 25px;
+    font-size: ${fontSizes.article.blockquote}em;
     p {
       margin: 0;
     }
