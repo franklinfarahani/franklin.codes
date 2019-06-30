@@ -1,4 +1,5 @@
 import React from 'react'
+import { Location } from '@reach/router'
 import styled from '@emotion/styled'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -144,6 +145,7 @@ type BlogPostProps = {
 
 const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
   const siteTitle = data.site.siteMetadata.title
+  const { social } = data.site.siteMetadata
   const { html, excerpt, fields } = data.markdownRemark
   const { readingTime } = fields
   const { title, description, tags, date, cover } = data.markdownRemark.frontmatter
@@ -164,11 +166,30 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
             </Tldr>
             <Share>
               Share:
-              <ul>
-                <li><IconTwitter /></li>
-                <li><IconFacebook /></li>
-                <li><IconLinkedIn /></li>
-              </ul>
+              {/* Grab address from Location to be used in creating 'Share' links
+              Also use first 2 article tags as hashtags for twitter sharing */}
+              <Location>
+                {({ location }) => {
+                  return (
+                    <ul>
+                      <li>
+                        <a
+                          rel="noopener"
+                          target="_blank"
+                          href={'https://twitter.com/intent/tweet' +
+                            `?text=${title}` +
+                            `&via=${social.twitter}` +
+                            `&hashtags=${tags.slice(0,2).map((tag) => tag+',')}` +
+                            `&url=${location.href}`}>
+                              <IconTwitter />
+                        </a>
+                      </li>
+                      <li><IconFacebook /></li>
+                      <li><IconLinkedIn /></li>
+                    </ul>
+                  )
+                }}
+              </Location>
             </Share>
           </LeftSidebar>
           <ArticleHeader>
@@ -229,6 +250,9 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        social {
+          twitter
+        }
       }
     }
     markdownRemark(
@@ -237,6 +261,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       fields {
+        slug
         readingTime {
           text
         }
