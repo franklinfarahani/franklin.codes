@@ -16,7 +16,7 @@ export const sizes = {
 export const media = (Object.keys(sizes) as Array<keyof typeof sizes>).reduce(
   (acc, label) => {
     acc[label] = (first: any, ...interpolations: any[]) => css`
-      @media (min-width: ${sizes[label] / 16}em) {
+      @media (max-width: ${sizes[label] / 16}em) {
         ${css(first, ...interpolations)}
       }
     `
