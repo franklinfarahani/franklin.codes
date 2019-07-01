@@ -18,6 +18,7 @@ const fontSizes = {
   },
   blogCardTitle: 1.3125,
   blogDescription: 1.6125,
+  bio: 1.1364,
   article: {
     title: 2.3,
     body: 1.375,
