@@ -9,9 +9,21 @@ This is my first post on my new fake blog! How exciting!
 
 I'm sure I'll write a lot more interesting things in the future.
 
-```
-let testFunc = (input) => {
-  console.log(input);
+```jsx
+class Button extends React.Component {
+  state = {
+    textColor: slowlyCalculateTextColor(this.props.color)
+  };
+  render() {
+    return (
+      <button className={
+        'Button-' + this.props.color +
+        ' Button-text-' + this.state.textColor // 🔴 Stale on `color` prop updates
+      }>
+        {this.props.children}
+      </button>
+    );
+  }
 }
 ```
 
