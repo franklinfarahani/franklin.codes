@@ -85,13 +85,13 @@ const IconLinkedIn = styled(LinkedinIn)`
 
 const IconChevronLeft = styled(ChevronLeft)`
   color: ${props => props.theme.primary};
-  width: 9px;
+  width: 8px;
   margin-right: 8px;
 `
 
 const IconChevronRight = styled(ChevronRight)`
   color: ${props => props.theme.primary};
-  width: 9px;
+  width: 8px;
   margin-left: 8px;
 `
 
@@ -135,6 +135,9 @@ const ArticleBody = styled.div`
   }
   p {
     margin-bottom: 16px;
+    a::after {
+      bottom: 1px !important;
+    }
   }
   ul, ol {
     display: block;
@@ -180,6 +183,9 @@ const ArticleBody = styled.div`
   pre {
     margin: 2em -1.5em;
     font-size: ${fontSizes.article.code}em;
+    &.vscode-highlight{
+      padding-top: 1.5em;
+    }
   }
 `
 const ArticleFooter = styled.footer`
