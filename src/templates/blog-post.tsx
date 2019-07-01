@@ -176,6 +176,11 @@ const ArticleBody = styled.div`
       margin: 0;
     }
   }
+
+  pre {
+    margin: 2em -1.5em;
+    font-size: ${fontSizes.article.code}em;
+  }
 `
 const ArticleFooter = styled.footer`
   grid-area: footer;

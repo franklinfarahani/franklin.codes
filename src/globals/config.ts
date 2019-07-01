@@ -1,6 +1,6 @@
 export const fonts = {
   TTCommons: '"TT Commons", San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
-  SFMono: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, monospace',
+  SFMono: '"SF Mono", Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, monospace',
 }
 
 const fontSizes = {
@@ -25,6 +25,7 @@ const fontSizes = {
     tldr: 0.9375,
     nav: 0.9375,
     blockquote: 1.1364,
+    code: 0.6364,
   },
   text: [20, 20],
   heading: [14, 20, 24, 28, 48, 64, 72, 80],

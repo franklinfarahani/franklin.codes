@@ -114,6 +114,9 @@ const reset = css`
     margin: 0;
     list-style: none;
   }
+  code {
+    font-family: ${fonts.SFMono};
+  }
 
 `
 
