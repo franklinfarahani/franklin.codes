@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import AnchorLink from '../../AnchorLink'
 import Headroom from 'react-headroom'
 
-import { config } from '../../../globals'
+import { config, media } from '../../../globals'
 import { Theme } from '../../../globals/theme'
 import mixins from '../../../utils/mixins'
 
@@ -20,7 +20,7 @@ const HeadroomContainer = styled(Headroom)`
   .headroom {
     ${mixins.flexBetween}
     flex-direction: row;
-    padding: 40px 60px;
+    padding: 40px ${config.paddings.horizontalSide}px;
     background: ${props => props.theme.bg};
     z-index: 1000 !important;
     transition: padding ${config.transition};
@@ -28,6 +28,7 @@ const HeadroomContainer = styled(Headroom)`
       padding: 20px 60px;
       box-shadow: ${config.shadows.medium};
     }
+    ${media.phablet`padding: 20px 20px;`}
   }
 `
 
@@ -46,6 +47,7 @@ const LogoType = styled.h2`
   margin-bottom: 0;
   line-height: 1;
   top: 3px;
+  ${media.phablet`display: none;`}
 `
 
 const NavContainer = styled.nav`
@@ -58,6 +60,7 @@ const NavContainer = styled.nav`
     font-weight: 600;
     text-decoration: none;
     top: 2px;
+    ${media.phablet`margin: 0 9px;`}
     &.active {
       margin-bottom: -4px;
       border-bottom: 4px solid ${props => props.theme.primary};
