@@ -58,10 +58,13 @@ module.exports = {
           {
             resolve: `gatsby-remark-vscode`,
             options: {
-              colorTheme: 'Dark+ (default dark)', // Read on for list of included themes. Also accepts object and function forms.
+              colorTheme: 'Monokai Vibrant', // Read on for list of included themes. Also accepts object and function forms.
               wrapperClassName: '',  // Additional class put on 'pre' tag
               injectStyles: true,    // Injects (minimal) additional CSS for layout and scrolling
-              extensions: [],        // Extensions to download from the marketplace to provide more languages and themes
+              extensions: [{
+                identifier: 's3gf4ult.monokai-vibrant',
+                version: '0.5.0'
+              }],        // Extensions to download from the marketplace to provide more languages and themes
               languageAliases: {},   // Map of custom/unknown language codes to standard/known language codes
               replaceColor: x => x,  // Function allowing replacement of a theme color with another. Useful for replacing hex colors with CSS variables.
               getLineClassName: ({   // Function allowing dynamic setting of additional class names on individual lines
