@@ -39,6 +39,10 @@ const iconSizes = {
 
 const lineHeights = [1, 1.125, 1.25, 1.4, 1.5, 1.75]
 
+const paddings = {
+  horizontalSide: 60,
+}
+
 const borderRadius = {
   sharp: '4px',
   round: '8px',
@@ -58,6 +62,7 @@ const config = {
   fontSizes,
   iconSizes,
   lineHeights,
+  paddings,
   borderRadius,
   shadows,
   easing,
