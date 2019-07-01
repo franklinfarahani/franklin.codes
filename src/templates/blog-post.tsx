@@ -5,7 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Twitter, Facebook, LinkedinIn } from 'emotion-icons/fa-brands'
 
-import { BlogDescription } from '../components/Blog'
+import { Bio } from '../components/Blog'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 import Tag from '../components/Tag'
@@ -30,9 +30,10 @@ const ArticleBodyWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr 700px 1fr;
   grid-template-areas:
-    "......... title .."
-    "......... image .."
-    "left-side body  ..";
+    "......... title  ..."
+    "......... image  ..."
+    "left-side body   ..."
+    "......... footer ...";
   grid-row-gap: 32px;
   grid-column-gap: 60px;
 `
@@ -162,7 +163,9 @@ const ArticleBody = styled.div`
       margin: 0;
     }
   }
-
+`
+const ArticleFooter = styled.footer`
+  grid-area: footer;
 `
 
 type BlogPostProps = {
@@ -254,8 +257,10 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
           </FeaturedImage>
           <ArticleBody>
             <div dangerouslySetInnerHTML={{ __html: html }} />
+          </ArticleBody>
+          <ArticleFooter>
             <hr/>
-            <BlogDescription />
+            <Bio />
 
             <ul
               style={{
@@ -281,7 +286,7 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
                 )}
               </li>
             </ul>
-          </ArticleBody>        
+          </ArticleFooter>
         </ArticleBodyWrapper>
       </ArticleWrapper>
     </Layout>
