@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Twitter, Facebook, LinkedinIn } from 'emotion-icons/fa-brands'
+import { ChevronLeft, ChevronRight } from 'emotion-icons/fa-solid'
 
 import { Bio } from '../components/Blog'
 import Layout from '../components/Layout'
@@ -80,6 +81,18 @@ const IconFacebook = styled(Facebook)`
 const IconLinkedIn = styled(LinkedinIn)`
   width: 21px;
   height: 100%;
+`
+
+const IconChevronLeft = styled(ChevronLeft)`
+  color: ${props => props.theme.primary};
+  width: 9px;
+  margin-right: 8px;
+`
+
+const IconChevronRight = styled(ChevronRight)`
+  color: ${props => props.theme.primary};
+  width: 9px;
+  margin-left: 8px;
 `
 
 const ArticleHeader = styled.header`
@@ -166,6 +179,21 @@ const ArticleBody = styled.div`
 `
 const ArticleFooter = styled.footer`
   grid-area: footer;
+`
+
+const FooterLine = styled.hr`
+  border: 0.9px solid ${props => props.theme.info}50;
+  margin: 2em 0;
+`
+
+const ArticleNavigation = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  li {
+    color: ${props => props.theme.link};
+    font-size: ${fontSizes.article.nav}em;
+  }
 `
 
 type BlogPostProps = {
@@ -259,33 +287,26 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </ArticleBody>
           <ArticleFooter>
-            <hr/>
+            {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
+            <FooterLine />
             <Bio />
-
-            <ul
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-between',
-                listStyle: 'none',
-                padding: 0,
-              }}
-            >
+            <FooterLine />
+            <ArticleNavigation>
               <li>
                 {previous && (
                   <Link to={'/blog' + previous.fields.slug} rel="prev">
-                    ← {previous.frontmatter.title}
+                    <IconChevronLeft /> {previous.frontmatter.title}
                   </Link>
                 )}
               </li>
               <li>
                 {next && (
                   <Link to={'/blog' + next.fields.slug} rel="next">
-                    {next.frontmatter.title} →
+                    {next.frontmatter.title} <IconChevronRight />
                   </Link>
                 )}
               </li>
-            </ul>
+            </ArticleNavigation>
           </ArticleFooter>
         </ArticleBodyWrapper>
       </ArticleWrapper>

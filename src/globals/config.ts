@@ -23,6 +23,7 @@ const fontSizes = {
     title: 2.3,
     body: 1.375,
     tldr: 0.9375,
+    nav: 0.9375,
     blockquote: 1.1364,
   },
   text: [20, 20],
