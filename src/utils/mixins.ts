@@ -21,6 +21,7 @@ const mixins = {
 
   icon: css`
     width: calc(${min}px + ${max - min} * ((100vw - ${phone}px) / ${large - phone}));
+    ${media.phablet`width: 24px;`}
   `,
 
   button: css`
