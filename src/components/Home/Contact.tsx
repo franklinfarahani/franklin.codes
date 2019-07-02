@@ -25,12 +25,11 @@ const DateTag = styled.span`
 const Status = styled.div`  
   h3 {
     font-size: ${config.fontSizes.heading[4]}px;
-    margin-bottom: 0;
+    line-height: 1;
+    margin-bottom: 8px;
   }
 
-  p {
-    display: flex;
-    align-items: center;
+  div {
     margin-bottom: 1.5vh;
   }
 `
@@ -69,11 +68,11 @@ const Contact = ({isBusy, data}: ContactProps) => {
       {isBusy ? 
         <Status>
           <h3>Let's get in touch!</h3> 
-          <p><DateTag>{getMonth()}</DateTag>I'm not looking for employment opportunities at the moment, but I'd be happy to talk anyway!</p>
+          <div><DateTag>{getMonth()}</DateTag>I'm not looking for employment opportunities at the moment, but I'd be happy to talk anyway!</div>
         </Status> :
         <Status>
           <h3>Let's talk about your next project!</h3> 
-          <p><DateTag>{getMonth()}</DateTag>I'm currently looking for more employment and freelance opportunities.</p>
+          <div><DateTag>{getMonth()}</DateTag>I'm currently looking for more employment and freelance opportunities.</div>
         </Status>
       }
       <EmailLink href={`mailto:${email}`}>{email}</EmailLink>

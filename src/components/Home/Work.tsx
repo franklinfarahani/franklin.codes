@@ -13,7 +13,7 @@ import { Code, ExternalLinkAlt } from 'emotion-icons/fa-solid'
 const ProjectsContainer = styled.section`
   margin: 10vh auto;
   max-width: 1000px;
-  min-height: calc(100vh - 113px);
+  /* min-height: calc(100vh - 113px); */
   h2:first-of-type {
     font-weight: 700;
     padding-top: 5vh;
@@ -53,6 +53,7 @@ const Content = styled.div`
     "title title" auto
     "text   text" 1fr
     "tags   tags" auto / 1fr auto;
+  ${media.tabletLarge`padding: 36px;`}
   ${media.tablet`
     padding: 24px 30px;
     grid-template:

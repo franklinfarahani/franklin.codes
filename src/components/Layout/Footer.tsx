@@ -6,7 +6,7 @@ import AnchorLink from '../AnchorLink'
 import { Twitter, Github, LinkedinIn } from 'emotion-icons/fa-brands'
 import { ChevronUp } from 'emotion-icons/fa-solid'
 
-import { config } from '../../globals'
+import { config, media } from '../../globals'
 import mixins from '../../utils/mixins'
 
 const FooterWrapper = styled.footer`
@@ -15,6 +15,20 @@ const FooterWrapper = styled.footer`
   padding: 40px 0;
   ${mixins.flexBetween}
   font-size: ${config.fontSizes.footer}em;
+  ${media.tabletLarge`
+    min-width: inherit;
+    margin: 0;
+    padding: 40px ${config.paddings.horizontalSide}px;
+  `}
+  ${media.tablet`padding: 40px 30px;`}
+  ${media.phablet`
+    padding: 40px 20px;
+    flex-direction: column;
+    align-items: start;
+    ul {
+      margin: 16px 0;
+    }
+  `}
 `
 
 const Socials = styled.ul`
@@ -23,6 +37,7 @@ const Socials = styled.ul`
   
   li {
     margin-right: 30px;
+    ${media.tablet`margin-right: 20px;`}
     a {
       margin-bottom: 0;
 
@@ -73,7 +88,7 @@ const Footer = () => {
   `)
 
   const { author } = data.site.siteMetadata
-  const { twitter, github, linkedin, email } = data.site.siteMetadata.social
+  const { twitter, github, linkedin } = data.site.siteMetadata.social
 
   return (
     <FooterWrapper>

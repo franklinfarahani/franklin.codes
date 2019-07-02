@@ -5,6 +5,7 @@ export const sizes = {
   large: 1440,
   desktop: 1200,
   laptop: 1000,
+  tabletLarge: 1024,
   tablet: 768,
   thone: 600,
   phablet: 480,
