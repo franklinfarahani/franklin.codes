@@ -7,11 +7,11 @@ import FadeInReveal from '../Animation/FadeInReveal'
 import LastTrack from './LastTrack'
 
 import mixins from '../../utils/mixins'
-import { config } from '../../globals'
+import { config, media } from '../../globals'
 import { sizes } from '../../globals/media'
 
 import { Twitter, Github, LinkedinIn } from 'emotion-icons/fa-brands'
-import { CommentAlt } from 'emotion-icons/fa-solid'
+import { CommentAlt, ChevronRight } from 'emotion-icons/fa-solid'
 
 const { phone, large } = sizes
 const { lineHeights, fontSizes } = config
@@ -21,6 +21,7 @@ const HeroContainer = styled.section`
   position: relative;
   display: flex;
   align-items: center;
+  ${media.phablet`min-height: calc(100vh - 130px);`}
 `
 
 const HeroContent = styled.div`
@@ -28,6 +29,7 @@ const HeroContent = styled.div`
     font-size: ${fontSizes.hero.intro}vw;
     line-height: ${lineHeights[1]};
     margin: 0;
+    ${media.phablet`font-size: 3.9em;`}
   }
 
   h2 {
@@ -48,6 +50,16 @@ const LearnMore = styled(AnchorLink)`
   &:hover {
     transform: translateY(calc(2vh - 3px));
   }
+  ${media.phablet`
+    position: absolute;
+    transform: none;
+    bottom: 20px;
+  `}
+`
+
+const IconChevronRight = styled(ChevronRight)`
+  width: 9px;
+  margin-left: 12px;
 `
 
 const ContactFloat = styled.div`
@@ -57,6 +69,10 @@ const ContactFloat = styled.div`
   height: 55vh;
   right: 0;
   bottom: 50px;
+  ${media.phablet`
+    height: auto;
+    bottom: 20px;
+    `}
 `
 
 const Socials = styled.ul`
@@ -75,6 +91,8 @@ const Socials = styled.ul`
       transform: scale(1.1)
     }
   }
+
+  ${media.phablet`display: none;`}
 `
 
 const IconTwitter = styled(Twitter)`
@@ -123,6 +141,8 @@ const SayHello = styled.div`
     position: relative;
     transition: transform ${config.transition}
   }
+
+  ${media.phablet`display: none;`}
 `
 
 const IconCommentWrapper = styled.div`
@@ -133,6 +153,11 @@ const IconCommentWrapper = styled.div`
   outline: 15px solid ${props => props.theme.bg};
   border-radius: 50%;
   z-index:10;
+
+  ${media.phablet`
+    width: 56px;
+    height: 56px;
+    `}
 `
 
 const IconComment = styled(CommentAlt)`
@@ -204,7 +229,7 @@ const Hero = ({data}: HeroProps) => {
         <FadeInReveal as={Fragment} isLoading={isLoading} delay={800}>
           <LearnMore href="#work">
             <span>Learn More</span>
-            <span>{' '}→</span>
+            <IconChevronRight />
           </LearnMore>
         </FadeInReveal>
       </HeroContent>

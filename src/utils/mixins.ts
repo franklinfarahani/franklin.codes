@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 import { sizes } from '../globals/media'
-import { config } from '../globals'
+import { config, media } from '../globals'
 
 const { min, max } = config.iconSizes
 const { phone, large } = sizes
@@ -28,6 +28,7 @@ const mixins = {
     text-transform: uppercase;
     padding: 15px 40px;
     border-radius: 50px;
+    ${media.phablet`padding: 19px 40px;`}
   `
 }
 

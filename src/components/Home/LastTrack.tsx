@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 
 import mixins from '../../utils/mixins'
-import { config } from '../../globals'
+import { config, media } from '../../globals'
 
 import { Headphones } from 'emotion-icons/fa-solid'
 
@@ -15,6 +15,7 @@ const Wrapper = styled.span`
   left: 0;
   bottom: 50px;
   ${mixins.flexCenter}
+  ${media.phablet`display: none;`}
 `
 
 const IconHeadphones = styled(Headphones)`

@@ -24,11 +24,12 @@ const HeadroomContainer = styled(Headroom)`
     background: ${props => props.theme.bg};
     z-index: 1000 !important;
     transition: padding ${config.transition};
-    &.headroom--pinned {
-      padding: 20px 60px;
-      box-shadow: ${config.shadows.medium};
-    }
     ${media.phablet`padding: 20px 20px;`}
+    &.headroom--pinned {
+      padding: 20px ${config.paddings.horizontalSide}px;
+      box-shadow: ${config.shadows.medium};
+      ${media.phablet`padding: 20px 20px;`}
+    }    
   }
 `
 
@@ -60,7 +61,8 @@ const NavContainer = styled.nav`
     font-weight: 600;
     text-decoration: none;
     top: 2px;
-    ${media.phablet`margin: 0 9px;`}
+    ${media.phablet`margin: 0 14px;`}
+    ${media.phone`margin: 0 9px;`}
     &.active {
       margin-bottom: -4px;
       border-bottom: 4px solid ${props => props.theme.primary};

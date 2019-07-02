@@ -3,7 +3,7 @@ import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { ThemeProvider } from 'emotion-theming'
 
-import { reset, fonts, config, themes } from '../../globals'
+import { reset, fonts, config, themes, media } from '../../globals'
 import { Theme } from '../../globals/theme'
 
 import Header from './Header'
@@ -11,11 +11,12 @@ import Footer from './Footer'
 import useLocalStorage from '../../utils/useLocalStorage'
 
 const Content = styled.main`
-  padding: 0 60px;
+  padding: 0 ${config.paddings.horizontalSide}px;
   color: ${props=>props.theme.text};
   background-color: ${props=>props.theme.bg};
   min-height: calc(100vh - 113px - 108.25px);
   z-index:1;
+  ${media.phablet`padding: 0 20px;`}
   p a:not(.gatsby-resp-image-link) {
     margin-bottom: -2px;
     position: relative;
