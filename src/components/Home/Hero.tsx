@@ -39,6 +39,7 @@ const HeroContent = styled.div`
     line-height: 1.5;
     margin-top: 3vh;
     margin-bottom: 4vh;
+    ${media.phablet`margin-top: 1vh;`}
   }
 `
 
