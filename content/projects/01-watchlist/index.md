@@ -8,4 +8,4 @@ media: "./watchlist-phone.png"
 ---
 
 A web app for keeping track of Movies and TV Shows you would like to watch.
-Discover, find information, watch trailer, and find out where you can watch them all in one app.
+Discover, find information, watch trailers, and find out where you can watch them, all in one app.
