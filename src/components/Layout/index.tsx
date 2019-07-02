@@ -16,6 +16,7 @@ const Content = styled.main`
   background-color: ${props=>props.theme.bg};
   min-height: calc(100vh - 113px - 108.25px);
   z-index:1;
+  ${media.tablet`padding: 0 30px;`}
   ${media.phablet`padding: 0 20px;`}
   p a:not(.gatsby-resp-image-link) {
     margin-bottom: -2px;

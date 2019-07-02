@@ -24,10 +24,12 @@ const HeadroomContainer = styled(Headroom)`
     background: ${props => props.theme.bg};
     z-index: 1000 !important;
     transition: padding ${config.transition};
+    ${media.tablet`padding: 30px;`}
     ${media.phablet`padding: 20px 20px;`}
     &.headroom--pinned {
       padding: 20px ${config.paddings.horizontalSide}px;
       box-shadow: ${config.shadows.medium};
+      ${media.tablet`padding: 30px;`}
       ${media.phablet`padding: 20px 20px;`}
     }    
   }

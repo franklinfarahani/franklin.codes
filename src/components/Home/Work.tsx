@@ -32,12 +32,15 @@ const Project = styled.article`
   background: ${props => props.theme.cardBg};
   border-radius: ${config.borderRadius.round};
   box-shadow: ${config.shadows.low};
+  ${media.tablet`
+    margin: 0 -30px;
+    border-radius: 0;
+  `}
   ${media.phablet`
     grid-template:
       "image"   auto
       "content" auto;
     margin: 0 -20px;
-    border-radius: 0;
   `}
 `
 
@@ -50,13 +53,14 @@ const Content = styled.div`
     "title title" auto
     "text   text" 1fr
     "tags   tags" auto / 1fr auto;
-  ${media.phablet`
-    padding: 30px 30px;
+  ${media.tablet`
+    padding: 24px 30px;
     grid-template:
       "id     title  links" auto
       "text   text    text" 1fr
       "tags   tags    tags" auto / auto 1fr auto;
   `}
+  ${media.phablet`padding: 30px;`}
 `
 
 const ImgContainer = styled.div`
@@ -71,7 +75,7 @@ const ContentId = styled.h3`
   line-height: ${config.lineHeights[0]};
   margin: 0;
   color: ${props => props.theme.primary};
-  ${media.phablet`
+  ${media.tablet`
     font-size: ${config.fontSizes.heading[3]}px;
     line-height: inherit;
     margin-right: 8px;
@@ -89,13 +93,13 @@ const ContentLink = styled.a`
 const IconCode = styled(Code)`
   ${mixins.icon}
   color: ${props => props.theme.info};
-  ${media.phablet`vertical-align: -0.725em;`}
+  ${media.tablet`vertical-align: -0.725em;`}
 `
 
 const IconExternalLink = styled(ExternalLinkAlt)`
   ${mixins.icon}
   color: ${props => props.theme.info};
-  ${media.phablet`vertical-align: -0.725em;`}
+  ${media.tablet`vertical-align: -0.725em;`}
 `
 
 const ContentTitle = styled.h3`
@@ -109,13 +113,13 @@ const ContentBody = styled.div`
     font-size: ${config.fontSizes.text[0]}px;
     line-height: ${config.lineHeights[4]};
   }
-  ${media.phablet`margin-bottom: 16px;`}
+  ${media.tablet`margin-bottom: 16px;`}
 `
 
 const ContentTags = styled.div`
   grid-area: tags;
   margin-bottom: 5px;
-  ${media.phablet`margin-bottom: 0;`}
+  ${media.tablet`margin-bottom: 0;`}
 `
 
 type WorkProps = {
