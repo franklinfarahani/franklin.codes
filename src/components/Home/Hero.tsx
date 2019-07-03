@@ -22,6 +22,7 @@ const HeroContainer = styled.section`
   display: flex;
   align-items: center;
   ${media.phablet`min-height: calc(100vh - 130px);`}
+  ${media.phone`min-height: calc(100vh - 75px);`}
 `
 
 const HeroContent = styled.div`
