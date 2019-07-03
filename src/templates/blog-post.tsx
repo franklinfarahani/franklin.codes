@@ -12,7 +12,7 @@ import SEO from '../components/Seo'
 import Tag from '../components/Tag'
 import Divider from '../components/Divider'
 
-import { config } from '../globals'
+import { config, media } from '../globals'
 
 const { fontSizes, lineHeights } = config
 
@@ -23,29 +23,42 @@ const ArticleWrapper = styled.article`
 const FeaturedImage = styled.div`
   margin: 0 -60px;
   grid-area: image;
+  grid-column-gap: 60px;
+  ${media.tablet`margin: 0 -30px;`}
 `
 
 const ArticleBodyWrapper = styled.section`
   max-width: 1100px;
   margin: 40px auto;
   display: grid;
-  grid-template-columns: 1fr 700px 1fr;
-  grid-template-areas:
-    "......... title  ..."
-    "......... image  ..."
-    "left-side body   ..."
-    "......... footer ...";
+  grid-template:
+    "..... title  ..."
+    "..... image  ..."
+    "aside body   ..."
+    "..... footer ..." / 1fr 700px 1fr;
   grid-row-gap: 32px;
   grid-column-gap: 60px;
+  ${media.tablet`
+    margin: 20px auto;
+    grid-template:
+      "title "
+      "image "
+      "aside "
+      "body  "
+      "footer" / auto;
+    grid-row-gap: 30px;
+  `}
+  ${media.phablet`grid-row-gap: 20px;`}
 `
 
 const LeftSidebar = styled.aside`
-  grid-area: left-side;
+  grid-area: aside;
 `
 
 const Tldr = styled.div`
   font-size: ${fontSizes.article.tldr}em;
   margin-bottom: 5em;
+  ${media.tablet`margin-bottom: 20px;`}
 
   header {
     font-weight: 700;
@@ -66,6 +79,18 @@ const Share = styled.div`
       margin: 12px 0;
     }
   }
+  ${media.tablet`
+    position: inherit;
+    display: flex;
+    ul {
+      display: flex;
+      margin-top: 0;
+      margin-left: 8px;
+      li {
+        margin: 0 8px;
+      }
+    }
+  `}
 `
 
 const IconTwitter = styled(Twitter)`
@@ -76,11 +101,16 @@ const IconTwitter = styled(Twitter)`
 const IconFacebook = styled(Facebook)`
   width: 21px;
   height: 100%;
+  ${media.tablet`width: 20px;`}
 `
 
 const IconLinkedIn = styled(LinkedinIn)`
   width: 21px;
   height: 100%;
+  ${media.tablet`
+    width: 20px;
+    margin-left: 2px;
+  `}
 `
 
 const IconChevronLeft = styled(ChevronLeft)`
@@ -146,6 +176,7 @@ const ArticleBody = styled.div`
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
+    ${media.tablet`padding-inline-start: 20px;`}
     ul, ol, p {
       margin: 0;
     }

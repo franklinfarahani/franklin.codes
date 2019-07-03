@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
-import { config } from '../../globals'
+import { config, media } from '../../globals'
 
 const { fontSizes } = config
 
@@ -11,6 +11,10 @@ const BioWrapper = styled.div`
   margin: 3em auto;
   display: flex;
   align-items: center;
+  ${media.phablet`
+    margin: 2em auto;
+    align-items: start;
+  `}
 `
 
 const Image = styled(Img)`
@@ -18,6 +22,12 @@ const Image = styled(Img)`
   border-radius: 50%;
   margin-right: 20px;
   min-width: 100px;
+  ${media.phablet`
+    min-width: 56px;
+    width: 56px !important;
+    height: 56px !important;
+    margin-right: 12px;
+  `}
 `
 
 const BioText = styled.div`
