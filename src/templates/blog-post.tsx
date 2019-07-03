@@ -25,6 +25,7 @@ const FeaturedImage = styled.div`
   grid-area: image;
   grid-column-gap: 60px;
   ${media.tablet`margin: 0 -30px;`}
+  ${media.phablet`margin: 0 -20px;`}
 `
 
 const ArticleBodyWrapper = styled.section`
@@ -206,6 +207,7 @@ const ArticleBody = styled.div`
     padding: 20px 30px;
     color: ${props => props.theme.link};
     font-size: ${fontSizes.article.blockquote}em;
+    ${media.phablet`padding: 10px 20px;`}
     p {
       margin: 0;
     }
@@ -217,6 +219,12 @@ const ArticleBody = styled.div`
     &.vscode-highlight{
       padding-top: 1.5em;
     }
+    ${media.phablet`
+      border-radius: 0;
+      &.vscode-highlight{
+        width: 100vw;
+      }
+    `}
   }
 `
 const ArticleFooter = styled.footer`

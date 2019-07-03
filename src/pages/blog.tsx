@@ -18,7 +18,7 @@ const BlogHeader = styled.header`
   margin: 0 auto;
   ${media.phablet`
     width: inherit;
-    padding: 3em 0 4em;
+    padding: 2em 0 3em;
   `}
 `
 
