@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { config } from '../../globals'
+import { config, media } from '../../globals'
 
 const { fontSizes } = config
 
@@ -10,6 +10,7 @@ const BlogDescriptionContainer = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
+  ${media.phablet`width: inherit;`}
 `
 
 const BlogDescriptionText = styled.div`
@@ -17,6 +18,11 @@ const BlogDescriptionText = styled.div`
   font-size: ${fontSizes.blogDescription}em;
   font-weight: 500;
   text-align: center;
+  ${media.phablet`
+    br {
+      display: none;
+    }
+  `}
 `
 /**
  * Blog description component that describes the blog(!!!) and

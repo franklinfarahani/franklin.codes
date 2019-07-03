@@ -35,12 +35,12 @@ const Post = styled.article`
   overflow: hidden;
   ${media.phablet`
     grid-template:
-      "..... ..... ..... ....." 20px
-      "..... meta  ..... ....." auto
-      "..... title image ....." 80px
-      "..... tags  ..... ....." auto
-      "..... ..... ..... ....." 20px / 20px 1fr 80px 20px;
-      height: 160px;
+      ".. ..... .. ..... .." 20px
+      ".. meta  .. ..... .." auto
+      ".. title .. image .." 80px
+      ".. tags  .. ..... .." auto
+      ".. ..... .. ..... .." 20px / 20px 1fr 16px 80px 20px;
+      height: 164px;
       border-radius: 0;
   `}
 `
@@ -72,6 +72,7 @@ const PostTitle = styled.h4`
   line-height: 1.2;
   margin-top: 6px;
   margin-bottom: 0;
+  ${media.phablet`margin-top: 1px;`}
 `
 
 const ImgContainer = styled.div`
