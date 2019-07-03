@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
-import { config } from '../../globals'
+import { config, media } from '../../globals'
 import Tag from '../Tag'
 import Divider from '../Divider'
 
@@ -13,26 +13,40 @@ const PostGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
   grid-gap: 20px;
+  ${media.phablet`
+    grid-gap: 1px;
+    margin: 0 -20px;
+  `}
 `
 
 const Post = styled.article`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template:
+    "image image image" 50%
+    "..... ..... ....." 20px
+    "..... meta  ....." auto
+    "..... title ....." 1fr
+    "..... tags  ....." auto
+    "..... ..... ....." 20px / 20px auto 20px;
   height: 350px;
   background: ${props => props.theme.cardBg};
   border-radius: ${borderRadius.round};
   box-shadow: ${shadows.low};
   overflow: hidden;
-`
-
-const PostContent = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+  ${media.phablet`
+    grid-template:
+      "..... ..... ..... ....." 20px
+      "..... meta  ..... ....." auto
+      "..... title image ....." 80px
+      "..... tags  ..... ....." auto
+      "..... ..... ..... ....." 20px / 20px 1fr 80px 20px;
+      height: 160px;
+      border-radius: 0;
+  `}
 `
 
 const PostMeta = styled.header`
+  grid-area: meta;
   * {
     display: inline;
     font-size: ${fontSizes.meta}em;
@@ -46,6 +60,7 @@ const PostMeta = styled.header`
 `
 
 const PostLink = styled(Link)`
+  grid-area: title;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -60,13 +75,19 @@ const PostTitle = styled.h4`
 `
 
 const ImgContainer = styled.div`
-  height: 50%;
+  grid-area: image;
   .gatsby-image-wrapper {
     height: 100%;
   }
+  ${media.phablet`
+    .gatsby-image-wrapper {
+      border-radius: ${borderRadius.round};
+    }
+  `}
 `
 
 const PostTags = styled.div`
+  grid-area: tags;
   /* margin-bottom: 5px; */
 `
 
@@ -99,19 +120,17 @@ const BlogFeed = ({quantity}: BlogFeedProps) => {
                 <Img fluid={cover.childImageSharp.fluid} />
               }
             </ImgContainer>
-            <PostContent>
-              <PostMeta>
-                <time>{date}</time>
-                <Divider />
-                <div>{readingTime.text}</div>
-              </PostMeta>
-              <PostLink to={`/blog${slug}`}>
-                <PostTitle>{title}</PostTitle>
-              </PostLink>
-              <PostTags>
-                {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
-              </PostTags>
-            </PostContent>
+            <PostMeta>
+              <time>{date}</time>
+              <Divider />
+              <div>{readingTime.text}</div>
+            </PostMeta>
+            <PostLink to={`/blog${slug}`}>
+              <PostTitle>{title}</PostTitle>
+            </PostLink>
+            <PostTags>
+              {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
+            </PostTags>
           </Post>
         )
       })}
