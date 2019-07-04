@@ -208,6 +208,9 @@ const ArticleBody = styled.div`
       }
     }
   }
+  strong {
+    font-weight: 600;
+  }
   blockquote {
     border-left: 3px solid ${props => props.theme.primary};
     margin: 30px 0;
