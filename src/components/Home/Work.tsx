@@ -11,7 +11,7 @@ import { Code, ExternalLinkAlt } from 'emotion-icons/fa-solid'
 
 
 const ProjectsContainer = styled.section`
-  margin: 10vh auto;
+  margin: 4em auto 10em;
   max-width: 1000px;
   /* min-height: calc(100vh - 113px); */
   h2:first-of-type {
@@ -25,22 +25,28 @@ const ProjectsContainer = styled.section`
   }
 `
 
-const Project = styled.article`
+const Project = styled.article<{ side: boolean }>`
   display: grid;
-  grid-template:
-    "content image" auto / 2fr 3fr;
+  grid-template: ${props => (
+    props.side ? 
+      '"content image" auto / 2fr 3fr' :
+      '"image content" auto / 3fr 2fr'
+  )};
   background: ${props => props.theme.cardBg};
   border-radius: ${config.borderRadius.round};
   box-shadow: ${config.shadows.low};
+  margin-bottom: 10em;
+  
   ${media.tablet`
-    margin: 0 -30px;
+    margin: 0 -30px 5em;
     border-radius: 0;
   `}
+  
   ${media.phablet`
     grid-template:
       "image"   auto
       "content" auto;
-    margin: 0 -20px;
+    margin: 0 -20px 4em;
   `}
 `
 
@@ -138,10 +144,12 @@ const Work = ({data}: WorkProps) => {
         
         const { frontmatter, html } = node
         const { id, title, repo, external, tags, media } = frontmatter
+
+        const isLeft = (id % 2) ? true : false
         
         return (
           <FadeUpReveal key={id}>
-            <Project>
+            <Project side={isLeft}>
               <Content>
                 {/* Convert single digit ids to 2-digit format */}
                 <ContentId>{'0' + id.toString().slice(-2)}</ContentId>
