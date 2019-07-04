@@ -130,7 +130,8 @@ const BlogFeed = ({quantity}: BlogFeedProps) => {
               <PostTitle>{title}</PostTitle>
             </PostLink>
             <PostTags>
-              {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
+              {/* Only display the first two tags for visual consistency */}
+              {tags.slice(0, 2).map((tag, index) => <Tag key={index}>{tag}</Tag>)}
             </PostTags>
           </Post>
         )
