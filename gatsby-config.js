@@ -56,6 +56,13 @@ module.exports = {
             },
           },
           {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow"
+            }
+          },
+          {
             resolve: `gatsby-remark-vscode`,
             options: {
               colorTheme: 'Monokai Vibrant', // Read on for list of included themes. Also accepts object and function forms.
