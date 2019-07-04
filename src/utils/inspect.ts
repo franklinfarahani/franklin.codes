@@ -8,7 +8,7 @@ const inspect = () => {
   const body = `font-family: ${fonts.TTCommons}; font-weight: 400; font-size: 1.75em;`
   const link = `font-family: ${fonts.TTCommons}; font-weight: 400; font-size: 1.5em; border-bottom: 2px solid ${colors.yellow}; padding-top: 6px; line-height: .5;`
 
-  console.log('%c# %cConsole \n%cMy website is open source!  \nCheck the repo here: \n%chttps://github.com/franklinfarahani/franklin.codes \n', hashtag, title, body, link)
+  console.log('%c# %cConsole \n%cMy website is open source!  \nCheck the repo here: \n%chttps://git.io/fjlmt \n', hashtag, title, body, link)
 }
 
 export default inspect
