@@ -11,6 +11,8 @@ export type ThemeColors = {
   readonly link: string
   readonly info: string
   readonly highlight: string
+  readonly inlineCode: string
+  readonly inlineBg: string
   readonly bg: string
   readonly cardBg: string
 }
@@ -26,6 +28,7 @@ export const colors: {[key: string] : string} = {
   darkGrey: '#555555',
   grey: '#777777',
   darkerGrey: '#8C8C8C',
+  darkestGrey: '#2f2f2f',
   almostBlack: '#171717',
   black: '#0D0D0D',
 }
@@ -38,6 +41,8 @@ export const light: ThemeColors = {
   link: colors.grey,
   info: colors.lightGrey,
   highlight: colors.lightYellow,
+  inlineCode: colors.darkGrey,
+  inlineBg: colors.lighterGrey,
   bg: colors.almostWhite,
   cardBg: colors.white,
 }
@@ -50,6 +55,8 @@ export const dark: ThemeColors = {
   link: colors.lightGrey,
   info: colors.darkGrey,
   highlight: colors.darkerGrey,
+  inlineCode: colors.lighterGrey,
+  inlineBg: colors.darkestGrey,
   bg: colors.black,
   cardBg: colors.almostBlack,
 }

@@ -26,6 +26,7 @@ const fontSizes = {
     nav: 0.9375,
     blockquote: 1.1364,
     code: 0.6364,
+    inlineCode: 0.8636,
   },
   text: [20, 20],
   heading: [14, 20, 24, 28, 48, 64, 72, 80],

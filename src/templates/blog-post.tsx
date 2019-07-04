@@ -14,7 +14,7 @@ import Divider from '../components/Divider'
 
 import { config, media } from '../globals'
 
-const { fontSizes, lineHeights } = config
+const { fontSizes, lineHeights, borderRadius } = config
 
 const ArticleWrapper = styled.article`
   
@@ -168,6 +168,13 @@ const ArticleBody = styled.div`
     margin-bottom: 16px;
     a::after {
       bottom: 1px !important;
+    }
+    code {
+      font-size: ${fontSizes.article.inlineCode}em;
+      padding: 2px 6px;
+      border-radius: ${borderRadius.sharp};
+      color: ${props => props.theme.inlineCode};
+      background: ${props => props.theme.inlineBg};      
     }
   }
   ul, ol {
