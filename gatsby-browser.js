@@ -10,3 +10,21 @@ exports.onInitialClientRender = () => {
 
   console.log('%c# %cConsole \n%cMy website is open source!  \nCheck the repo here: \n%chttps://git.io/fjlmt \n', hashtag, title, body, link)
 }
+
+exports.onClientEntry = () => {
+  // IntersectionObserver polyfill for gatsby-image (Safari, IE)
+  if (typeof window.IntersectionObserver === `undefined`) {
+    require(`intersection-observer`)
+    console.log(`👍 IntersectionObserver is polyfilled`)
+  }
+
+  const ua = navigator.userAgent.toLowerCase(); 
+  if (ua.indexOf('safari') !== -1) { 
+    if (ua.indexOf('chrome') > -1) {
+      return
+    } else {
+      require(`smoothscroll-polyfill`).polyfill()
+      console.log(`👍 smoothscroll-polyfill is polyfilled`)
+    }
+  }
+}

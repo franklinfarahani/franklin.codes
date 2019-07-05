@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 /**
  * Link component that scrolls to the id given to it.
@@ -8,10 +8,6 @@ import React, { useEffect } from 'react'
  */
 const AnchorLink = (props: React.PropsWithChildren<JSX.IntrinsicElements['a']>) => {
   
-  useEffect(() => {
-    require('smoothscroll-polyfill').polyfill()
-  })
-
   const smoothScroll = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     
