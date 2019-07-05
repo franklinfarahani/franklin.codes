@@ -5,9 +5,6 @@ import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 import { Hero, Work, BlogPreview, Contact } from '../components/Home'
 
-import inspect from '../utils/inspect'
-
-
 type HomeProps = {
   data: {
     socials: Site
@@ -16,9 +13,6 @@ type HomeProps = {
 }
 
 const IndexPage = ({ data }: HomeProps) => {
-
-  inspect()
-
   return (
     <Layout>
       <SEO title="Front-end Engineer" keywords={['gatsby', 'application', 'react']} />
