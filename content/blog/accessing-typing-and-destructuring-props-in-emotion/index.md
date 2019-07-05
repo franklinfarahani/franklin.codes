@@ -3,7 +3,7 @@ title: Accessing, Typing, and Destructuring Props in Emotion
 date: "2019-06-03"
 description: Dynamic component styling is an important benefit of using CSS-in-JS libraries. I go over patterns for using component props, destructuring them (or maybe not!), and giving them types using TypeScript. 
 tags: ["Emotion", "TypeScript", "React", "styled-components"]
-cover: "./living-room.jpg"
+cover: "./emotion-plus-ts.jpg"
 ---
 
 # Introduction
