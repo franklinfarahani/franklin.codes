@@ -10,7 +10,7 @@ import FadeUpReveal from '../Animation/FadeUpReveal'
 import { Code, ExternalLinkAlt } from 'emotion-icons/fa-solid'
 
 
-const ProjectsContainer = styled.section`
+const WorkContainer = styled.section`
   margin: 4em auto 10em;
   max-width: 1000px;
   /* min-height: calc(100vh - 113px); */
@@ -25,7 +25,7 @@ const ProjectsContainer = styled.section`
   }
 `
 
-const Project = styled.article<{ side: boolean }>`
+const ProjectWrapper = styled.article<{ side: boolean }>`
   display: grid;
   grid-template: ${props => (
     props.side ? 
@@ -50,7 +50,7 @@ const Project = styled.article<{ side: boolean }>`
   `}
 `
 
-const Content = styled.div`
+const Project = styled.div`
   grid-area: content;
   padding: 40px 50px;
   display: grid;
@@ -75,7 +75,7 @@ const ImgContainer = styled.div`
   ${media.phablet`background: #e2e2e2;`}
 `
 
-const ContentId = styled.h3`
+const ProjectId = styled.h3`
   grid-area: id;
   font-weight: 600;
   font-size: ${config.fontSizes.heading[7]}px;
@@ -89,11 +89,11 @@ const ContentId = styled.h3`
   `}
 `
 
-const ContentLinks = styled.div`
+const ProjectLinks = styled.div`
   grid-area: links;
 `
 
-const ContentLink = styled.a`
+const ProjectLink = styled.a`
   margin-left: 16px;
 `
 
@@ -109,12 +109,12 @@ const IconExternalLink = styled(ExternalLinkAlt)`
   ${media.tablet`vertical-align: -0.725em;`}
 `
 
-const ContentTitle = styled.h3`
+const ProjectTitle = styled.h3`
   grid-area: title;
   font-size: ${config.fontSizes.heading[3]}px;
 `
 
-const ContentBody = styled.div`
+const ProjectBody = styled.div`
   grid-area: text;
   p {
     font-size: ${config.fontSizes.text[0]}px;
@@ -123,7 +123,7 @@ const ContentBody = styled.div`
   ${media.tablet`margin-bottom: 16px;`}
 `
 
-const ContentTags = styled.div`
+const ProjectTags = styled.div`
   grid-area: tags;
   margin-bottom: 5px;
   ${media.tablet`margin-bottom: 0;`}
@@ -135,7 +135,7 @@ type WorkProps = {
 
 const Work = ({data}: WorkProps) => {
   return (
-    <ProjectsContainer id="work">
+    <WorkContainer id="work">
       <h2>
         <span>{'# '}</span>
         Featured Work
@@ -149,37 +149,37 @@ const Work = ({data}: WorkProps) => {
         
         return (
           <FadeUpReveal key={id}>
-            <Project side={isLeft}>
-              <Content>
+            <ProjectWrapper side={isLeft}>
+              <Project>
                 {/* Convert single digit ids to 2-digit format */}
-                <ContentId>{'0' + id.toString().slice(-2)}</ContentId>
-                <ContentLinks>
-                  <ContentLink href={repo} title={title + ' Github repo'} target="_blank">
+                <ProjectId>{'0' + id.toString().slice(-2)}</ProjectId>
+                <ProjectLinks>
+                  <ProjectLink href={repo} title={title + ' Github repo'} target="_blank">
                     <IconCode />
-                  </ContentLink>
-                  <ContentLink href={external} title={'View live'} target="_blank">
+                  </ProjectLink>
+                  <ProjectLink href={external} title={'View live'} target="_blank">
                     <IconExternalLink />
-                  </ContentLink>
-                </ContentLinks>
-                <ContentTitle>{title}</ContentTitle>
-                <ContentBody>
+                  </ProjectLink>
+                </ProjectLinks>
+                <ProjectTitle>{title}</ProjectTitle>
+                <ProjectBody>
                   <p dangerouslySetInnerHTML={{ __html: html }} />
-                </ContentBody>
-                <ContentTags>
+                </ProjectBody>
+                <ProjectTags>
                   {tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
-                </ContentTags>
-              </Content>
+                </ProjectTags>
+              </Project>
               <ImgContainer>
                 {media.childImageSharp && 
                   <Img fluid={media.childImageSharp.fluid} />
                 }
               </ImgContainer>
-            </Project>
+            </ProjectWrapper>
           </FadeUpReveal>
         )
 
       })}
-    </ProjectsContainer>
+    </WorkContainer>
   )
 }
 
