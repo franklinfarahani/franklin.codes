@@ -52,7 +52,7 @@ const HitsWrapper = styled.div<HitsWrapperProps>`
   box-shadow: ${shadows.high};
   background: ${props => props.theme.cardBg};
   border-radius: ${borderRadius.round};
-` as React.FunctionComponent<HitsWrapperProps>
+`
 
 const PoweredBy = styled.span`
   a {

@@ -1,19 +1,19 @@
 ---
 title: How I wrote my fourth post ever, and you can too
-date: "2019-04-28T09:25:18.101Z"
+date: "2019-06-24"
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 tags: ["React", "Productivity"]
 cover: "./chameleon.jpg"
 ---
 
-## Introduction
+# Introduction
 
-Far far away, behind the word mountains, far from the countries Vokalia and
+Far far away, behind the `gWord();` mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
 right at the coast of the Semantics, a large language ocean. A small river named
 Duden flows by their place and supplies it with the necessary regelialia.
 
-# On deer horse aboard tritely yikes and much
+## On deer horse aboard tritely yikes and much
 
 The Big Oxmox advised her not to do so, because there were thousands of bad
 Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
