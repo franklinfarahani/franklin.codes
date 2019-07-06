@@ -160,7 +160,7 @@ const blogQuery = graphql`
               tags
               cover {
                 childImageSharp{
-                  fluid(maxWidth: 276, quality: 100) {
+                  fluid(maxHeight: 175, quality: 100) {
                     ...GatsbyImageSharpFluid
                     presentationWidth
                   }
