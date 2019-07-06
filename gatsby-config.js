@@ -82,6 +82,22 @@ module.exports = {
               }) => ''
             },
           },
+          {
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              providers: {
+                settings: {
+                  Twitter: {
+                    hide_thread: 'true', // previous Tweet in a conversation thread will not be displayed
+                    align: 'center'
+                  },
+                  Instagram: {
+                    hidecaption: true
+                  }
+                }
+              }
+            }
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-reading-time`,
