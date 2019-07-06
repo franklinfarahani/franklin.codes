@@ -119,7 +119,7 @@ const reset = css`
     font-family: ${fonts.SFMono};
   }
   .twitter-tweet-rendered, .instagram-media-rendered {
-    margin: 1.25rem auto !important;
+    margin: 2em auto !important;
     ${media.phablet`width: 100% !important;`}
   }
 `
