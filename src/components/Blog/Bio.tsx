@@ -34,7 +34,7 @@ const BioText = styled.div`
   margin: 0 auto;
   font-size: ${fontSizes.bio}em;
   font-weight: 500;
-  span {
+  a {
     display: block;
     color: ${props => props.theme.link};
     margin-bottom: 2px;
@@ -64,7 +64,9 @@ const Bio = () => {
       />
       <BioText>
         
-        <span><strong>{author}</strong> @{social.twitter}</span>
+        <a href={`https://twitter.com/${social.twitter}`} title={`Follow @${social.twitter} on Twitter`} target="_blank">
+          <strong>{author}</strong> @{social.twitter}
+        </a>
         <p>A front-end engineer, React enthusiast, and occasional designer based in Vancouver, BC.
         When not doing any of the above, he's either reading, listening to podcasts, or dungeon mastering.</p>        
       </BioText>
