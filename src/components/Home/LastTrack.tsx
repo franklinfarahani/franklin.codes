@@ -48,7 +48,7 @@ const LastTrack = () => {
       })
       .catch(error => console.error(error))
     setIsLoading(false)
-  })
+  }, [])
 
   return (
     <Wrapper>
