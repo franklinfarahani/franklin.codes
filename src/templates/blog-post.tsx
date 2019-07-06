@@ -228,6 +228,9 @@ const ArticleBody = styled.div`
     font-size: ${fontSizes.article.code}em;
     &.vscode-highlight{
       padding-top: 1.5em;
+      --vscode-highlight-line-highlighted-background-color: rgba(34, 37, 53, .8); /* default: transparent */
+      --vscode-highlight-line-highlighted-border-color: ${props => props.theme.primary}; /* default: transparent */
+      --vscode-highlight-line-highlighted-border-width: 4px; /* default: 2px */
     }
     ${media.phablet`
       border-radius: 0;
