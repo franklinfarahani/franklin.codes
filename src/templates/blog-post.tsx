@@ -238,7 +238,7 @@ const ArticleBody = styled.div`
         width: 100vw;
       }
     `}
-  }
+  }  
 `
 const ArticleFooter = styled.footer`
   grid-area: footer;

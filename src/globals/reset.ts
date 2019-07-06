@@ -1,5 +1,6 @@
 import { css } from '@emotion/core'
 import config from './config'
+import media from './media'
 import { light as colors } from './theme'
 
 const { fontSizes, fonts, transition } = config
@@ -117,7 +118,10 @@ const reset = css`
   code {
     font-family: ${fonts.SFMono};
   }
-
+  .twitter-tweet-rendered, .instagram-media-rendered {
+    margin: 1.25rem auto !important;
+    ${media.phablet`width: 100% !important;`}
+  }
 `
 
 export default reset
