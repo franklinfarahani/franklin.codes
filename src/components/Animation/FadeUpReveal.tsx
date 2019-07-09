@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import { useInView } from 'react-intersection-observer'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group'
 import styled from '@emotion/styled'
 
 import config from '../../globals/config'
