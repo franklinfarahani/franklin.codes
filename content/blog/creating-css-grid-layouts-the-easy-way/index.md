@@ -1,5 +1,5 @@
 ---
-title: Creating CSS Grid Layouts in No Time
+title: Creating CSS Grid Layouts the Easy Way
 date: "2019-06-10"
 description: "Learning CSS Grid may be a daunting task to many developers. We discuss the minimum you need to know before you become a Grid believer (Hint: named grid areas!)"
 tags: ["CSS-grid", "CSS", "Styling"]
@@ -24,7 +24,47 @@ As you might know, unlike Flex, CSS Grid works on a 2-dimensional system. With F
 
 Grid achieves this by allowing you to specify grid lines for a parent container and then letting you assign locations to its children by declaring the vertical and horizontal start and finish lines for them.
 
-Sounds a bit complicated, doesn't it? Let's take a look:
+Sounds a bit complicated, doesn't it? Let's look at an example for the following design:
+
+![Simple Grid Layout](https://www.mozilla.org/media/img/firefox/developer/hero-cssgrid-ani.c0a7ace9dbf7.gif)
+
+```css
+#article {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+#sidebar {
+  grid-column: 1 / 2;
+}
+
+#content {
+  grid-column: 2 / 3;
+}
+```
+
+Not too bad, right? But it can be much better. Let's say for the responsive phone view, you would like to stack `#sidebar` and `#content` on top of each other. One way to do it would be to write media queries for each element like so:
+
+```css {4, 8, 12}
+@media (min-width: 320px) and (max-width: 480px) {
+  #article {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+
+  #sidebar {
+    grid-row: 1 / 2;
+  }
+
+  #content {
+    grid-row: 2 / 3;
+  }
+}
+```
+
+This will certainly do the job, but at the same time, it is not taking advantage of one of Grid's most powerful features: **Naming Areas**.
+
+
 
 
 
