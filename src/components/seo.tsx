@@ -1,5 +1,5 @@
 /**
- * SEO component that queries for data with
+ * Seo component that queries for data with
  *  Gatsby's useStaticQuery React hook
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
@@ -28,7 +28,7 @@ const defaultProps = {
   meta: [],
 }
 
-function SEO({ description, lang, meta, keywords, title }: SeoProps) {
+function Seo({ description, lang, meta, keywords, title }: SeoProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -99,6 +99,6 @@ function SEO({ description, lang, meta, keywords, title }: SeoProps) {
   )
 }
 
-SEO.defaultProps = defaultProps
+Seo.defaultProps = defaultProps
 
-export default SEO
+export default Seo
