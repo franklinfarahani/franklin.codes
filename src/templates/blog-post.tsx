@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight } from 'emotion-icons/fa-solid'
 
 import { Bio } from '../components/Blog'
 import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import Seo from '../components/Seo'
 import Tag from '../components/Tag'
 import Divider from '../components/Divider'
 
@@ -292,7 +292,7 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
 
   return (
     <Layout title={siteTitle}>
-      <SEO
+      <Seo
         title={title}
         description={description || excerpt}
       />

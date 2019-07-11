@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import Seo from '../components/Seo'
 import { Hero, Work, BlogPreview, Contact } from '../components/Home'
 
 type HomeProps = {
@@ -15,7 +15,7 @@ type HomeProps = {
 const IndexPage = ({ data }: HomeProps) => {
   return (
     <Layout>
-      <SEO title="Front-end Engineer" keywords={['gatsby', 'application', 'react']} />
+      <Seo title="Front-end Engineer" keywords={['gatsby', 'application', 'react']} />
       <Hero data={data.socials}/>
       <Work data={data.projects.edges} />
       <BlogPreview />

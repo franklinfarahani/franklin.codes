@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import { BlogFeed, BlogDescription } from '../components/Blog'
 import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import Seo from '../components/Seo'
 import Search from '../components/Search'
 import { media } from '../globals'
 
@@ -29,7 +29,7 @@ const BlogIndex = () => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title="All posts"
         keywords={['blog', 'gatsby', 'javascript', 'react']}
       />

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import Seo from '../components/Seo'
 
 type NotFoundPageProps = {
   data: {
@@ -16,7 +16,7 @@ const NotFoundPage = ({data}: NotFoundPageProps) => {
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="404: Not Found" />
+      <Seo title="404: Not Found" />
       <h1>404: Page Not Found</h1>
       <p>Dang it, you found my heck up 😕.</p>
     </Layout>
