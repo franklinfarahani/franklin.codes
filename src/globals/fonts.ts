@@ -20,7 +20,7 @@ const fonts = css`
     url(${TTCommonsRegularWOFF}) format('woff');
     font-weight: 400;
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
   }
   @font-face {
     font-family: 'TT Commons';
@@ -28,7 +28,7 @@ const fonts = css`
     url(${TTCommonsMediumWOFF}) format('woff');
     font-weight: 500;
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
   }
   @font-face {
     font-family: 'TT Commons';
@@ -36,7 +36,7 @@ const fonts = css`
     url(${TTCommonsDemiboldWOFF}) format('woff');
     font-weight: 600;
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
   }
   @font-face {
     font-family: 'TT Commons';
@@ -44,7 +44,7 @@ const fonts = css`
     url(${TTCommonsBoldWOFF}) format('woff');
     font-weight: 700;
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
   }
   @font-face {
     font-family: 'SF Mono';
@@ -52,7 +52,7 @@ const fonts = css`
     url(${SFMonoRegularWOFF}) format('woff');
     font-weight: 400;
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
   }
 `
 
