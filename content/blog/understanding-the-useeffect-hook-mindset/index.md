@@ -1,6 +1,6 @@
 ---
 title: Understanding the useEffect Hook Mindset
-date: "2019-06-17"
+date: "2019-07-06"
 description: The trick to understanding useEffect is to figure out what your side effect should be "synced" with, rather than "when" it is happening.
 tags: ["Hooks", "React"]
 cover: "./useeffect-hook.jpg"

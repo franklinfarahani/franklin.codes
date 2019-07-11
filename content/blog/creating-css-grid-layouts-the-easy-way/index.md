@@ -1,6 +1,6 @@
 ---
 title: Creating CSS Grid Layouts the Easy Way
-date: "2019-06-10"
+date: "2019-06-29"
 description: "Learning CSS Grid may be a daunting task to many developers. We discuss the minimum you need to know before you become a Grid believer (Hint: named grid areas!)"
 tags: ["CSS-grid", "CSS", "Styling"]
 cover: "./css-grid-aha.jpg"
