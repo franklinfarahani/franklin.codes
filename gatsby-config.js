@@ -139,5 +139,6 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-typescript`,
     'gatsby-plugin-tslint',
+    `gatsby-plugin-netlify-cms`,
   ],
 }
