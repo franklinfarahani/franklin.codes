@@ -45,10 +45,10 @@ Sounds a bit complicated, doesn't it? Let's look at an example for the following
 
 Not too bad, right? But it can be much better. Let's say for the responsive phone view, you would like to stack `#sidebar` and `#content` on top of each other. One way to do it would be to write media queries for each element like so:
 
-```css {4, 8, 12}
+```css {3, 4, 8, 12}
 @media (min-width: 320px) and (max-width: 480px) {
   #article {
-    display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
   }
 
@@ -62,7 +62,60 @@ Not too bad, right? But it can be much better. Let's say for the responsive phon
 }
 ```
 
-This will certainly do the job, but at the same time, it is not taking advantage of one of Grid's most powerful features: **Naming Areas**.
+This will certainly do the job but as you can see, with our current method we would have to modify multiple elements to create our desired effect on smaller screens. We are not taking advantage of one of Grid's most powerful features:
+
+## Named Areas
+
+Let's create the same layout, this time using `grid-template`:
+
+
+```css
+#article {
+  display: grid;
+  grid-template: 
+    "sidebar main" auto / 150px 1fr;
+}
+
+#sidebar {
+  grid-area: sidebar;
+}
+
+#content {
+  grid-area: main;
+}
+```
+
+Here, we have assigned names to the areas we had in mind, given them a row height of `auto` and given them the same widths as before, all in one property. This means that now, we don't need to bother with using line numbers to choose the children's locations. Therefore, in order to create the same responsive layout as before, we could just change `#article` in our media query:
+
+```css {3-5}
+@media (min-width: 320px) and (max-width: 480px) {
+  #article {
+    grid-template: 
+      "sidebar" auto 
+      "main   " auto / 1fr;
+  }
+}
+```
+
+As you can see, this makes it possible for you to visualize UI as you are writing CSS. This means in order to create any layout, you first need to plan it by drawing grid lines, and dividing it into areas that you can name later.
+
+It's important to note that the areas you assign in the parent container need to create a complete rectangular shape, which means no **L-shaped** selections are allowed. If an area is not assigned to any element, you must put **dots** in its place. You can use as many dots as you want as long as they connect. Similarly, you can also use as many **spaces** you want in-between your elements if you need them to align correctly. Here's how that would look like:
+
+```css
+#card {
+  grid-template:
+    "meta   ....." auto
+    "title  image" 80px
+    "tags   ....." auto / 1fr 80px;
+  }
+}
+```
+
+## Conclusion
+
+
+
+
 
 
 
