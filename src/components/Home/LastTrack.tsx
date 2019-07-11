@@ -31,9 +31,9 @@ const LastTrack = () => {
   useEffect(() => {
     async function getLastTrack() {
       let response = await fetch(
-        'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks' + 
+        'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks' + 
         `&user=${process.env.GATSBY_LASTFM_USER}` + 
-        `&api_key=${process.env.LASTFM_API_KEY}` + 
+        `&api_key=${process.env.GATSBY_LASTFM_API_KEY}` + 
         '&format=json' + 
         '&limit=1'
       )
