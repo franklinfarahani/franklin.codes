@@ -156,8 +156,12 @@ const ArticleBody = styled.div`
   line-height: ${lineHeights[4]};
   
   h1, h2, h3, h4, h5, h6 {
-    &:not(:first-child) {
-      margin-top: 1.5em;
+    margin-top: 1.5em;
+  }
+
+  h1, h2, h3 {
+    &:first-of-type {
+      margin-top: 0;
     }
   }
 
@@ -172,15 +176,17 @@ const ArticleBody = styled.div`
   }
   p {
     margin-bottom: 16px;
+
     a::after {
-      bottom: 1px !important;
+      bottom: 2px !important;
     }
+    
     code {
       font-size: ${fontSizes.article.inlineCode}em;
       padding: 2px 6px;
       border-radius: ${borderRadius.sharp};
       color: ${props => props.theme.inlineCode};
-      background: ${props => props.theme.inlineBg};      
+      background: ${props => props.theme.inlineBg};
     }
   }
   ul, ol {
@@ -193,6 +199,9 @@ const ArticleBody = styled.div`
     ${media.tablet`padding-inline-start: 20px;`}
     ul, ol, p {
       margin: 0;
+    }
+    a {
+      text-decoration: underline ${props => props.theme.primary};;
     }
   }
   ul {
