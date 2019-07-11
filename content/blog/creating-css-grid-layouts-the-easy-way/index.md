@@ -26,7 +26,7 @@ Grid achieves this by allowing you to specify grid lines for a parent container 
 
 Sounds a bit complicated, doesn't it? Let's look at an example for the following design:
 
-![Simple Grid Layout](https://www.mozilla.org/media/img/firefox/developer/hero-cssgrid-ani.c0a7ace9dbf7.gif)
+![Simple Grid Layout](./css-grid-animation.gif)
 
 ```css
 #article {
@@ -113,10 +113,13 @@ It's important to note that the areas you assign in the parent container need to
 
 ## Conclusion
 
+The key to creating great grid layouts is to first plan where each element goes in regards to the parent container. This can be achieved by drawing grid lines over your design and taking note of where each element goes. Then all that needs to be done is to use `grid-template` in the parent container to create the layout, and then for each child to be assigned to their respective area names using `grid-area`.
 
+#### Links to Other Resources
 
-
-
+* [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+* [A guide to learning CSS grid by @jonsuh](https://learncssgrid.com/)
+* [Grid Garden](https://cssgridgarden.com/)
 
 
 
