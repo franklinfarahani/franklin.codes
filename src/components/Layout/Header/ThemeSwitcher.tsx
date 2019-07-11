@@ -117,6 +117,7 @@ const ThemeSwitcher = ({ onChange }: ThemeSwitcherProps) => {
     <Wrapper
       onClick={onChange}
       role="button"
+      aria-label="Switch between light and dark mode"
       tabIndex={0}
       onKeyPress={handleKeyPress}
     >
