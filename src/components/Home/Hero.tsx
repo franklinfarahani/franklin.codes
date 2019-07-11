@@ -189,17 +189,17 @@ const Hero = ({data}: HeroProps) => {
         <FadeInReveal as={Fragment} isLoading={isLoading} delay={800}>
           <Socials>
             <li>
-              <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank">
+              <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank" rel="noopener">
                 <IconTwitter />
               </a>
             </li>
             <li>
-              <a href={`https://github.com/${github}`} title={`${author}'s Github Profile`} target="_blank">
+              <a href={`https://github.com/${github}`} title={`${author}'s Github Profile`} target="_blank" rel="noopener">
                 <IconGithub />
               </a>
             </li>
             <li>
-              <a href={`https://www.linkedin.com/in/${linkedin}`} title={`${author}'s Linkedin Profile`} target="_blank">
+              <a href={`https://www.linkedin.com/in/${linkedin}`} title={`${author}'s Linkedin Profile`} target="_blank" rel="noopener">
                 <IconLinkedin />
               </a>
             </li>

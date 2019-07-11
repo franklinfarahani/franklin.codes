@@ -64,7 +64,7 @@ const Bio = () => {
       />
       <BioText>
         
-        <a href={`https://twitter.com/${social.twitter}`} title={`Follow @${social.twitter} on Twitter`} target="_blank">
+        <a href={`https://twitter.com/${social.twitter}`} title={`Follow @${social.twitter} on Twitter`} target="_blank" rel="noopener">
           <strong>{author}</strong> @{social.twitter}
         </a>
         <p>A front-end engineer, React enthusiast, and occasional designer based in Vancouver, BC.

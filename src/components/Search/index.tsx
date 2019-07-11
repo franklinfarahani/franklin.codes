@@ -148,7 +148,7 @@ const Search = ({indices}: SearchProps) => {
             </Index>
           ))}
           <PoweredBy>
-            <a href="https://algolia.com">
+            <a href="https://algolia.com" target="_blank" rel="noopener">
               <AlgoliaLogo />
             </a>
           </PoweredBy>          

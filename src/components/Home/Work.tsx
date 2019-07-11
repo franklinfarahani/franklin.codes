@@ -154,10 +154,10 @@ const Work = ({data}: WorkProps) => {
                 {/* Convert single digit ids to 2-digit format */}
                 <ProjectId>{'0' + id.toString().slice(-2)}</ProjectId>
                 <ProjectLinks>
-                  <ProjectLink href={repo} title={title + ' Github repo'} target="_blank">
+                  <ProjectLink href={repo} title={title + ' Github repo'} target="_blank" rel="noopener">
                     <IconCode />
                   </ProjectLink>
-                  <ProjectLink href={external} title={'View live'} target="_blank">
+                  <ProjectLink href={external} title={'View live'} target="_blank" rel="noopener">
                     <IconExternalLink />
                   </ProjectLink>
                 </ProjectLinks>

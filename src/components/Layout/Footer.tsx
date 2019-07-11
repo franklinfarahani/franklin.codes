@@ -92,21 +92,21 @@ const Footer = () => {
 
   return (
     <FooterWrapper>
-      <span>Built with <a href="https://github.com/franklinfarahani/franklin.codes">React + Gatsby</a></span>
+      <span>Built with <a href="https://github.com/franklinfarahani/franklin.codes" target="_blank" rel="noopener">React + Gatsby</a></span>
       <span>© {new Date().getFullYear()} {author}. All Rights Reserved.</span>
       <Socials>
         <li>
-          <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank">
+          <a href={`https://twitter.com/${twitter}`} title={`Follow @${twitter} on Twitter`} target="_blank" rel="noopener">
             <IconTwitter />
           </a>
         </li>
         <li>
-          <a href={`https://github.com/${github}`} title={`${author}'s Github Profile`} target="_blank">
+          <a href={`https://github.com/${github}`} title={`${author}'s Github Profile`} target="_blank" rel="noopener">
             <IconGithub />
           </a>
         </li>
         <li>
-          <a href={`https://www.linkedin.com/in/${linkedin}`} title={`${author}'s Linkedin Profile`} target="_blank">
+          <a href={`https://www.linkedin.com/in/${linkedin}`} title={`${author}'s Linkedin Profile`} target="_blank" rel="noopener">
             <IconLinkedin />
           </a>
         </li>
