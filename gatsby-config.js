@@ -8,13 +8,13 @@ module.exports = {
   siteMetadata: {
     title: `Franklin Farahani`,
     author: `Franklin Farahani`,
-    description: `A blog about JS related topics that I'm currently interested in ⚛️`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Franklin Farahani's coding blog about JavaScript, Web Development, and related topics. ⚛️`,
+    siteUrl: `https://www.franklin.codes/`,
     social: {
       twitter: `frankfarahani`,
       github: `franklinfarahani`,
       linkedin: `franklin-farahani`,
-      email: `me@franklinfarahani.ca`,
+      email: `franklinfarahani@gmail.com`,
     },
   },
   plugins: [
@@ -109,7 +109,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-143778508-1`,
       },
     },
     {
