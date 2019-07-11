@@ -140,5 +140,6 @@ module.exports = {
     `gatsby-plugin-typescript`,
     'gatsby-plugin-tslint',
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-brotli`,
   ],
 }
