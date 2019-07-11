@@ -155,6 +155,12 @@ const ArticleBody = styled.div`
   font-size: ${fontSizes.article.body}em;
   line-height: ${lineHeights[4]};
   
+  h1, h2, h3, h4, h5, h6 {
+    &:not(:first-child) {
+      margin-top: 1.5em;
+    }
+  }
+
   h1 {
     font-size: 1.5em;
   }
