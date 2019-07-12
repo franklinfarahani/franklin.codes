@@ -48,6 +48,11 @@ declare type Markdown = {
       readonly childImageSharp?: {
         readonly fluid: FluidObject
         readonly fixed: FixedObject
+        readonly resize: {
+          readonly src: string
+          readonly height: string
+          readonly width: string
+        }
       }
     }
   }
