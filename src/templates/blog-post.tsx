@@ -289,12 +289,14 @@ const BlogPostTemplate = ({data, pageContext} : BlogPostProps) => {
   const { readingTime } = fields
   const { title, description, tags, date, cover } = data.markdownRemark.frontmatter
   const { previous, next } = pageContext
+  const image = (cover.childImageSharp && cover.childImageSharp.resize) ? cover.childImageSharp.resize : undefined
 
   return (
     <Layout title={siteTitle}>
       <Seo
         title={title}
         description={description || excerpt}
+        image={image}
       />
       <ArticleWrapper>
         <ArticleBodyWrapper>
@@ -426,6 +428,11 @@ export const pageQuery = graphql`
             fluid(maxWidth: 820, maxHeight: 350, quality: 100) {
               ...GatsbyImageSharpFluid
               presentationWidth
+            }
+            resize(width: 1200) {
+              src
+              height
+              width
             }
           }
         }
