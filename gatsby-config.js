@@ -10,6 +10,7 @@ module.exports = {
     author: `Franklin Farahani`,
     description: `Franklin Farahani's coding blog about JavaScript, Web Development, and related topics. ⚛️`,
     siteUrl: `https://www.franklin.codes/`,
+    keywords: ["Web Development", "Front-end Enginneer", "React", "Redux", "Software Engineer", "Vancouver", "Web Developer", "Front-end Developer", "Web Design"],
     social: {
       twitter: `frankfarahani`,
       github: `franklinfarahani`,
