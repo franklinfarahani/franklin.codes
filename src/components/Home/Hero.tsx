@@ -206,7 +206,7 @@ const Hero = ({data}: HeroProps) => {
           </Socials>
         </FadeInReveal>
         <FadeInReveal as={Fragment} isLoading={isLoading} delay={900}>
-          <ComposeEmail href={`mailto:${email}`}>
+          <ComposeEmail href={`mailto:${email}`} aria-label="Write me an email!">
             <SayHello>
               <span />
               <p>Say Hello!</p>

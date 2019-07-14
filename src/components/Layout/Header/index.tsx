@@ -114,7 +114,7 @@ const Header = ({ themeSelect, isDark }: HeaderProps) => {
     <HeaderContainer>
       <HeadroomContainer>
         <LogoContainer>
-          <Link to="/">
+          <Link to="/" aria-label="Home">
             <Logo />
             <LogoType>Franklin Farahani.</LogoType>
           </Link>
