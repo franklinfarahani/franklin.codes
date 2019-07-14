@@ -41,7 +41,7 @@ const SlideReveal = ({isLoading, as = 'h1', delay = 0, children}: SlideRevealPro
       <AnimationMask>
         <TransitionGroup>
           {!isLoading && (
-            <CSSTransition timeout={3000} classNames="slideup">
+            <CSSTransition timeout={1000} classNames="slideup">
               <Animated>{children}</Animated>
             </CSSTransition>
           )}
