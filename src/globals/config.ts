@@ -42,6 +42,7 @@ const lineHeights = [1, 1.125, 1.25, 1.4, 1.5, 1.75]
 
 const paddings = {
   horizontalSide: 60,
+  vertical: 40,
 }
 
 const borderRadius = {
