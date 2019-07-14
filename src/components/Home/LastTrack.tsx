@@ -11,10 +11,6 @@ const Wrapper = styled.span`
   font-size: ${config.fontSizes.meta}em;
   font-weight: 700;
   text-transform: uppercase;
-  position: absolute;
-  left: 0;
-  bottom: 50px;
-  ${mixins.flexCenter}
   ${media.phablet`display: none;`}
 `
 

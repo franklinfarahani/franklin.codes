@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
 import AnchorLink from '../AnchorLink'
 import SlideReveal from '../Animation/SlideReveal'
@@ -14,25 +15,57 @@ import { Twitter, Github, LinkedinIn } from 'emotion-icons/fa-brands'
 import { CommentAlt, ChevronRight } from 'emotion-icons/fa-solid'
 
 const { phone, large } = sizes
-const { lineHeights, fontSizes } = config
+const { lineHeights, fontSizes, paddings } = config
 
-const HeroContainer = styled.section`
+// const HeroContainer = styled.section`
+//   min-height: calc(100vh - 113px);
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   ${media.phablet`min-height: calc(100vh - 130px);`}
+//   ${media.phone`min-height: calc(100vh - 75px);`}
+// `
+
+const HeroContainer = styled('section')<{viewportHeight: number}>`
   min-height: calc(100vh - 113px);
+  padding-bottom: ${paddings.vertical}px;
   position: relative;
-  display: flex;
-  align-items: center;
-  ${media.phablet`min-height: calc(100vh - 130px);`}
-  ${media.phone`min-height: calc(100vh - 75px);`}
+  display: grid;
+  grid-template:
+    ".......   ......." 1fr
+    "intro     socials" auto
+    "mission   ......." auto
+    "cta       email  " 1fr
+    "track     email  " auto / 1fr 58px;
+    ${({ viewportHeight }) => css`
+      ${media.phablet`
+        min-height: ${viewportHeight - 73}px;
+      `}
+    `}
+    
+    ${media.phablet`      
+      grid-template:
+      ".......   ......." 1fr
+      "intro     intro  " auto
+      "mission   mission" auto
+      "cta       email  " auto / 1fr 58px;
+    `}
+  /* ${media.phablet`min-height: calc(100vh - 130px);`}
+  ${media.phone`min-height: calc(100vh - 75px);`} */
 `
 
-const HeroContent = styled.div`
+const HeroIntro = styled.div`
+  grid-area: intro;
   h1 {
     font-size: ${fontSizes.hero.intro}vw;
     line-height: ${lineHeights[1]};
     margin: 0;
-    ${media.phablet`font-size: 3.9em;`}
+    ${media.phablet`font-size: 7.76vh;`}
   }
+`
 
+const HeroMission = styled.div`
+  grid-area: mission;
   h2 {
     max-width: 40ch;
     font-size: ${fontSizes.hero.description}em;
@@ -44,6 +77,10 @@ const HeroContent = styled.div`
   }
 `
 
+const HeroCTA = styled.div`
+  grid-area: cta;
+`
+
 const LearnMore = styled(AnchorLink)`
   ${mixins.button}
   color: ${props => props.theme.bg};
@@ -53,9 +90,9 @@ const LearnMore = styled(AnchorLink)`
     transform: translateY(calc(2vh - 3px));
   }
   ${media.phablet`
-    position: absolute;
+    /* position: absolute; */
     transform: none;
-    bottom: 20px;
+    /* bottom: 20px; */
   `}
 `
 
@@ -64,17 +101,19 @@ const IconChevronRight = styled(ChevronRight)`
   margin-left: 12px;
 `
 
-const ContactFloat = styled.div`
-  ${mixins.flexBetween}
-  flex-direction: column;
-  position: absolute;
-  height: 55vh;
-  right: 0;
-  bottom: 50px;
-  ${media.phablet`
-    height: auto;
-    bottom: 20px;
-    `}
+const LastTrackWrapper = styled.div`
+  grid-area: track;
+`
+
+const SocialsWrapper = styled.div`
+  grid-area: socials;
+  ${mixins.flexCenter}
+`
+
+const SayHelloWrapper = styled.div`
+  grid-area: email;
+  display: flex;
+  align-items: flex-end;
 `
 
 const Socials = styled.ul`
@@ -177,15 +216,29 @@ const Hero = ({data}: HeroProps) => {
   const { twitter, github, linkedin, email } = data.siteMetadata.social
 
   const [isLoading, setIsLoading] = useState(true)
+  const [viewportHeight, setViewportHeight] = useState(0)
   
   useEffect(() => {
     setIsLoading(false)
-  })
+  }, [])
+
+  useEffect(() => {
+    function handleHeightChange() {
+      setViewportHeight(window.innerHeight)
+    }
+
+    handleHeightChange()
+
+    window.addEventListener('resize', handleHeightChange)
+    return () => {
+      window.removeEventListener('resize', handleHeightChange)
+    }
+  }, [viewportHeight])
 
   return (
-    <HeroContainer>
+    <HeroContainer viewportHeight={viewportHeight}>
       
-      <ContactFloat>
+      <SocialsWrapper>
         <FadeInReveal as={Fragment} isLoading={isLoading} delay={800}>
           <Socials>
             <li>
@@ -205,6 +258,8 @@ const Hero = ({data}: HeroProps) => {
             </li>
           </Socials>
         </FadeInReveal>
+      </SocialsWrapper>
+      <SayHelloWrapper>
         <FadeInReveal as={Fragment} isLoading={isLoading} delay={900}>
           <ComposeEmail href={`mailto:${email}`} aria-label="Write me an email!">
             <SayHello>
@@ -216,28 +271,34 @@ const Hero = ({data}: HeroProps) => {
             </IconCommentWrapper>          
           </ComposeEmail>
         </FadeInReveal>
-      </ContactFloat>
-      
-      <HeroContent>      
+      </SayHelloWrapper>
+
+      <HeroIntro>
         <SlideReveal as="h1" isLoading={isLoading} delay={200}>
           Hey, I'm Franklin.
         </SlideReveal>
         <SlideReveal as="h1"  isLoading={isLoading} delay={400}>
           I build things for the web.
-        </SlideReveal>       
+        </SlideReveal>  
+      </HeroIntro>
+      <HeroMission>
         <SlideReveal as="h2" isLoading={isLoading} delay={800}>
           I help brands connect with their customers through good design, engaging user experience, and clean code.
         </SlideReveal>
+      </HeroMission>
+      <HeroCTA>
         <FadeInReveal as={Fragment} isLoading={isLoading} delay={800}>
           <LearnMore href="#work">
             <span>Learn More</span>
             <IconChevronRight />
           </LearnMore>
         </FadeInReveal>
-      </HeroContent>
-      <FadeInReveal as={Fragment} isLoading={isLoading} delay={900}>
-        <LastTrack />
-      </FadeInReveal>
+      </HeroCTA>
+      <LastTrackWrapper>
+        <FadeInReveal as={Fragment} isLoading={isLoading} delay={900}>
+          <LastTrack />
+        </FadeInReveal>
+      </LastTrackWrapper>      
     </HeroContainer>
   )
 }
