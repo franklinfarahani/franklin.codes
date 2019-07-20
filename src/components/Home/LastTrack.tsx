@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 
-import mixins from '../../utils/mixins'
 import { config, media } from '../../globals'
 
 import { Headphones } from 'emotion-icons/fa-solid'
