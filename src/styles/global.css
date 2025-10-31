@@ -1,0 +1,226 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans:
+    'Albert Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+  --color-yellow: #ffc700;
+  --color-orange: #ff9900;
+  --color-almost-white: #f2f2f2;
+  --color-lighter-grey: #d8d8d8;
+  --color-light-grey: #bcbcbc;
+  --color-dark-grey: #555555;
+  --color-grey: #777777;
+  --color-darker-grey: #8c8c8c;
+  --color-darkest-grey: #2f2f2f;
+  --color-almost-black: #171717;
+  --color-black: #0d0d0d;
+}
+
+@layer base {
+  /* Custom typography styles for blog content */
+  .prose {
+    line-height: 1.75;
+    color: theme(colors.almost-black);
+  }
+
+  .dark .prose {
+    color: theme(colors.almost-white);
+  }
+
+  .prose h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: theme(colors.almost-black);
+  }
+
+  .dark .prose h1 {
+    color: theme(colors.almost-white);
+  }
+
+  .prose h2 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: theme(colors.almost-black);
+  }
+
+  .dark .prose h2 {
+    color: theme(colors.almost-white);
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: theme(colors.almost-black);
+  }
+
+  .dark .prose h3 {
+    color: theme(colors.almost-white);
+  }
+
+  .prose h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: theme(colors.almost-black);
+  }
+
+  .dark .prose h4 {
+    color: theme(colors.almost-white);
+  }
+
+  .prose p {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .prose a {
+    color: theme(colors.almost-black);
+    border-bottom: 2px solid theme(colors.yellow);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .dark .prose a {
+    color: theme(colors.almost-white);
+  }
+
+  .prose a:hover {
+    color: theme(colors.grey);
+  }
+
+  .dark .prose a:hover {
+    color: theme(colors.light-grey);
+  }
+
+  .prose ul {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  .prose ol {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+    list-style-type: decimal;
+  }
+
+  .prose li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose blockquote {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 4px solid theme(colors.yellow);
+    font-style: italic;
+    color: theme(colors.dark-grey);
+  }
+
+  .dark .prose blockquote {
+    color: theme(colors.light-grey);
+  }
+
+  .prose code {
+    background-color: theme(colors.lighter-grey);
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-family:
+      ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono',
+      Menlo, monospace;
+  }
+
+  .dark .prose code {
+    background-color: theme(colors.darkest-grey);
+  }
+
+  .prose pre {
+    background-color: theme(colors.almost-white);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dark .prose pre {
+    background-color: theme(colors.almost-black);
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .prose strong {
+    font-weight: 600;
+  }
+
+  .prose em {
+    font-style: italic;
+  }
+
+  .prose hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-top: 1px solid theme(colors.lighter-grey);
+  }
+
+  .dark .prose hr {
+    border-top-color: theme(colors.darkest-grey);
+  }
+
+  .prose img {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .prose table {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+  }
+
+  .prose th {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid theme(colors.lighter-grey);
+    font-weight: 600;
+  }
+
+  .dark .prose th {
+    border-bottom-color: theme(colors.darkest-grey);
+  }
+
+  .prose td {
+    padding: 0.75rem;
+    border-bottom: 1px solid theme(colors.lighter-grey);
+  }
+
+  .dark .prose td {
+    border-bottom-color: theme(colors.darkest-grey);
+  }
+}
