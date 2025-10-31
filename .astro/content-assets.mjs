@@ -1,0 +1,9 @@
+
+import __ASTRO_IMAGE_IMPORT_2a0gsJ from "./watchlist-phone.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2F01-watchlist%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_Z1WyRUV from "./portfolio.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2F02-franklin-codes%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_Z1caYeg from "./css-grid-animation.gif?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fcreating-css-grid-layouts-the-easy-way%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_Z1moYne from "./css-grid-aha.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fcreating-css-grid-layouts-the-easy-way%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_2goyt4 from "./emotion-plus-ts.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Faccessing-typing-and-destructuring-props-in-emotion%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_Z1aS1CO from "./useeffect-hook.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Funderstanding-the-useeffect-hook-mindset%2Findex.md";
+export default new Map([["./watchlist-phone.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2F01-watchlist%2Findex.md", __ASTRO_IMAGE_IMPORT_2a0gsJ], ["./portfolio.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2F02-franklin-codes%2Findex.md", __ASTRO_IMAGE_IMPORT_Z1WyRUV], ["./css-grid-animation.gif?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fcreating-css-grid-layouts-the-easy-way%2Findex.md", __ASTRO_IMAGE_IMPORT_Z1caYeg], ["./css-grid-aha.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Fcreating-css-grid-layouts-the-easy-way%2Findex.md", __ASTRO_IMAGE_IMPORT_Z1moYne], ["./emotion-plus-ts.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Faccessing-typing-and-destructuring-props-in-emotion%2Findex.md", __ASTRO_IMAGE_IMPORT_2goyt4], ["./useeffect-hook.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Fblog%2Funderstanding-the-useeffect-hook-mindset%2Findex.md", __ASTRO_IMAGE_IMPORT_Z1aS1CO]]);
+		
