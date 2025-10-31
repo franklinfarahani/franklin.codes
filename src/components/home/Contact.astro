@@ -1,0 +1,45 @@
+---
+interface Props {
+  isBusy?: boolean;
+  email?: string;
+}
+
+const {
+  isBusy = false,
+  email = 'me@franklinfarahani.ca'
+} = Astro.props;
+
+function getCurrentMonthYear() {
+  const date = new Date();
+  const month = date.toLocaleDateString('en-US', { month: 'short' });
+  const year = date.getFullYear();
+  return `${month} ${year}`.toUpperCase();
+}
+---
+
+<div class="mx-auto max-w-[1000px] mt-[20vh] mb-[5vh]" id="contact">
+  <div class="mb-6">
+    <h3 class="text-xl leading-none mb-2">
+      {isBusy
+        ? "Let's get in touch!"
+        : "Let's talk about your next project!"
+      }
+    </h3>
+    <div>
+      <span class="inline-block px-1 py-0.5 mr-1.5 text-[0.75em] font-bold uppercase text-almost-white dark:text-black bg-almost-black dark:bg-white rounded">
+        {getCurrentMonthYear()}
+      </span>
+      {isBusy
+        ? "I'm not looking for employment opportunities at the moment, but I'd be happy to talk anyway!"
+        : "I'm currently looking for more employment and freelance opportunities."
+      }
+    </div>
+  </div>
+
+  <a
+    href={`mailto:${email}`}
+    class="relative inline-block text-almost-black dark:text-white hover:text-grey dark:hover:text-light-grey transition-colors"
+  >
+    <span class="border-b-2 border-yellow">{email}</span>
+  </a>
+</div>

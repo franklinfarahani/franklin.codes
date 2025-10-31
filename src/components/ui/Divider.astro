@@ -1,0 +1,14 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<span class:list={[
+  "text-yellow dark:text-yellow",
+  className
+]}>
+  {' • '}
+</span>

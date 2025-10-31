@@ -1,0 +1,84 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { format } from 'date-fns';
+import { ChevronRightIcon } from './icons';
+import Tag from './Tag.astro';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  featured?: boolean;
+}
+
+const { posts, featured = false } = Astro.props;
+const displayPosts = featured ? posts.slice(0, 3) : posts;
+---
+
+<section class:list={[
+  'py-12',
+  { 'bg-lighter-grey/20 dark:bg-darkest-grey/20': featured }
+]}>
+  <div class="max-w-screen-xl mx-auto px-4 md:px-6">
+    {featured ? (
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-3xl font-bold">Latest Posts</h2>
+        <a
+          href="/blog"
+          class="inline-flex items-center text-dark-grey hover:text-yellow transition-colors"
+        >
+          View All
+          <ChevronRightIcon class="w-4 h-4 ml-1" />
+        </a>
+      </div>
+    ) : (
+      <div class="mb-8">
+        <h1 class="text-4xl font-bold mb-4">Blog</h1>
+        <p class="text-lg text-grey dark:text-light-grey max-w-2xl">
+          Thoughts on JavaScript, React, TypeScript, and the web development ecosystem.
+          Sometimes I write about design, user experience, and building products.
+        </p>
+      </div>
+    )}
+
+    <div class="grid gap-8">
+      {displayPosts.map((post) => (
+        <article class="group">
+          <a href={`/blog/${post.slug}`} class="no-underline">
+            <div class="bg-white dark:bg-almost-black rounded-lg shadow-md p-8 transition-transform hover:-translate-y-1">
+              <h3 class="text-2xl font-semibold mb-2 text-almost-black dark:text-white">
+                {post.data.title}
+              </h3>
+              {post.data.description && (
+                <p class="text-dark-grey dark:text-light-grey mb-4">
+                  {post.data.description}
+                </p>
+              )}
+              <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
+                <time
+                  datetime={post.data.date.toISOString()}
+                  class="text-sm text-grey dark:text-darker-grey"
+                >
+                  {format(post.data.date, 'MMMM d, yyyy')}
+                </time>
+                {post.data.readingTime && (
+                  <>
+                    <span class="text-grey dark:text-darker-grey">•</span>
+                    <span class="text-sm text-grey dark:text-darker-grey">
+                      {post.data.readingTime} min read
+                    </span>
+                  </>
+                )}
+              </div>
+              {post.data.tags && (
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.map(tag => (
+                    <Tag>{tag}</Tag>
+                  ))}
+                </div>
+              )}
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
