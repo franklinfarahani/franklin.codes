@@ -1,4 +1,3 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.franklin.codes/">
     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" class="css-1vy2dmd exvynbg0"><rect width="16.67" height="16.67" opacity="0.34"></rect><rect x="16.67" width="16.67" height="16.67" opacity="0.67"></rect><rect x="33.33" width="16.67" height="16.67"></rect><rect y="16.67" width="16.67" height="16.67" opacity="0.67"></rect><rect x="16.67" y="16.67" width="16.67" height="16.67"></rect><rect y="33.33" width="16.67" height="16.67"></rect></svg>
@@ -8,99 +7,182 @@
   Franklin Farahani's Personal Portfolio Website and Blog
 </h1>
 
-## 🚀 Quick start
+<p align="center">
+  A modern, performant personal website built with Astro, React, and Tailwind CSS
+</p>
 
-1.  **Clone the Repository.**
+<p align="center">
+  <a href="https://franklin.codes">View Live Site</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-project-structure">Project Structure</a> •
+  <a href="#-features">Features</a> •
+  <a href="docs/DEVELOPMENT_GUIDELINES.md">Development Guidelines</a>
+</p>
 
-    Use `git clone` to clone this repository.
+## 🚀 Quick Start
 
-    ```sh
-    # clone the repo locally
-    git clone git@github.com:franklinfarahani/franklin.codes.git
-    ```
+1. **Clone the Repository**
 
-1.  **Set Environment Variables.**
+   ```bash
+   git clone https://github.com/franklinfarahani/franklin.codes.git
+   cd franklin.codes
+   ```
 
-    Open `.env.development` and `.env.production` and paste your LastFM Scrobbler API info along with your Algolia credentials.
+2. **Install Dependencies**
 
-    ```sh
-    GATSBY_LASTFM_USER=##########
-    GATSBY_LASTFM_API_KEY=################################
+   This project uses Bun for package management:
 
-    GATSBY_ALGOLIA_APP_ID=##########
-    GATSBY_ALGOLIA_SEARCH_KEY=################################
-    ALGOLIA_ADMIN_KEY=################################
-    ```
+   ```bash
+   bun install
+   ```
 
-1.  **Start developing.**
+3. **Start Development Server**
 
-    Navigate into your new site’s directory and start it up.
+   ```bash
+   bun run dev
+   ```
 
-    ```sh
-    cd franklin-codes/
-    gatsby develop
-    ```
+   Your site is now running at `http://localhost:4321`!
 
-1.  **Open the source code and start editing!**
+4. **Build for Production**
 
-    Your site is now running at `http://localhost:8000`!
+   ```bash
+   bun run build
+   bun run preview
+   ```
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## 🧐 What's Inside?
 
-    Open the directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
+This is an Astro project following modern web development best practices. Here's the project structure:
 
-## 🧐 What's inside?
+```
+franklin.codes/
+├── public/                 # Static assets (favicons, robots.txt, images)
+├── src/
+│   ├── assets/            # Processed assets (fonts, images)
+│   ├── components/        # Reusable UI components
+│   │   ├── animations/    # Animation components (Framer Motion)
+│   │   ├── blog/         # Blog-specific components
+│   │   ├── home/         # Homepage components
+│   │   ├── icons/        # SVG icon components
+│   │   ├── layout/       # Navigation, header, footer
+│   │   ├── seo/          # SEO components
+│   │   └── ui/           # General UI components
+│   ├── content/          # Content collections (blog posts, projects)
+│   ├── layouts/          # Page layout templates
+│   ├── lib/              # Utility functions and libraries
+│   ├── pages/            # File-based routing
+│   ├── styles/           # Global CSS styles
+│   └── types.d.ts        # TypeScript type definitions
+├── astro.config.mjs      # Astro configuration
+├── package.json          # Dependencies and scripts
+├── tailwind.config.js    # Tailwind CSS configuration
+└── tsconfig.json         # TypeScript configuration
+```
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+## ✨ Features
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+- **⚡ Astro** - Fast, modern static site generator with islands architecture
+- **⚛️ React** - Interactive components where needed
+- **🎨 Tailwind CSS** - Utility-first CSS framework for rapid styling
+- **📝 MDX Support** - Enhanced Markdown with React components
+- **📊 Content Collections** - Type-safe content management
+- **🔍 SEO Optimized** - Meta tags, OpenGraph, structured data
+- **📱 Responsive Design** - Mobile-first responsive layout
+- **🌙 Dark Mode** - Toggle between light and dark themes
+- **🔎 Search** - Client-side search functionality
+- **📈 Performance** - Optimized for Core Web Vitals
+- **♿ Accessible** - WCAG compliant design patterns
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+## 📁 Project Structure
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+### Key Directories
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+- **`src/pages/`** - File-based routing (required by Astro)
+- **`src/components/`** - Organized by feature/function for maintainability
+- **`src/content/`** - Markdown content with frontmatter validation
+- **`src/layouts/`** - Shared page layouts
+- **`src/assets/`** - Images, fonts, and other assets processed by Astro
+- **`public/`** - Static files served directly
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+### Component Organization
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+Components are organized into logical subdirectories:
+- `animations/` - Framer Motion components
+- `blog/` - Blog-specific UI
+- `home/` - Homepage sections
+- `layout/` - Site-wide layout components
+- `ui/` - Reusable UI elements
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+For detailed structure documentation, see [`docs/PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md).
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+## 🛠️ Tech Stack
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+- **Framework**: [Astro](https://astro.build/)
+- **UI Library**: [React](https://reactjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Content**: [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Search**: [Fuse.js](https://fusejs.io/)
+- **TypeScript**: Full type safety
+- **Build Tool**: [Vite](https://vitejs.dev/)
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+## 📜 Available Scripts
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+| Command | Description |
+|---------|-------------|
+| `bun run dev` | Start development server |
+| `bun run build` | Build for production |
+| `bun run preview` | Preview production build |
+| `bun run astro` | Run Astro CLI commands |
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+## 🎯 Content Management
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+This site uses Astro's Content Collections for type-safe content management:
 
-## 🎓 Learning Gatsby
+### Blog Posts
+- Located in `src/content/blog/`
+- Markdown/MDX files with frontmatter
+- Automatic reading time calculation
+- Tag-based categorization
 
-Looking for more guidance? Full documentation for Gatsby lives [on their website](https://www.gatsbyjs.org/). Here are some places to start:
+### Projects
+- Located in `src/content/projects/`
+- Showcase portfolio items
+- Links to live demos and repositories
 
-- **For most developers, we recommend starting with their [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+## 🚀 Deployment
 
-- **To dive straight into code samples, head [to their documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+This site is optimized for deployment on:
+- [Netlify](https://netlify.com)
+- [Vercel](https://vercel.com)
+- [GitHub Pages](https://pages.github.com)
+- Any static hosting provider
 
-## 💫 Deploy
+Build command: `bun run build`
+Publish directory: `dist`
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
+## 🤝 Contributing
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Astro](https://astro.build/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Animated with [Framer Motion](https://www.framer.com/motion/)
+- Icons from [Heroicons](https://heroicons.com/)
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://franklin.codes">Franklin Farahani</a>
+</p>
