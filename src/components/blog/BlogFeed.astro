@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Tag from '../Tag.astro';
+import { FadeInOnView } from '../animations';
+
+// Get all blog posts, sorted by date
+const posts = await getCollection('blog', ({ data }) => {
+  return !data.draft;
+}).then(posts =>
+  posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+);
+
+// Get unique tags for filtering
+const tags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort();
+
+// Get current tag from URL params
+const { tag } = Astro.url.searchParams;
+const filteredPosts = tag
+  ? posts.filter(post => post.data.tags?.includes(tag))
+  : posts;
+---
+
+<div class="mt-8">
+  {/* Tags filter */}
+  <div class="flex flex-wrap items-center gap-2 mb-12">
+    <a
+      href="/blog"
+      class:list={[
+        "px-3 py-1 rounded-full text-sm transition-colors",
+        !tag ? "bg-yellow text-black" : "bg-lighter-grey dark:bg-darkest-grey hover:bg-yellow hover:text-black"
+      ]}
+    >
+      All
+    </a>
+    {tags.map(tagName => (
+      <a
+        href={`/blog?tag=${tagName}`}
+        class:list={[
+          "px-3 py-1 rounded-full text-sm transition-colors",
+          tag === tagName ? "bg-yellow text-black" : "bg-lighter-grey dark:bg-darkest-grey hover:bg-yellow hover:text-black"
+        ]}
+      >
+        {tagName}
+      </a>
+    ))}
+  </div>
+
+  {/* Blog posts grid */}
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(235px,1fr))] gap-5 sm:gap-px sm:-mx-5">
+    {filteredPosts.map((post) => (
+      <FadeInOnView
+        client:visible
+        as="article"
+        className="grid grid-areas-post h-[350px] bg-white dark:bg-almost-black rounded-lg shadow-md overflow-hidden
+          sm:h-[164px] sm:rounded-none"
+      >
+        {post.data.cover && (
+          <div class="grid-in-image">
+            <Image
+              src={post.data.cover}
+              alt={post.data.title}
+              class="w-full h-full object-cover sm:rounded-lg"
+            />
+          </div>
+        )}
+
+        <header class="grid-in-meta">
+          <time class="text-[0.875em] text-grey dark:text-darker-grey">
+            {post.data.date.toLocaleDateString('en-US', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+            })}
+          </time>
+          <span class="mx-2 text-[0.875em] text-grey dark:text-darker-grey">•</span>
+          {post.data.readingTime && (
+            <span class="text-[0.875em] text-grey dark:text-darker-grey">
+              {post.data.readingTime}
+            </span>
+          )}
+        </header>
+
+        <a href={`/blog/${post.slug}`} class="grid-in-title no-underline group">
+          <h2 class="text-[1.25em] font-medium leading-tight mt-1.5 mb-0 sm:mt-px group-hover:text-yellow transition-colors">
+            {post.data.title}
+          </h2>
+          {post.data.description && (
+            <p class="text-sm text-grey dark:text-darker-grey mt-2 line-clamp-2">
+              {post.data.description}
+            </p>
+          )}
+        </a>
+
+        <div class="grid-in-tags">
+          {post.data.tags?.slice(0, 2).map(tag => (
+            <Tag>{tag}</Tag>
+          ))}
+        </div>
+      </FadeInOnView>
+    ))}
+  </div>
+
+  {/* No posts message */}
+  {filteredPosts.length === 0 && (
+    <div class="text-center py-20">
+      <p class="text-xl text-grey dark:text-darker-grey mb-8">
+        No posts found {tag && `with tag "${tag}"`}
+      </p>
+      <a
+        href="/blog"
+        class="inline-flex items-center px-6 py-3 text-black dark:text-white bg-gradient-to-r from-yellow to-orange rounded-full transform hover:-translate-y-0.5 transition-transform duration-200"
+      >
+        View All Posts
+      </a>
+    </div>
+  )}
+</div>
+
+<style>
+  .grid-areas-post {
+    grid-template:
+      "image image image" 50%
+      "..... ..... ....." 20px
+      "..... meta  ....." auto
+      "..... title ....." 1fr
+      "..... tags  ....." auto
+      "..... ..... ....." 20px / 20px auto 20px;
+  }
+
+  @media (max-width: 640px) {
+    .grid-areas-post {
+      grid-template:
+        ".. ..... .. ..... .." 20px
+        ".. meta  .. ..... .." auto
+        ".. title .. image .." 80px
+        ".. tags  .. ..... .." auto
+        ".. ..... .. ..... .." 20px / 20px 1fr 16px 80px 20px;
+    }
+  }
+
+  .grid-in-image { grid-area: image; }
+  .grid-in-meta { grid-area: meta; }
+  .grid-in-title { grid-area: title; }
+  .grid-in-tags { grid-area: tags; }
+</style>

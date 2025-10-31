@@ -1,0 +1,27 @@
+<script is:inline>
+  function applyTheme() {
+    const theme = localStorage.getItem('theme');
+
+    if (theme === 'dark') {
+      // User explicitly chose dark
+      document.documentElement.classList.add('dark');
+    } else if (theme === 'light') {
+      // User explicitly chose light
+      document.documentElement.classList.remove('dark');
+    } else {
+      // No stored preference - check system preference, default to dark if no preference
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.classList.remove('dark');
+      } else {
+        // Either system prefers dark OR no system preference - default to dark
+        document.documentElement.classList.add('dark');
+      }
+    }
+  }
+
+  // Apply theme immediately on initial load
+  applyTheme();
+
+  // Apply theme on every page navigation with View Transitions
+  document.addEventListener('astro:page-load', applyTheme);
+</script>

@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => {
+  return !data.draft;
+}).then(posts =>
+  posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+       .slice(0, 4)
+);
+---
+
+<section class="mx-auto max-w-[1000px]" id="blog">
+  <h2 class="font-bold mb-[5vh]">
+    <span class="font-medium text-yellow dark:text-yellow"># </span>
+    Blog
+  </h2>
+
+  <div class="grid gap-8">
+    {posts.map(post => (
+      <article class="group">
+        <a href={`/blog/${post.slug}`} class="no-underline">
+          <div class="bg-white dark:bg-almost-black rounded-lg shadow-md p-8 transition-transform hover:-translate-y-1">
+            <h3 class="text-xl font-semibold mb-2 text-almost-black dark:text-white">
+              {post.data.title}
+            </h3>
+            {post.data.description && (
+              <p class="text-dark-grey dark:text-light-grey mb-4">
+                {post.data.description}
+              </p>
+            )}
+            <div class="flex items-center text-sm text-grey dark:text-darker-grey">
+              <time datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+              {post.data.readingTime && (
+                <>
+                  <span class="mx-2">•</span>
+                  <span>{post.data.readingTime} min read</span>
+                </>
+              )}
+            </div>
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+
+  <div class="text-center mt-12">
+    <a
+      href="/blog"
+      class="inline-flex items-center px-6 py-3 text-black dark:text-white bg-gradient-to-r from-yellow to-orange rounded-full transform hover:-translate-y-0.5 transition-transform duration-200"
+    >
+      View All Posts
+      <svg class="w-2.5 h-2.5 ml-3" viewBox="0 0 320 512" fill="currentColor">
+        <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+      </svg>
+    </a>
+  </div>
+</section>

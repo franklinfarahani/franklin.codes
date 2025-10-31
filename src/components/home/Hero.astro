@@ -1,0 +1,91 @@
+---
+import SlideReveal from '../animations/SlideReveal';
+
+const { twitter, github, linkedin, email } = {
+  twitter: 'franklinfarahani',
+  github: 'franklinfarahani',
+  linkedin: 'franklinfarahani',
+  email: 'me@franklinfarahani.ca'
+};
+---
+
+<section class="relative grid min-h-[calc(100vh-113px)] pb-8 md:pb-12 lg:pb-16">
+  <div class="grid grid-cols-[1fr_58px] grid-areas-hero gap-4 h-full">
+
+
+    <!-- Intro Text -->
+    <div class="grid-in-intro">
+      <SlideReveal as="h1" className="text-[6vw] leading-tight mb-0 md:text-[7.76vh] font-sans" delay={0} client:load>
+        Hey, I'm Franklin.
+      </SlideReveal>
+      <SlideReveal as="h1" className="text-[6vw] leading-tight mb-0 md:text-[7.76vh] font-sans" delay={500} client:load>
+        I build things for the web.
+      </SlideReveal>
+    </div>
+
+    <!-- Mission Statement -->
+    <div class="grid-in-mission">
+      <h2 class="max-w-[40ch] text-2xl font-normal leading-relaxed mt-[3vh] mb-[4vh] md:mt-[1vh] font-sans">
+        I help brands connect with their customers through good design, engaging user experience, and clean code.
+      </h2>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="grid-in-cta">
+      <a
+        href="#work"
+        class="inline-flex items-center px-6 py-3 text-black dark:text-white bg-gradient-to-r from-yellow to-orange rounded-full transform hover:-translate-y-0.5 transition-transform duration-200 font-sans"
+      >
+        <span>Learn More</span>
+        <svg class="w-2.5 h-2.5 ml-3" viewBox="0 0 320 512" fill="currentColor">
+          <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Email Link -->
+    <div class="grid-in-email">
+      <a
+        href={`mailto:${email}`}
+        class="relative flex flex-col items-center"
+        aria-label="Write me an email!"
+      >
+        <div class="hidden md:flex flex-col items-center absolute origin-center translate-y-[-119px] transition-transform hover:translate-y-[-134px]">
+          <p class="text-sm mb-4 font-sans -rotate-90 whitespace-nowrap">Say Hello!</p>
+          <div class="w-px h-[75px] bg-light-grey dark:bg-dark-grey"></div>
+        </div>
+        <div class="flex items-center justify-center w-12 h-12 md:w-[calc(48px+0.2vw)] md:h-[calc(48px+0.2vw)] rounded-full bg-almost-black dark:bg-white outline-[15px] outline-almost-white dark:outline-black">
+          <svg class="w-4 h-4 text-almost-white dark:text-black" viewBox="0 0 512 512" fill="currentColor">
+            <path d="M448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 7.1 5.8 12 12 12 2.4 0 4.9-.7 7.1-2.4L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zm16 352c0 8.8-7.2 16-16 16H288l-12.8 9.6L208 428v-60H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h384c8.8 0 16 7.2 16 16v288z"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid-areas-hero {
+    grid-template-areas:
+      ".       ......."
+      "intro   ......."
+      "mission ......."
+      "cta     email"
+      "track   email";
+  }
+
+  @media (max-width: 768px) {
+    .grid-areas-hero {
+      grid-template-areas:
+        ".       ......."
+        "intro   intro"
+        "mission mission"
+        "cta     email";
+    }
+  }
+
+  .grid-in-intro { grid-area: intro; }
+  .grid-in-mission { grid-area: mission; }
+  .grid-in-cta { grid-area: cta; }
+  .grid-in-email { grid-area: email; }
+</style>

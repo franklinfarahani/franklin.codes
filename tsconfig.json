@@ -1,20 +1,18 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
-    "jsx": "preserve",
-    "lib": ["dom", "es2015", "es2017"],
-    "strict": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "verbatimModuleSyntax": true,
+    "types": ["astro/client"],
     "skipLibCheck": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "plugins": [{"name": "typescript-tslint-plugin"}],
+    "noUnusedParameters": true
   },
-  "include": ["./src/**/*"],
-  
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

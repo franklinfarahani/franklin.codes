@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+  fill?: string;
+}
+
+const { class: className, fill } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="50"
+  height="50"
+  viewBox="0 0 50 50"
+  class={`w-[33px] fill-current ${className}`}
+>
+  <rect width="16.67" height="16.67" opacity="0.34"/>
+  <rect x="16.67" width="16.67" height="16.67" opacity="0.67"/>
+  <rect x="33.33" width="16.67" height="16.67"/>
+  <rect y="16.67" width="16.67" height="16.67" opacity="0.67"/>
+  <rect x="16.67" y="16.67" width="16.67" height="16.67"/>
+  <rect y="33.33" width="16.67" height="16.67"/>
+</svg>

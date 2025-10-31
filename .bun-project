@@ -1,0 +1,20 @@
+# Bun Project Configuration
+
+This project uses Bun as the package manager and runtime.
+
+## Package Manager: Bun
+- All dependencies should be managed with `bun` commands
+- Do not use npm, yarn, or pnpm
+- The lockfile is `bun.lockb` (binary format)
+
+## Common Commands:
+- Install: `bun install`
+- Dev server: `bun run dev`
+- Build: `bun run build`
+- Preview: `bun run preview`
+- Add package: `bun add <package>`
+- Remove package: `bun remove <package>`
+
+## For AI Agents and Developers:
+Always use Bun commands when working with this project.
+See docs/DEVELOPMENT_GUIDELINES.md for complete guidelines.

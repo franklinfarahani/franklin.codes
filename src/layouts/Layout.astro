@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import SEO from '../components/seo/SEO.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import ThemeScript from '../components/ui/ThemeScript.astro';
+
+export interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+	article?: boolean;
+}
+
+const { title, description, image, article } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<SEO
+			title={title}
+			description={description}
+			image={image}
+			article={article}
+		/>
+		<ThemeScript />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-almost-white dark:bg-black text-almost-black dark:text-white">
+
+		<Header />
+		<main class="px-8 md:px-12 lg:px-24 py-8 mt-24">
+			<slot />
+		</main>
+		<Footer />
+		<style is:global>
+			@reference "../styles/global.css";
+			/* Applying base link styles globally within prose sections */
+			main p a:not(.no-underline) {
+				@apply border-b-2 border-yellow text-almost-black dark:text-white transition-colors;
+			}
+			main p a:not(.no-underline):hover,
+			main p a:not(.no-underline):focus {
+				@apply text-grey dark:text-light-grey;
+			}
+		</style>
+	</body>
+</html>

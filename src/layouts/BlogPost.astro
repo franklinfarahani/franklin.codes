@@ -1,0 +1,91 @@
+---
+import Layout from './Layout.astro';
+import { format } from 'date-fns';
+import Tag from '../components/ui/Tag.astro';
+import Bio from '../components/blog/Bio.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+  updatedDate?: Date;
+  tags?: string[];
+  readingTime?: string;
+  cover?: ImageMetadata;
+  slug?: string;
+  entry?: any;
+}
+
+const {
+  title,
+  description,
+  date,
+  updatedDate,
+  tags = [],
+  readingTime,
+  cover,
+  slug,
+  entry
+} = Astro.props;
+
+const formattedDate = format(date, 'MMMM d, yyyy');
+const formattedUpdatedDate = updatedDate ? format(updatedDate, 'MMMM d, yyyy') : null;
+---
+
+<Layout title={title}>
+  <article class="max-w-[65ch] mx-auto pt-20 pb-32">
+    <header class="mb-16">
+      {cover && (
+        <div class="mb-8 -mx-8 md:-mx-12 lg:-mx-24">
+          <Image
+            src={cover}
+            alt={title}
+            width={1200}
+            height={630}
+            class="w-full h-64 md:h-80 lg:h-96 object-cover rounded-lg"
+            loading="eager"
+          />
+        </div>
+      )}
+      <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-4">
+        {title}
+      </h1>
+      {description && (
+        <p class="text-xl text-dark-grey dark:text-light-grey mb-6">
+          {description}
+        </p>
+      )}
+      <div class="flex flex-wrap items-center text-sm text-grey dark:text-darker-grey mb-6">
+        <time datetime={date.toISOString()}>
+          {formattedDate}
+        </time>
+        {readingTime && (
+          <>
+            <span class="mx-2">•</span>
+            <span>{readingTime} min read</span>
+          </>
+        )}
+        {formattedUpdatedDate && (
+          <>
+            <span class="mx-2">•</span>
+            <span>Updated on {formattedUpdatedDate}</span>
+          </>
+        )}
+      </div>
+      {tags.length > 0 && (
+        <div class="flex flex-wrap">
+          {tags.map(tag => <Tag>{tag}</Tag>)}
+        </div>
+      )}
+    </header>
+
+    <div class="prose prose-lg">
+      <slot />
+    </div>
+
+    <div class="mt-16">
+      <Bio />
+    </div>
+  </article>
+</Layout>
